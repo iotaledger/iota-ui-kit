@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Button from './Button.svelte';
   import './header.css';
 
   import { createEventDispatcher } from 'svelte';
@@ -42,10 +41,6 @@
         <span class="welcome">
           Welcome, <b>{user.name}</b>!
         </span>
-        <Button size="small" on:click={onLogout} label="Log out" />
-      {:else}
-        <Button size="small" on:click={onLogin} label="Log in" />
-        <Button primary size="small" on:click={onCreateAccount} label="Sign up" />
       {/if}
     </div>
   </div>
