@@ -16,13 +16,13 @@ export const VARIANT_COLORS: Record<
   },
   [ButtonType.Secondary]: {
     light:
-      'text-iota-gray-900 border-[1.5px] border-iota-blue-400 hover:bg-iota-blue-700/[0.08] active:bg-iota-blue-700/[0.16] focus:outline focus:outline-2 focus:outline-iota-blue-500 focus:outline-offset-2',
-    dark: 'text-white border-[1.5px] border-iota-blue-400 hover:bg-white/[0.08] active:bg-white/[0.16]',
+      'text-iota-gray-900 border-[1.5px] border-iota-blue-400 hover:bg-iota-blue-700/0.08 active:bg-iota-blue-700/d0.16 focus:outline focus:outline-2 focus:outline-iota-blue-500 focus:outline-offset-2',
+    dark: 'text-white border-[1.5px] border-iota-blue-400 hover:bg-white/0.08 active:bg-white/d0.16',
   },
   [ButtonType.Ghost]: {
     light:
-      'text-iota-gray-900 hover:bg-iota-blue-700/[0.08] active:bg-iota-blue-700/[0.16]',
-    dark: 'text-white hover:bg-white/[0.08] active:bg-white/[0.16]',
+      'text-iota-gray-900 hover:bg-iota-blue-700/0.08 active:bg-iota-blue-700/d0.16',
+    dark: 'text-white hover:bg-white/0.08 active:bg-white/d0.16',
   },
   [ButtonType.Destructive]: {
     light:
