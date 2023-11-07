@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/svelte';
-import { ButtonSize, ButtonType } from '.';
-import Button from './button.svelte';
+import type { Meta, StoryObj } from '@storybook/svelte'
+import { Button, ButtonSize, ButtonType } from '$components/atoms/buttons'
 
 const meta = {
   title: 'Atoms/Button',
@@ -19,36 +18,35 @@ const meta = {
     darkmode: { control: 'boolean' },
     disabled: { control: 'boolean' },
   },
-} satisfies Meta<Button>;
+} satisfies Meta<Button>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
     type: ButtonType.Primary,
     label: 'Primary',
-    },
-};
+  },
+}
 
 export const Secondary: Story = {
   args: {
     type: ButtonType.Secondary,
     label: 'Secondary',
   },
-};
+}
 
 export const Ghost: Story = {
   args: {
     type: ButtonType.Ghost,
     label: 'Ghost',
   },
-};
+}
 
 export const Destructive: Story = {
   args: {
     type: ButtonType.Destructive,
     label: 'Destructive',
   },
-};
-
+}
