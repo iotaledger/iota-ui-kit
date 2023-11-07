@@ -1,6 +1,6 @@
 <script lang="ts">
   import { ButtonSize, ButtonType } from '.';
-  import { BUTTON_VARIANT } from './button.constants';
+  import { BUTTON_TYPE } from './button.constants';
 
   export let type: ButtonType;
   export let size: ButtonSize = ButtonSize.Medium;
@@ -9,7 +9,7 @@
   export let disabled: boolean = false;
 
   $: buttonSize = size ? `button--${size}` : '';
-  $: buttonComponent = BUTTON_VARIANT[type]
+  $: buttonComponent = BUTTON_TYPE[type]
 </script>
 
 <svelte:component this={buttonComponent} {label} {disabled} on:click on:keydown role="button" tabindex="0" size={buttonSize} {darkmode}/>
