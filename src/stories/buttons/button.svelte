@@ -27,11 +27,11 @@
   const variantColor = {
     [ButtonType.Primary]: {
       light:
-        'text-white bg-iota-blue-700 hover:bg-iota-blue-800 active:bg-iota-blue-900 focus:outline focus:outline-1 focus:box-shadow',
+        'text-white bg-iota-blue-700 hover:bg-iota-blue-800 active:bg-iota-blue-900 focus:outline focus:outline-2 focus:outline-iota-blue-500 focus:outline-offset-2',
     },
     [ButtonType.Secondary]: {
       light:
-        'text-iota-gray-900 border-[1.5px] border-iota-blue-400 hover:bg-iota-blue-700/[0.08] active:bg-iota-blue-700/[0.16] focus:outline-none focus:border-iota-blue-400 focus:box-shadow',
+        'text-iota-gray-900 border-[1.5px] border-iota-blue-400 hover:bg-iota-blue-700/[0.08] active:bg-iota-blue-700/[0.16] focus:outline focus:outline-2 focus:outline-iota-blue-500 focus:outline-offset-2',
       dark: 'text-white border-[1.5px] border-iota-blue-400 hover:bg-white/[0.08] active:bg-white/[0.16]',
     },
     [ButtonType.Ghost]: {
@@ -41,7 +41,7 @@
     },
     [ButtonType.Destructive]: {
       light:
-        'text-white bg-[#E73333] hover:bg-[#D81A1A] active:bg-[#B21A1A] focus:outline focus:outline-1 focus:box-shadow',
+        'text-white bg-[#E73333] hover:bg-[#D81A1A] active:bg-[#B21A1A] focus:outline focus:outline-2 focus:outline-iota-blue-500 focus:outline-offset-2',
     },
   };
 
@@ -65,9 +65,5 @@
     @apply font-medium rounded-sm cursor-pointer inline-block;
     @apply py-2 px-6;
     @apply disabled:opacity-50 disabled:cursor-not-allowed;
-
-    .box-shadow {
-      box-shadow: 0px 0px 0px 4px #3b82f6, 0px 0px 0px 2px #fff;
-    }
   }
 </style>
