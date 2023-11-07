@@ -9,11 +9,11 @@ const meta = {
   argTypes: {
     type: {
       control: { type: 'select' },
-      options: [ButtonType.Primary, ButtonType.Ghost, ButtonType.Secondary, ButtonType.Destructive],
+      options: Object.values(ButtonType),
     },
     size: {
       control: { type: 'select' },
-      options: [ButtonSize.Large, ButtonSize.Medium, ButtonSize.Small],
+      options: Object.values(ButtonSize),
     },
     label: { control: 'text' },
     darkmode: { control: 'boolean' },
