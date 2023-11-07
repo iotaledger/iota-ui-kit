@@ -16,12 +16,18 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "$components": [
-        "src/components"
+      "$atoms": [
+        "src/components/atoms"
       ],
-      "$components/*": [
-        "src/components/*"
+      "$atoms/*": [
+        "src/components/atoms/*"
       ],
+      "$molecules": [
+        "src/components/molecules"
+      ],
+      "$molecules/*": [
+        "src/components/molecules/*"
+      ]
     }
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
