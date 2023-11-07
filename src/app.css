@@ -37,3 +37,17 @@ h1 {
   padding: 2rem;
   text-align: center;
 }
+
+button {
+  @apply font-medium rounded-sm cursor-pointer inline-block;
+  @apply py-2 px-6;
+  &.button--small {
+    @apply text-sm leading-5;
+  }
+  &.button--medium {
+    @apply text-base leading-6;
+  }
+  &.button--large {
+    @apply text-lg leading-7;
+  }
+}

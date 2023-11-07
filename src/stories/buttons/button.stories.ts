@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/svelte';
-
 import { ButtonSize, ButtonType } from '.';
 import Button from './button.svelte';
 
-// More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 const meta = {
   title: 'Atoms/Button',
   component: Button,
@@ -11,7 +9,7 @@ const meta = {
   argTypes: {
     type: {
       control: { type: 'select' },
-      options: [ButtonType.Primary, ButtonType.Secondary],
+      options: [ButtonType.Primary, ButtonType.Ghost, ButtonType.Secondary, ButtonType.Destructive],
     },
     size: {
       control: { type: 'select' },
@@ -19,23 +17,38 @@ const meta = {
     },
     label: { control: 'text' },
     darkmode: { control: 'boolean' },
+    disabled: { control: 'boolean' },
   },
 } satisfies Meta<Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/svelte/writing-stories/args
 export const Primary: Story = {
   args: {
     type: ButtonType.Primary,
-    label: 'Button',
-  },
+    label: 'Primary',
+    },
 };
 
 export const Secondary: Story = {
   args: {
     type: ButtonType.Secondary,
-    label: 'Button',
+    label: 'Secondary',
   },
 };
+
+export const Ghost: Story = {
+  args: {
+    type: ButtonType.Ghost,
+    label: 'Ghost',
+  },
+};
+
+export const Destructive: Story = {
+  args: {
+    type: ButtonType.Destructive,
+    label: 'Destructive',
+  },
+};
+
