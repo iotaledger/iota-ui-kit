@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/svelte'
 
-import { default as IconComponent } from './icon.svelte'
-import { IconEnum, IconSize } from './icon.enums'
+import { IconEnum, IconSize } from '$components/atoms'
+import { Icon as IconComponent } from '$components/atoms'
 
 const meta = {
   title: 'Atoms/Icon',
