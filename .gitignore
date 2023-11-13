@@ -2,4 +2,12 @@ node_modules
 dist
 storybook-static
 .vercel
-.yarn
+
+# Yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
