@@ -18,7 +18,10 @@ const meta = {
     label: { control: 'text' },
     darkmode: { control: 'boolean' },
     disabled: { control: 'boolean' },
-    icon: { control: 'text' },
+    icon: {
+      control: { type: 'select' },
+      options: Object.values(IconEnum),
+    },
   },
 } satisfies Meta<Button>
 
