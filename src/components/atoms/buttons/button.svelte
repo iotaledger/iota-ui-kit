@@ -1,6 +1,6 @@
 <script lang="ts">
   import { ButtonSize, ButtonType } from '.';
-  import { TEXT_SIZES, VARIANT_COLORS } from './button.classes'
+  import { TEXT_SIZES, VARIANT_COLORS } from './button.classes';
 
   /**
    * The type of button 
@@ -23,7 +23,7 @@
   export let disabled: boolean = false;
 
   $: textClasses = TEXT_SIZES[size];
-  $: colorClasses = darkmode ? (VARIANT_COLORS[type].dark ?? VARIANT_COLORS[type].light) : VARIANT_COLORS[type].light;
+  $: colorClasses = !darkmode ? (VARIANT_COLORS[type].light ?? VARIANT_COLORS[type].dark) : VARIANT_COLORS[type].dark;
 </script>
 
 <button
