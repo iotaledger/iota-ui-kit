@@ -2,7 +2,11 @@
   import { Icon } from '$atoms';
   import { ButtonSize, ButtonType } from '.';
   import type { IconEnum } from '../icon/icon.enums';
-  import { TEXT_SIZES, VARIANT_COLORS } from './button.classes';
+  import {
+    BUTTON_WITH_ICON,
+    TEXT_SIZES,
+    VARIANT_COLORS,
+  } from './button.classes';
 
   /**
    * The type of button
@@ -33,25 +37,12 @@
   $: colorClasses = !darkmode
     ? VARIANT_COLORS[type].light ?? VARIANT_COLORS[type].dark
     : VARIANT_COLORS[type].dark;
-
-  function getClassesWithIconBasedOnSize() {
-    if (icon && !label) {
-      switch (size) {
-        case ButtonSize.Small:
-          return 'px-2 w-10 h-10';
-        case ButtonSize.Medium:
-          return 'px-2 w-12 h-12';
-        case ButtonSize.Large:
-          return 'px-2 w-14 h-14';
-      }
-    }
-    return 'px-6';
-  }
+  $: iconClasses = icon && !label ? BUTTON_WITH_ICON[size] : 'px-6';
 </script>
 
 <button
   type="button"
-  class="{textClasses} {colorClasses} {getClassesWithIconBasedOnSize()}"
+  class="{textClasses} {colorClasses} {iconClasses}"
   disabled="{disabled}"
   on:click
 >
@@ -59,7 +50,7 @@
     {label}
   {/if}
   {#if icon}
-    <Icon icon={icon} />
+    <Icon icon="{icon}" />
   {/if}
 </button>
 

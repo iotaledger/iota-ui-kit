@@ -30,3 +30,9 @@ export const VARIANT_COLORS: Record<
       'text-white bg-iota-red-600 hover:bg-iota-red-700 active:bg-iota-red-800 focus:outline focus:outline-2 focus:outline-iota-blue-500 focus:outline-offset-2',
   },
 }
+
+export const BUTTON_WITH_ICON: Record<ButtonSize, string> = {
+  [ButtonSize.Small]: 'px-2 w-10 h-10',
+  [ButtonSize.Medium]: 'px-2 w-12 h-12',
+  [ButtonSize.Large]: 'px-2 w-14 h-14',
+}
