@@ -10,6 +10,10 @@ export default defineConfig({
       '$components/*': '/src/components/*',
       $lib: '/src/lib',
       '$lib/*': '/src/lib/*',
+      $atoms: '/src/components/atoms',
+      '$atoms/*': '/src/components/atoms/*',
+      $molecules: '/src/components/molecules',
+      '$molecules/*': '/src/components/molecules/*',
     },
   },
 })
