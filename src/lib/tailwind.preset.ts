@@ -1,5 +1,5 @@
-import { CUSTOM_COLORS } from "./custom-colors.constants";
-import { DEFAULT_COLORS } from "./default-colors.constants";
+import { CUSTOM_COLORS } from "./constants/custom-colors.constants";
+import { DEFAULT_COLORS } from "./constants/default-colors.constants";
 
 module.exports = {
   theme: {
