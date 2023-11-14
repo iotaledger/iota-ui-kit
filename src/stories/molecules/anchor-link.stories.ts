@@ -1,4 +1,5 @@
-import { AnchorLink, IconEnum } from '$components'
+import { IconEnum } from '$components'
+import { AnchorLink } from '$molecules'
 import type { Meta, StoryObj } from '@storybook/svelte'
 
 const meta = {
