@@ -47,7 +47,7 @@
       }
 
       icon-wrapper {
-        rotate: 90deg;
+        @apply rotate-90;
       }
     }
   }
