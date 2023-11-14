@@ -12,7 +12,7 @@
   export let currentColor: boolean = false
 
   /**
-   * Size of the icon
+   * Size of the component
    * @type {IconSize}
    */
   export let size: IconSize = IconSize.Medium
