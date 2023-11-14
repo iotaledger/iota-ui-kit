@@ -19,10 +19,10 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const Anchor_Link: Story = {
   args: {
     label: 'Anchor Link',
-    darkmode: false,
+    darkmode: true,
     icon: IconEnum.UpRightArrow,
     href: '#',
   },
