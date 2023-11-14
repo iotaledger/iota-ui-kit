@@ -7,9 +7,9 @@
    */
   export let fill: string | undefined = undefined
   /**
-   * Add the class fill-current to inherit the parent's color
+   * Use Use current color as the primary color
    */
-  export let fillCurrent: boolean = false
+  export let currentColor: boolean = false
 
   /**
    * Size of the icon
@@ -24,4 +24,4 @@
   export let icon: IconEnum
 </script>
 
-<svelte:component this={ICON_MAP[icon]} {fill} {fillCurrent} width={ICON_SIZE_MAP[size]} height={ICON_SIZE_MAP[size]} />
+<svelte:component this={ICON_MAP[icon]} {fill} {currentColor} width={ICON_SIZE_MAP[size]} height={ICON_SIZE_MAP[size]} />

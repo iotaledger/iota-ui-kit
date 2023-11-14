@@ -7,6 +7,7 @@ export const ICON_MAP: Record<IconEnum, ComponentType<SvelteComponent>> = {
 }
 
 export const ICON_SIZE_MAP: Record<IconSize, number> = {
-  [IconSize.Medium]: 24,
+  [IconSize.Small]: 24,
+  [IconSize.Medium]: 32,
   [IconSize.Large]: 48,
 }
