@@ -2,9 +2,9 @@ import { Mode } from '$lib/enums';
 import { ButtonSize, ButtonType } from '.';
 
 export const TEXT_SIZES: Record<ButtonSize, string> = {
-  [ButtonSize.Small]: 'text-sm leading-5',
-  [ButtonSize.Medium]: 'text-base leading-6',
-  [ButtonSize.Large]: 'text-lg leading-7',
+  [ButtonSize.Small]: 'text-sm leading-5 h-10',
+  [ButtonSize.Medium]: 'text-base leading-6 h-12',
+  [ButtonSize.Large]: 'text-lg leading-7 h-14',
 }
 
 export const VARIANT_COLORS: Record<
@@ -29,4 +29,10 @@ export const VARIANT_COLORS: Record<
     [Mode.Dark]:
       'text-white bg-iota-red-600 hover:bg-iota-red-700 active:bg-iota-red-800 focus:outline focus:outline-2 focus:outline-iota-blue-500 focus:outline-offset-2',
   },
+}
+
+export const BUTTON_WITH_ICON: Record<ButtonSize, string> = {
+  [ButtonSize.Small]: 'px-2 w-10',
+  [ButtonSize.Medium]: 'px-2 w-12',
+  [ButtonSize.Large]: 'px-2 w-14',
 }
