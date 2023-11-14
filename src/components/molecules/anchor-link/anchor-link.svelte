@@ -37,6 +37,7 @@
   anchor-link-wrapper {
     @apply flex py-4 pl-6 w-full;
     @apply transition-all duration-200;
+    @apply cursor-pointer;
 
     anchor-link-content {
       @apply py-3 pr-6 flex items-center justify-between w-full;
