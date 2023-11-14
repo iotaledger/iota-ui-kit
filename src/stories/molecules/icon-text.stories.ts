@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/svelte'
 
 import { IconText } from '$molecules'
-import { IconEnum, IconSize } from '$components'
+import { IconEnum } from '$components'
 
 const meta = {
   title: 'Molecules/IconText',
@@ -11,10 +11,6 @@ const meta = {
     icon: {
       control: { type: 'select' },
       options: Object.values(IconEnum),
-    },
-    size: {
-      control: { type: 'select' },
-      options: Object.values(IconSize),
     },
     darkmode: {
       control: { type: 'boolean' },
@@ -30,7 +26,6 @@ type Story = StoryObj<typeof meta>
 export const LightIconText: Story = {
   args: {
     icon: IconEnum.UpRightArrow,
-    size: IconSize.Medium,
     label: 'Light IconText',
     darkmode: false,
   },
@@ -39,7 +34,6 @@ export const LightIconText: Story = {
 export const DarkIconText: Story = {
   args: {
     icon: IconEnum.UpRightArrow,
-    size: IconSize.Medium,
     label: 'Dark IconText',
     darkmode: true,
   },

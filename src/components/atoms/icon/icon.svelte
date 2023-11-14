@@ -1,21 +1,25 @@
 <script lang="ts">
-  import { type IconEnum, IconSize } from './icon.enums'
-  import { ICON_MAP, ICON_SIZE_MAP } from './icon.constants'
+  import { type IconEnum } from './icon.enums'
+  import { ICON_MAP } from './icon.constants'
   /**
    * What fill to use
    * @type {string}
    */
   export let fill: string | undefined = undefined
   /**
-   * Use Use current color as the primary color
+   * Use current color as the primary color
    */
   export let currentColor: boolean = false
 
   /**
-   * Size of the component
-   * @type {IconSize}
+   * Width of the icon
    */
-  export let size: IconSize = IconSize.Medium
+  export let width: number = 24
+
+  /**
+   * Height of the icon
+   */
+  export let height: number = 24
 
   /**
    * Selected Icon
@@ -24,4 +28,4 @@
   export let icon: IconEnum
 </script>
 
-<svelte:component this={ICON_MAP[icon]} {fill} {currentColor} width={ICON_SIZE_MAP[size]} height={ICON_SIZE_MAP[size]} />
+<svelte:component this={ICON_MAP[icon]} {fill} {currentColor} {width} {height} />
