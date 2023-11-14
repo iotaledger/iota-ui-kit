@@ -1,3 +1,4 @@
+import { IconEnum } from '$components'
 import { Button, ButtonSize, ButtonType } from '$components/atoms/buttons'
 import type { Meta, StoryObj } from '@storybook/svelte'
 
@@ -17,6 +18,10 @@ const meta = {
     label: { control: 'text' },
     darkmode: { control: 'boolean' },
     disabled: { control: 'boolean' },
+    icon: {
+      control: { type: 'select' },
+      options: Object.values(IconEnum),
+    },
   },
 } satisfies Meta<Button>
 
@@ -60,5 +65,26 @@ export const Destructive: Story = {
     size: ButtonSize.Medium,
     darkmode: true,
     disabled: false,
+  },
+}
+
+export const IconText: Story = {
+  args: {
+    type: ButtonType.Primary,
+    size: ButtonSize.Medium,
+    darkmode: true,
+    disabled: false,
+    label: 'Button',
+    icon: IconEnum.UpRightArrow,
+  }
+}
+
+export const Icon: Story = {
+  args: {
+    type: ButtonType.Primary,
+    size: ButtonSize.Medium,
+    darkmode: true,
+    disabled: false,
+    icon: IconEnum.UpRightArrow,
   },
 }
