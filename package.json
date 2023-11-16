@@ -19,7 +19,6 @@
     "@storybook/manager-api": "^7.5.3",
     "@storybook/svelte": "^7.4.4",
     "@storybook/svelte-vite": "^7.4.4",
-    "@storybook/testing-library": "0.2.1",
     "@storybook/theming": "^7.5.3",
     "@sveltejs/vite-plugin-svelte": "^2.5.2",
     "@tsconfig/svelte": "^5.0.2",
