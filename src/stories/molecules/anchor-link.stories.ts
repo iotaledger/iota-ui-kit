@@ -13,7 +13,7 @@ const meta = {
       control: { type: 'select' },
       options: Object.values(IconEnum),
     },
-    href: { control: 'text' },
+    href: { control: false },
   },
 } satisfies Meta<AnchorLink>
 
@@ -25,7 +25,7 @@ export const Anchor_Link: Story = {
     label: 'Anchor Link',
     darkmode: true,
     icon: IconEnum.UpRightArrow,
-    href: '#',
+    href: '',
   },
 }
 
