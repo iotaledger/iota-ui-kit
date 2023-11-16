@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/svelte'
 
-import { IconEnum, IconSize } from '$atoms'
+import { IconEnum } from '$atoms'
 import { Icon as IconComponent } from '$atoms'
-
 
 const meta = {
   title: 'Atoms/Icon',
@@ -14,9 +13,11 @@ const meta = {
       control: { type: 'select' },
       options: Object.values(IconEnum),
     },
-    size: {
-      control: { type: 'select' },
-      options: Object.values(IconSize),
+    width: {
+      control: { type: 'number' },
+    },
+    height: {
+      control: { type: 'number' },
     },
   },
 } satisfies Meta<IconComponent>
@@ -28,7 +29,8 @@ type Story = StoryObj<typeof meta>
 export const Icon: Story = {
   args: {
     icon: IconEnum.UpRightArrow,
-    size: IconSize.Medium,
+    width: 24,
+    height: 24,
     fill: '#000000',
   },
 }
