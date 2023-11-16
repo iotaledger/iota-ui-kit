@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/svelte'
 
-import { IconText } from '$molecules'
+import { IconText as IconTextComponent } from '$molecules'
 import { IconEnum } from '$components'
 
 const meta = {
   title: 'Molecules/IconText',
-  component: IconText,
+  component: IconTextComponent,
   tags: ['autodocs'],
   argTypes: {
     icon: {
@@ -17,24 +17,16 @@ const meta = {
     },
     label: { control: 'text' },
   },
-} satisfies Meta<IconText>
+} satisfies Meta<IconTextComponent>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const LightIconText: Story = {
+export const IconText: Story = {
   args: {
     icon: IconEnum.UpRightArrow,
-    label: 'Light IconText',
+    label: 'IconText',
     darkmode: false,
-  },
-}
-
-export const DarkIconText: Story = {
-  args: {
-    icon: IconEnum.UpRightArrow,
-    label: 'Dark IconText',
-    darkmode: true,
   },
 }
