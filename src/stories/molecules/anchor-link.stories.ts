@@ -20,7 +20,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Anchor_Link_Dark: Story = {
+export const Anchor_Link: Story = {
   args: {
     label: 'Anchor Link',
     darkmode: true,
@@ -29,12 +29,4 @@ export const Anchor_Link_Dark: Story = {
   },
 }
 
-export const Anchor_Link_Light: Story = {
-  args: {
-    label: 'Anchor Link',
-    darkmode: false,
-    icon: IconEnum.UpRightArrow,
-    href: '#',
-  },
-}
 
