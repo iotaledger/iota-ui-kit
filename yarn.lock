@@ -2760,7 +2760,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-essentials@npm:^7.4.4":
+"@storybook/addon-essentials@npm:^7.5.3":
   version: 7.5.3
   resolution: "@storybook/addon-essentials@npm:7.5.3"
   dependencies:
@@ -2796,7 +2796,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-interactions@npm:^7.4.4":
+"@storybook/addon-interactions@npm:^7.5.3":
   version: 7.5.3
   resolution: "@storybook/addon-interactions@npm:7.5.3"
   dependencies:
@@ -2825,7 +2825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:^7.4.4":
+"@storybook/addon-links@npm:^7.5.3":
   version: 7.5.3
   resolution: "@storybook/addon-links@npm:7.5.3"
   dependencies:
@@ -2977,7 +2977,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/blocks@npm:7.5.3, @storybook/blocks@npm:^7.4.4":
+"@storybook/blocks@npm:7.5.3, @storybook/blocks@npm:^7.5.3":
   version: 7.5.3
   resolution: "@storybook/blocks@npm:7.5.3"
   dependencies:
@@ -3472,7 +3472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/svelte-vite@npm:^7.4.4":
+"@storybook/svelte-vite@npm:^7.5.3":
   version: 7.5.3
   resolution: "@storybook/svelte-vite@npm:7.5.3"
   dependencies:
@@ -3491,7 +3491,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/svelte@npm:7.5.3, @storybook/svelte@npm:^7.4.4":
+"@storybook/svelte@npm:7.5.3, @storybook/svelte@npm:^7.5.3":
   version: 7.5.3
   resolution: "@storybook/svelte@npm:7.5.3"
   dependencies:
@@ -6479,13 +6479,13 @@ __metadata:
   resolution: "iota-ui-kit@workspace:."
   dependencies:
     "@storybook/addon-docs": ^7.5.3
-    "@storybook/addon-essentials": ^7.4.4
-    "@storybook/addon-interactions": ^7.4.4
-    "@storybook/addon-links": ^7.4.4
-    "@storybook/blocks": ^7.4.4
+    "@storybook/addon-essentials": ^7.5.3
+    "@storybook/addon-interactions": ^7.5.3
+    "@storybook/addon-links": ^7.5.3
+    "@storybook/blocks": ^7.5.3
     "@storybook/manager-api": ^7.5.3
-    "@storybook/svelte": ^7.4.4
-    "@storybook/svelte-vite": ^7.4.4
+    "@storybook/svelte": ^7.5.3
+    "@storybook/svelte-vite": ^7.5.3
     "@storybook/theming": ^7.5.3
     "@sveltejs/vite-plugin-svelte": ^2.5.2
     "@tsconfig/svelte": ^5.0.2
@@ -6493,7 +6493,7 @@ __metadata:
     postcss: ^8.4.31
     react: ^18.2.0
     react-dom: ^18.2.0
-    storybook: ^7.4.4
+    storybook: ^7.5.3
     storybook-dark-mode: ^3.0.1
     svelte: ^4.2.3
     svelte-check: ^3.6.0
@@ -9149,7 +9149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:^7.4.4":
+"storybook@npm:^7.5.3":
   version: 7.5.3
   resolution: "storybook@npm:7.5.3"
   dependencies:
