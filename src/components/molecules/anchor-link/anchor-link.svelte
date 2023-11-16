@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon, IconEnum } from '$atoms';
   import { Mode } from '$lib/enums';
-  import { BACKGROUND_COLORS, ICON_FILL, TEXT_COLORS } from '.';
+  import { BACKGROUND_COLORS, BORDER_COLORS, ICON_FILL, TEXT_COLORS } from '.';
   /**
    * Label
    * @type {string}
@@ -23,13 +23,15 @@
 </script>
 
 <anchor-link-wrapper as="a" href="{href}" class="{BACKGROUND_COLORS[mode]}">
-  <anchor-link-content>
+  <anchor-link-content class="{BORDER_COLORS[mode]}">
     <span class="{TEXT_COLORS[mode]}">
       {label}
     </span>
     <icon-wrapper>
-    <Icon icon="{icon}" fill="{ICON_FILL[mode]}" />
-  </icon-wrapper>
+      <div class={ICON_FILL[mode]}>
+        <Icon icon="{icon}" currentColor />
+      </div>
+    </icon-wrapper>
   </anchor-link-content>
 </anchor-link-wrapper>
 
@@ -40,8 +42,8 @@
     @apply cursor-pointer;
 
     anchor-link-content {
-      @apply py-3 pr-6 flex items-center justify-between w-full;
-      @apply border-r border-opacity-[0.16] border-black;
+      @apply py-3 pr-4 flex items-center justify-between w-full;
+      @apply border-r border-opacity-0.16;
 
       span {
         @apply text-lg font-medium leading-7;
