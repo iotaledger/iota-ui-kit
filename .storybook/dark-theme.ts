@@ -1,4 +1,5 @@
 import { create } from '@storybook/theming/create';
+import { CUSTOM_COLORS } from '../src/lib/constants';
 
 export default create({
   base: 'dark',
@@ -7,35 +8,33 @@ export default create({
   brandImage: '/white-logo.svg',
   brandTarget: '_blank',
 
-  //
-  colorPrimary: '#0101FF',
-  colorSecondary: '#2559F5',
-
   // UI
-  appBg: '#0F1729',
-  appContentBg: '#0F1729',
+  colorPrimary: CUSTOM_COLORS['iota-blue'][700],
+  colorSecondary: CUSTOM_COLORS['iota-blue'][600],
+  appBg: CUSTOM_COLORS['iota-gray'][900],
+  appContentBg: CUSTOM_COLORS['iota-gray'][900],
   appBorderRadius: 4,
 
   // Text colors
-  textColor: '#E0EAFF',
-  textInverseColor: '#0F1729',
-  textMutedColor: '#A6C3FC',
+  textColor: CUSTOM_COLORS['iota-blue'][100],
+  textInverseColor: CUSTOM_COLORS['iota-gray'][900],
+  textMutedColor: CUSTOM_COLORS['iota-blue'][300],
   // Toolbar default and active colors
-  barTextColor: '#9E9E9E',
-  barSelectedColor: '#2559F5',
-  barBg: '#0F1729',
-  barHoverColor: '#E0EAFF',
+  barTextColor: CUSTOM_COLORS['iota-gray'][400],
+  barSelectedColor: CUSTOM_COLORS['iota-blue'][600],
+  barBg: CUSTOM_COLORS['iota-gray'][900],
+  barHoverColor: CUSTOM_COLORS['iota-blue'][100],
 
   // Form colors
-  inputBg: '#0F1729',
-  inputTextColor: '#E0EAFF',
+  inputBg: CUSTOM_COLORS['iota-gray'][900],
+  inputTextColor: CUSTOM_COLORS['iota-blue'][100],
   inputBorderRadius: 2,
 
   // Boolean checkbox
-  booleanBg: '#344256',
-  booleanSelectedBg: '#2559F5',
+  booleanBg: CUSTOM_COLORS['iota-gray'][700],
+  booleanSelectedBg: CUSTOM_COLORS['iota-blue'][600],
 
   // Button colors
-  buttonBg: '#2559F5',
-  buttonBorder: '#2559F5',
+  buttonBg: CUSTOM_COLORS['iota-blue'][600],
+  buttonBorder: CUSTOM_COLORS['iota-blue'][600],
 });

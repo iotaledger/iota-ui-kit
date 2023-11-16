@@ -28,66 +28,66 @@ body {
 
 .sb-show-main {
   &.dark {
-    background: #0F1729 !important;
-    color: #E0EAFF;
+    @apply bg-iota-gray-900 !important;
+    @apply text-iota-blue-100;
   }
 
   &.light{
-    background: #F8FAFC !important;
-    color: #1D1D1D;
+    @apply bg-iota-gray-50 !important;
+    @apply text-iota-gray-800;
   }
 }
 
 .dark {
-  background: #0F1729;
+  @apply bg-iota-gray-900;
 
   .sbdocs  {
-    background-color: #0F1729;
+    @apply bg-iota-gray-900;
     p, ul, h1, h2, h3, h4, h5, h6, span, div {
-      color: #E0EAFF;
+      @apply text-iota-blue-100;
     }
 
     .sbdocs-content {
-      background-color: #0F1729;
+      @apply bg-iota-gray-900;
       * > div {
-        background-color: #1D283A;
+        @apply bg-iota-gray-800;
       }
     }
 
     .docs-story {
-      background: #0F1729 !important;
+      @apply bg-iota-gray-900 !important;
     }
 
     .docblock-code-toggle {
-      background-color: #1D283A;
-      color: #E0EAFF;
+      @apply bg-iota-gray-800;
+      @apply text-iota-blue-100;
     }
 
     tbody{
       > tr > * {
-        background-color: #0F1729 !important;
+        @apply bg-iota-gray-900 !important;
         div {
-          background-color: #0F1729 !important;
+          @apply bg-iota-gray-900 !important;
           span {
-            background-color: #0F1729;
-            border-color: #1D283A;
+            @apply bg-iota-gray-900;
+            @apply border-iota-gray-800;
           }
         }
 
         select,  textarea, button, #control-fill {
-        background-color: #0F1729;
-        border-color: #1D283A;
-        color: #E0EAFF;
+        @apply bg-iota-gray-900;
+        @apply border-iota-gray-800;
+        @apply text-iota-blue-100;
         }
 
         label {
-          background-color: #344256;
-          border-color: 1px solid #1D283A;
+          @apply bg-iota-gray-700;
+          @apply border border-iota-gray-800;
         }
 
         input:checked~span:last-of-type, input:not(:checked)~span:first-of-type {
-          color: #E0EAFF;
-          background: #2559F5;
+          @apply text-iota-blue-100;
+          @apply bg-iota-blue-600;
           box-shadow: rgba(255,255,255,.1) 0 0 0 1px;
         }
       }
@@ -96,13 +96,13 @@ body {
 }
 
 .light {
-  background-color: #F8FAFC;
+  @apply bg-iota-gray-50;
   .sbdocs-wrapper {
-    background-color: #F8FAFC;
+    @apply bg-iota-gray-50;
 
   }
   #anchor--atoms-button--primary .docs-story {
-    background: #F8FAFC !important;
+    @apply bg-iota-gray-50 !important;
   }
 }
 
