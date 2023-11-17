@@ -1,5 +1,6 @@
 import { IconEnum } from '$components'
 import { Button, ButtonSize, ButtonType } from '$components/atoms/buttons'
+import { darkMode } from '$lib/store'
 import type { Meta, StoryObj } from '@storybook/svelte'
 
 const meta = {
@@ -25,6 +26,12 @@ const meta = {
   },
 } satisfies Meta<Button>
 
+let isDarkModeActive
+
+darkMode.subscribe((value) => {
+  isDarkModeActive = value
+})
+
 export default meta
 type Story = StoryObj<typeof meta>
 
@@ -33,7 +40,7 @@ export const Primary: Story = {
     type: ButtonType.Primary,
     label: 'Primary',
     size: ButtonSize.Medium,
-    darkmode: true,
+    darkmode: isDarkModeActive,
     disabled: false,
   },
 }
@@ -43,7 +50,7 @@ export const Secondary: Story = {
     type: ButtonType.Secondary,
     label: 'Secondary',
     size: ButtonSize.Medium,
-    darkmode: false,
+    darkmode: isDarkModeActive,
     disabled: false,
   },
 }
@@ -53,7 +60,7 @@ export const Ghost: Story = {
     type: ButtonType.Ghost,
     label: 'Ghost',
     size: ButtonSize.Medium,
-    darkmode: false,
+    darkmode: isDarkModeActive,
     disabled: false,
   },
 }
@@ -63,7 +70,7 @@ export const Destructive: Story = {
     type: ButtonType.Destructive,
     label: 'Destructive',
     size: ButtonSize.Medium,
-    darkmode: true,
+    darkmode: isDarkModeActive,
     disabled: false,
   },
 }
@@ -72,7 +79,7 @@ export const IconText: Story = {
   args: {
     type: ButtonType.Primary,
     size: ButtonSize.Medium,
-    darkmode: true,
+    darkmode: isDarkModeActive,
     disabled: false,
     label: 'Button',
     icon: IconEnum.UpRightArrow,
@@ -83,7 +90,7 @@ export const Icon: Story = {
   args: {
     type: ButtonType.Primary,
     size: ButtonSize.Medium,
-    darkmode: true,
+    darkmode: isDarkModeActive,
     disabled: false,
     icon: IconEnum.UpRightArrow,
   },
