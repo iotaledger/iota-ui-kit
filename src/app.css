@@ -54,6 +54,10 @@ body {
       }
     }
 
+    .docblock-colorpalette * {
+      @apply bg-iota-gray-900 !important;
+    }
+
     .docs-story {
       @apply bg-iota-gray-900 !important;
     }
