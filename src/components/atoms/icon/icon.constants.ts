@@ -3,6 +3,5 @@ import { IconEnum } from './icon.enums'
 import { UpRightArrow } from './icons'
 
 export const ICON_MAP: Record<IconEnum, ComponentType<SvelteComponent>> = {
-  [IconEnum.UpRightArrow]: UpRightArrow,
+    [IconEnum.UpRightArrow]: UpRightArrow,
 }
-

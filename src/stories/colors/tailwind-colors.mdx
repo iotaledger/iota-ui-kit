@@ -1,10 +1,10 @@
-import { DEFAULT_COLORS } from '$lib/constants';
-import { ColorItem, ColorPalette, Meta } from '@storybook/blocks';
+import { DEFAULT_COLORS } from '$lib/constants'
+import { ColorItem, ColorPalette, Meta } from '@storybook/blocks'
 
 <Meta title="Colors/Default Colors" />
 
 <ColorPalette>
-	{Object.entries(DEFAULT_COLORS).map(([color, values]) => {
-		return <ColorItem key={color} title={color} colors={values} />;
-	})}
+    {Object.entries(DEFAULT_COLORS).map(([color, values]) => {
+        return <ColorItem key={color} title={color} colors={values} />
+    })}
 </ColorPalette>
