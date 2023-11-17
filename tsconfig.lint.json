@@ -1,0 +1,14 @@
+// CAUTION: This tsconfig.lint.json file is NOT meant to be
+// used for compilation or building.
+
+{
+  "include": [
+      ".eslintrc.cjs",
+      "**/*.html",
+      "**/*.js",
+      "**/*.ts",
+      "**/*.svelte",
+      "vite.config.ts"
+  ],
+  "exclude": ["**/node_modules"]
+}
