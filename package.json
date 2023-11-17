@@ -50,6 +50,6 @@
     "packageManager": "yarn@3.6.4",
     "lint-staged": {
         "*.{js,jsx,ts,tsx,svelte,css}": "prettier --write",
-        "*.{ts,tsx,js,jsx,svelte}": "eslint --cache --fix"
+        "*.{ts,tsx,js,jsx,svelte}": "eslint --cache --fix --ignore-pattern '!/.storybook/**/*.{ts,js}'"
     }
 }
