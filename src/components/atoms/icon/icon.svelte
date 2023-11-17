@@ -1,16 +1,15 @@
 <script lang="ts">
-  import { type IconEnum } from './icon.enums'
-  import { ICON_MAP } from './icon.constants'
+  import { ICON_MAP } from './icon.constants';
+  import { type IconEnum } from './icon.enums';
   /**
    * What fill to use
    * @type {string}
    */
   export let fill: string | undefined = undefined
   /**
-   * Use current color as the primary color
+  * Use current color as the primary color
    */
   export let currentColor: boolean = false
-
   /**
    * Width of the icon
    */
