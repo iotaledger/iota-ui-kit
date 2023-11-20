@@ -10,8 +10,8 @@
         "check": "svelte-check --tsconfig ./tsconfig.json",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "lint": "prettier --plugin-search-dir . --check . && eslint --ext .js,.ts,.svelte,.jsx,.tsx .",
-        "format": "prettier --plugin-search-dir . --write . && eslint  --ext .js,.ts,.svelte,.jsx,.tsx . --fix",
+        "lint": "prettier --plugin prettier-plugin-svelte --ignore-path=.prettierignore --check . && eslint --ext .js,.ts,.svelte,.jsx,.tsx .",
+        "format": "prettier --plugin prettier-plugin-svelte --ignore-path=.prettierignore --write .",
         "prepare": "husky install"
     },
     "devDependencies": {
@@ -49,7 +49,7 @@
     },
     "packageManager": "yarn@3.6.4",
     "lint-staged": {
-        "*.{js,jsx,ts,tsx,svelte,css}": "prettier --write",
-        "*.{ts,tsx,js,jsx,svelte}": "eslint --cache --fix --ignore-pattern '!/.storybook/**/*.{ts,js}'"
+        "*.{ts,tsx,js,jsx,svelte}": "eslint --cache --fix",
+        "*.{js,jsx,ts,tsx,svelte,css}": "prettier --plugin prettier-plugin-svelte --ignore-path=.prettierignore --write"
     }
 }
