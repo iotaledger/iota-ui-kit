@@ -15,7 +15,8 @@ export const VARIANT_COLORS: Record<ButtonType, { [Mode.Light]?: string; [Mode.D
     [ButtonType.Secondary]: {
         [Mode.Light]:
             'text-iota-gray-900 border-[1.5px] border-iota-blue-400 hover:bg-iota-blue-700/0.08 active:bg-iota-blue-700/0.16',
-        [Mode.Dark]: 'text-white border-[1.5px] border-iota-blue-400 hover:bg-white/0.08 active:bg-white/0.16',
+        [Mode.Dark]:
+            'text-white border-[1.5px] border-iota-blue-400 hover:bg-white/0.08 active:bg-white/0.16',
     },
     [ButtonType.Ghost]: {
         [Mode.Light]: 'text-iota-gray-900 hover:bg-iota-blue-700/0.08 active:bg-iota-blue-700/0.16',

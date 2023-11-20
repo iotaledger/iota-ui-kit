@@ -11,7 +11,8 @@ export const TEXT_COLORS = {
 }
 
 export const BACKGROUND_COLORS = {
-    [Mode.Light]: 'hover:bg-iota-blue-700 hover:bg-opacity-0.08 active:bg-iota-blue-700 active:bg-opacity-0.16',
+    [Mode.Light]:
+        'hover:bg-iota-blue-700 hover:bg-opacity-0.08 active:bg-iota-blue-700 active:bg-opacity-0.16',
     [Mode.Dark]: 'hover:bg-white hover:bg-opacity-0.08 active:bg-white active:bg-opacity-0.16',
 }
 
