@@ -1,13 +1,12 @@
 <script lang="ts">
-  import { Icon } from '$atoms';
-  import { darkMode } from '$lib/store';
-  import { ButtonSize, ButtonType } from '.';
-  import type { IconEnum } from '../icon/icon.enums';
+  import { Icon } from "$atoms";
+  import { ButtonSize, ButtonType } from ".";
+  import type { IconEnum } from "../icon/icon.enums";
   import {
     BUTTON_WITH_ICON,
     TEXT_SIZES,
     VARIANT_COLORS,
-  } from './button.classes';
+  } from "./button.classes";
 
   /**
    * The type of button
@@ -25,7 +24,7 @@
    * Content of the button
    * @type {string}
    */
-  export let label: string = '';
+  export let label: string = "";
   export let darkmode: boolean = false;
   export let disabled: boolean = false;
   /**
@@ -38,21 +37,20 @@
   $: colorClasses = !darkmode
     ? VARIANT_COLORS[type].light ?? VARIANT_COLORS[type].dark
     : VARIANT_COLORS[type].dark;
-  $: iconClasses = icon && !label ? BUTTON_WITH_ICON[size] : 'px-6';
-  $: darkmode = $darkMode;
+  $: iconClasses = icon && !label ? BUTTON_WITH_ICON[size] : "px-6";
 </script>
 
 <button
   type="button"
   class="{textClasses} {colorClasses} {iconClasses}"
-  disabled="{disabled}"
+  {disabled}
   on:click
 >
   {#if label}
     {label}
   {/if}
   {#if icon}
-    <Icon icon="{icon}" />
+    <Icon {icon} />
   {/if}
 </button>
 

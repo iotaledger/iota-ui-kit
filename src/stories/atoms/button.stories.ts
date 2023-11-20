@@ -1,9 +1,16 @@
-import { IconEnum } from '$components'
-import { Button, ButtonSize, ButtonType } from '$components/atoms/buttons'
-import { darkMode } from '$lib/store'
-import type { Meta, StoryObj } from '@storybook/svelte'
+import { IconEnum } from '$components';
+import { Button, ButtonSize, ButtonType } from '$atoms';
+import { isDarkModeEnabled } from '$lib/storybook/stores';
+import type { Meta, StoryObj } from '@storybook/svelte';
+import { get } from 'svelte/store';
+import { useArgs } from '@storybook/preview-api';
 
-const meta = {
+let darkmode = get(isDarkModeEnabled);
+isDarkModeEnabled.subscribe((value) => {
+  darkmode = value;
+});
+
+const meta: Meta<Button> = {
   title: 'Atoms/Button',
   component: Button,
   tags: ['autodocs'],
@@ -24,74 +31,68 @@ const meta = {
       options: Object.values(IconEnum),
     },
   },
-} satisfies Meta<Button>
+};
 
-let isDarkModeActive
-
-darkMode.subscribe((value) => {
-  isDarkModeActive = value
-})
-
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
     type: ButtonType.Primary,
     label: 'Primary',
     size: ButtonSize.Medium,
-    darkmode: isDarkModeActive,
+    darkmode,
     disabled: false,
   },
-}
+};
 
 export const Secondary: Story = {
   args: {
     type: ButtonType.Secondary,
     label: 'Secondary',
     size: ButtonSize.Medium,
-    darkmode: isDarkModeActive,
+    darkmode,
     disabled: false,
   },
-}
+};
 
 export const Ghost: Story = {
   args: {
     type: ButtonType.Ghost,
     label: 'Ghost',
     size: ButtonSize.Medium,
-    darkmode: isDarkModeActive,
+    darkmode,
     disabled: false,
   },
-}
+};
 
 export const Destructive: Story = {
   args: {
     type: ButtonType.Destructive,
     label: 'Destructive',
     size: ButtonSize.Medium,
-    darkmode: isDarkModeActive,
+    darkmode,
     disabled: false,
   },
-}
+};
 
 export const IconText: Story = {
   args: {
     type: ButtonType.Primary,
     size: ButtonSize.Medium,
-    darkmode: isDarkModeActive,
+    darkmode,
     disabled: false,
     label: 'Button',
     icon: IconEnum.UpRightArrow,
-  }
-}
+  },
+};
 
 export const Icon: Story = {
   args: {
     type: ButtonType.Primary,
     size: ButtonSize.Medium,
-    darkmode: isDarkModeActive,
+    darkmode,
     disabled: false,
     icon: IconEnum.UpRightArrow,
   },
-}
+};
