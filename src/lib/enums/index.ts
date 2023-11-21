@@ -1,1 +1,1 @@
-export * from './mode.enum';
+export * from './mode.enum'

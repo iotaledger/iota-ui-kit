@@ -1,0 +1,8 @@
+.eslintrc.cjs
+**/node_modules/*
+**/.yarn/*
+**/storybook-static/*
+**/public/*
+**/vercel/*
+**/README.md
+**/.storybook/*

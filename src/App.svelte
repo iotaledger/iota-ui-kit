@@ -1,6 +1,6 @@
 <script lang="ts">
-  </script>
+</script>
 
 <main>
-  <h1>Vite + Svelte + TS</h1>
+    <h1>Vite + Svelte + TS</h1>
 </main>

@@ -4,19 +4,19 @@ import { IconText as IconTextComponent } from '$molecules'
 import { IconEnum } from '$components'
 
 const meta = {
-  title: 'Molecules/IconText',
-  component: IconTextComponent,
-  tags: ['autodocs'],
-  argTypes: {
-    icon: {
-      control: { type: 'select' },
-      options: Object.values(IconEnum),
+    title: 'Molecules/IconText',
+    component: IconTextComponent,
+    tags: ['autodocs'],
+    argTypes: {
+        icon: {
+            control: { type: 'select' },
+            options: Object.values(IconEnum),
+        },
+        darkmode: {
+            control: { type: 'boolean' },
+        },
+        label: { control: 'text' },
     },
-    darkmode: {
-      control: { type: 'boolean' },
-    },
-    label: { control: 'text' },
-  },
 } satisfies Meta<IconTextComponent>
 
 export default meta
@@ -24,9 +24,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const IconText: Story = {
-  args: {
-    icon: IconEnum.UpRightArrow,
-    label: 'IconText',
-    darkmode: false,
-  },
+    args: {
+        icon: IconEnum.UpRightArrow,
+        label: 'IconText',
+        darkmode: false,
+    },
 }
