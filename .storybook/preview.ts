@@ -22,4 +22,4 @@ const preview: Preview = {
   },
 };
 
-export default preview;
+export default preview

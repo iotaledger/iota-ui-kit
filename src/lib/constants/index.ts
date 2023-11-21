@@ -1,2 +1,2 @@
-export * from './custom-colors.constants';
-export * from './default-colors.constants';
+export * from './custom-colors.constants'
+export * from './default-colors.constants'
