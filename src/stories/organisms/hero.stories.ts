@@ -73,6 +73,6 @@ export const Hero: Story = {
         })),
         media: 'https://videos.ctfassets.net/xit7f234flxz/7BqsHwcJ0cjnSY77lhYyO7/5d5d9c6688a791d21cc651fa54f2896c/woman.webm',
         darkmode: true,
-        heroVariant: HeroVariant.Secondary,
+        variant: HeroVariant.Secondary,
     },
 }

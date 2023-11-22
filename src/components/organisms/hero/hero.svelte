@@ -13,7 +13,7 @@
     export let variant: HeroVariant = HeroVariant.Primary
     /**
      * The background video of the component.
-     * 
+     *
      * Priority over `backgroundImage`.
      */
     export let backgroundVideo: string = ''
@@ -49,7 +49,7 @@
      * @type {ComponentProps<Button>[]}
      */
     export let buttons: ComponentProps<Button>[] = []
-    
+
     /**
      * @type {ComponentProps<IconText>[]}
      */
@@ -60,9 +60,11 @@
      */
     export let anchorLinks: ComponentProps<AnchorLink>[] = []
 
+    let componentDarkmode: boolean | undefined
+
     $: isVariantPrimary = variant === HeroVariant.Primary
     $: mode = darkmode ? Mode.Dark : Mode.Light
-    $: componentDarkmode = variant === HeroVariant.Primary ? darkmode : !darkmode
+    $: componentDarkmode = darkmode && variant === HeroVariant.Primary ? darkmode : undefined
 </script>
 
 <section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20">
@@ -86,15 +88,32 @@
                     {#if overline || title || subtitle}
                         <div class="flex flex-col space-y-12 {TITLE_BOX_CLASSES[variant]}">
                             {#if overline}
-                                <span class="{TEXT_COLORS[variant][mode][HeroContentSection.Overline]} {CONTENT_SECTION_CLASSES[HeroContentSection.Overline]}">{overline}</span>
+                                <span
+                                    class="{TEXT_COLORS[variant][mode][
+                                        HeroContentSection.Overline
+                                    ]} {CONTENT_SECTION_CLASSES[HeroContentSection.Overline]}"
+                                    >{overline}</span
+                                >
                             {/if}
 
                             {#if title}
-                                <h1 class="{TEXT_COLORS[variant][mode][HeroContentSection.Title]} {CONTENT_SECTION_CLASSES[HeroContentSection.Title]}">{title}</h1>
+                                <h1
+                                    class="{TEXT_COLORS[variant][mode][
+                                        HeroContentSection.Title
+                                    ]} {CONTENT_SECTION_CLASSES[HeroContentSection.Title]}"
+                                >
+                                    {title}
+                                </h1>
                             {/if}
 
                             {#if subtitle}
-                                <h4 class="{TEXT_COLORS[variant][mode][HeroContentSection.Subtitle]} {CONTENT_SECTION_CLASSES[HeroContentSection.Subtitle]}">{subtitle}</h4>
+                                <h4
+                                    class="{TEXT_COLORS[variant][mode][
+                                        HeroContentSection.Subtitle
+                                    ]} {CONTENT_SECTION_CLASSES[HeroContentSection.Subtitle]}"
+                                >
+                                    {subtitle}
+                                </h4>
                             {/if}
                         </div>
                     {/if}
@@ -115,12 +134,21 @@
                 {#if paragraph || buttons.length > 0}
                     <div class="flex flex-row space-x-6 justify-between mt-auto">
                         {#if paragraph}
-                            <p class="flex-1 max-w-[486px] text-left {TEXT_COLORS[variant][mode][HeroContentSection.Paragraph]}  {CONTENT_SECTION_CLASSES[HeroContentSection.Paragraph]}">{paragraph}</p>
+                            <p
+                                class="flex-1 max-w-[486px] text-left {TEXT_COLORS[variant][mode][
+                                    HeroContentSection.Paragraph
+                                ]}  {CONTENT_SECTION_CLASSES[HeroContentSection.Paragraph]}"
+                            >
+                                {paragraph}
+                            </p>
                         {/if}
                         {#if buttons.length}
                             <div class="flex-1 flex flex-row justify-end items-end space-x-4">
                                 {#each buttons as button}
-                                    <Button {...button} darkmode={componentDarkmode ?? button.darkmode} />
+                                    <Button
+                                        {...button}
+                                        darkmode={componentDarkmode ?? button.darkmode}
+                                    />
                                 {/each}
                             </div>
                         {/if}
@@ -132,14 +160,20 @@
                     {#if iconFeatures.length}
                         <div class="grid grid-cols-5 gap-x-12 py-6">
                             {#each iconFeatures as iconFeature}
-                                <IconText {...iconFeature} darkmode={componentDarkmode ?? iconFeature.darkmode} />
+                                <IconText
+                                    {...iconFeature}
+                                    darkmode={componentDarkmode ?? iconFeature.darkmode}
+                                />
                             {/each}
                         </div>
                     {/if}
                     {#if anchorLinks.length}
                         <nav class="grid grid-cols-4">
                             {#each anchorLinks as anchorLink}
-                                <AnchorLink {...anchorLink} darkmode={componentDarkmode ?? anchorLink.darkmode} />
+                                <AnchorLink
+                                    {...anchorLink}
+                                    darkmode={componentDarkmode ?? anchorLink.darkmode}
+                                />
                             {/each}
                         </nav>
                     {/if}
