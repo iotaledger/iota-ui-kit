@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/svelte'
 
 import { Hero as HeroComponent } from '$organisms'
 import { ButtonType, IconEnum } from '$components'
-import { HeroVariant } from '$components/organisms/hero/hero.enums'
+import { HeroVariant } from '$components/organisms'
 
 const meta = {
     title: 'Organisms/Hero',
@@ -72,7 +72,6 @@ export const Hero: Story = {
             href: '#',
         })),
         media: 'https://videos.ctfassets.net/xit7f234flxz/7BqsHwcJ0cjnSY77lhYyO7/5d5d9c6688a791d21cc651fa54f2896c/woman.webm',
-        darkmode: true,
         variant: HeroVariant.Secondary,
     },
 }

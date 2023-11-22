@@ -64,7 +64,7 @@
 
     $: isVariantPrimary = variant === HeroVariant.Primary
     $: mode = darkmode ? Mode.Dark : Mode.Light
-    $: componentDarkmode = darkmode && variant === HeroVariant.Primary ? darkmode : undefined
+    $: componentDarkmode = variant === HeroVariant.Primary ? darkmode : !darkmode
 </script>
 
 <section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20">
@@ -147,7 +147,7 @@
                                 {#each buttons as button}
                                     <Button
                                         {...button}
-                                        darkmode={componentDarkmode ?? button.darkmode}
+                                        darkmode={componentDarkmode}
                                     />
                                 {/each}
                             </div>
@@ -162,7 +162,7 @@
                             {#each iconFeatures as iconFeature}
                                 <IconText
                                     {...iconFeature}
-                                    darkmode={componentDarkmode ?? iconFeature.darkmode}
+                                    darkmode={componentDarkmode}
                                 />
                             {/each}
                         </div>
@@ -172,7 +172,7 @@
                             {#each anchorLinks as anchorLink}
                                 <AnchorLink
                                     {...anchorLink}
-                                    darkmode={componentDarkmode ?? anchorLink.darkmode}
+                                    darkmode={componentDarkmode}
                                 />
                             {/each}
                         </nav>
