@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-docs",
     "storybook-dark-mode",
+    "@storybook/addon-svelte-csf",
   ],
   framework: {
     name: "@storybook/svelte-vite",

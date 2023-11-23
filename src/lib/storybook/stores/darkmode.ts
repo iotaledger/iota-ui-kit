@@ -1,15 +1,20 @@
 import { writable } from "svelte/store";
 
 function initializeDarkMode() {
-  function _isDarkClassActive() {
-    return document?.body?.classList.contains('dark')
-  }
+  const _isDarkClassActive = () => document?.body?.classList.contains('dark')
   const isDarkMode = _isDarkClassActive()
+
+  const updateDarkMode = () => {
+    set(_isDarkClassActive());
+  };
+
   const { subscribe, set, update } = writable(isDarkMode);
+  const bodyObserver = new MutationObserver(updateDarkMode);
+  bodyObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
   return {
     subscribe,
-    refresh: () => set(_isDarkClassActive()),
+    refresh: () => updateDarkMode(),
     toggle: () => update((n) => !n),
     reset: () => set(false)
   };
