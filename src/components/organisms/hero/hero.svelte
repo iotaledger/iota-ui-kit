@@ -32,6 +32,10 @@
     export let darkmode: boolean | undefined = undefined
 
     export let overline: string = ''
+    /**
+     * @type {string}
+     *
+     */
     export let title: string
     export let subtitle: string = ''
     export let paragraph: string = ''
