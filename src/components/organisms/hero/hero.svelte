@@ -31,11 +31,8 @@
      */
     export let darkmode: boolean | undefined = undefined
 
-    /**
-     * Overline or eyebrow
-     */
     export let overline: string = ''
-    export let title: string = ''
+    export let title: string
     export let subtitle: string = ''
     export let paragraph: string = ''
     /**
@@ -83,8 +80,8 @@
         {/if}
 
         <div class="flex flex-col relative h-full">
-            <div class="flex flex-col py-18 h-full">
-                <div class="flex flex-row items-center justify-between mb-5">
+            <div class="flex flex-col py-18 h-full justify-center">
+                <div class="flex flex-row items-center justify-between space-x-6 mb-5">
                     {#if overline || title || subtitle}
                         <div class="flex flex-col space-y-12 {TITLE_BOX_CLASSES[variant]}">
                             {#if overline}
@@ -96,15 +93,13 @@
                                 >
                             {/if}
 
-                            {#if title}
-                                <h1
-                                    class="{TEXT_COLORS[variant][mode][
-                                        HeroContentSection.Title
-                                    ]} {CONTENT_SECTION_CLASSES[HeroContentSection.Title]}"
-                                >
-                                    {title}
-                                </h1>
-                            {/if}
+                            <h1
+                                class="{TEXT_COLORS[variant][mode][
+                                    HeroContentSection.Title
+                                ]} {CONTENT_SECTION_CLASSES[HeroContentSection.Title]}"
+                            >
+                                {title}
+                            </h1>
 
                             {#if subtitle}
                                 <h4
@@ -123,7 +118,7 @@
                             width="589"
                             height="377"
                             controls
-                            class="h-[377px] rounded-md border border-black/0.16 object-cover cursor-pointer pl-6"
+                            class="h-[377px] rounded-md border border-black/0.16 object-cover cursor-pointer"
                         >
                             <source src={media} type="video/mp4" />
                             <track kind="captions" />
@@ -145,10 +140,7 @@
                         {#if buttons.length}
                             <div class="flex-1 flex flex-row justify-end items-end space-x-4">
                                 {#each buttons as button}
-                                    <Button
-                                        {...button}
-                                        darkmode={componentDarkmode}
-                                    />
+                                    <Button {...button} darkmode={componentDarkmode} />
                                 {/each}
                             </div>
                         {/if}
@@ -160,20 +152,14 @@
                     {#if iconFeatures.length}
                         <div class="grid grid-cols-5 gap-x-12 py-6">
                             {#each iconFeatures as iconFeature}
-                                <IconText
-                                    {...iconFeature}
-                                    darkmode={componentDarkmode}
-                                />
+                                <IconText {...iconFeature} darkmode={componentDarkmode} />
                             {/each}
                         </div>
                     {/if}
                     {#if anchorLinks.length}
                         <nav class="grid grid-cols-4">
                             {#each anchorLinks as anchorLink}
-                                <AnchorLink
-                                    {...anchorLink}
-                                    darkmode={componentDarkmode}
-                                />
+                                <AnchorLink {...anchorLink} darkmode={componentDarkmode} />
                             {/each}
                         </nav>
                     {/if}
