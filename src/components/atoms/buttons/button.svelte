@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Icon } from '$atoms';
-  import { darkMode } from '$lib/store';
   import { ButtonSize, ButtonType } from '.';
   import type { IconEnum } from '../icon/icon.enums';
   import {
@@ -39,7 +38,8 @@
     ? VARIANT_COLORS[type].light ?? VARIANT_COLORS[type].dark
     : VARIANT_COLORS[type].dark;
   $: iconClasses = icon && !label ? BUTTON_WITH_ICON[size] : 'px-6';
-  $: darkmode = $darkMode;
+
+  $: console.log('component darkmode', darkmode)
 </script>
 
 <button
