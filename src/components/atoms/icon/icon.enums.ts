@@ -1,3 +1,3 @@
 export enum IconEnum {
-  UpRightArrow = 'up-right-arrow',
+    UpRightArrow = 'up-right-arrow',
 }
