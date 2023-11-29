@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-    import { Button, ButtonSize, ButtonType } from '$components/atoms/buttons'
+    import { Button, ButtonSize, ButtonType } from '$atoms/buttons'
     export const meta = {
         title: 'Atoms/Button',
         component: Button,
