@@ -26,6 +26,198 @@ body {
     min-height: 100vh;
 }
 
+.sb-show-main {
+    &.dark {
+        @apply bg-iota-gray-900 !important;
+        @apply text-iota-blue-100;
+    }
+
+    &.light {
+        @apply bg-iota-gray-50 !important;
+        @apply text-iota-gray-800;
+    }
+}
+
+.dark {
+    @apply bg-iota-gray-900;
+
+    .sbdocs {
+        @apply bg-iota-gray-900;
+        p,
+        ul,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        span,
+        div {
+            @apply text-iota-blue-100;
+        }
+
+        .sbdocs-content {
+            @apply bg-iota-gray-900;
+            * > div {
+                @apply bg-iota-gray-800;
+            }
+        }
+
+        .docblock-colorpalette * {
+            @apply bg-iota-gray-900 !important;
+        }
+
+        .docs-story {
+            @apply bg-iota-gray-900 !important;
+        }
+
+        .docblock-code-toggle {
+            @apply bg-iota-gray-800;
+            @apply text-iota-blue-100;
+        }
+
+        tbody {
+            > tr > * {
+                @apply bg-iota-gray-900 !important;
+                div {
+                    @apply bg-iota-gray-900 !important;
+                    span {
+                        @apply bg-iota-gray-900;
+                        @apply border-iota-gray-800;
+                    }
+                }
+
+                select,
+                textarea,
+                button,
+                #control-fill {
+                    @apply bg-iota-gray-900;
+                    @apply border-iota-gray-800;
+                    @apply text-iota-blue-100;
+                }
+
+                label {
+                    @apply bg-iota-gray-700;
+                    @apply border border-iota-gray-800;
+                }
+
+                input:checked ~ span:last-of-type,
+                input:not(:checked) ~ span:first-of-type {
+                    @apply text-iota-blue-100;
+                    @apply bg-iota-blue-600;
+                    box-shadow: rgba(255, 255, 255, 0.1) 0 0 0 1px;
+                }
+            }
+        }
+    }
+}
+
+.light {
+    @apply bg-iota-gray-50;
+    .sbdocs-wrapper {
+        @apply bg-iota-gray-50;
+    }
+    #anchor--atoms-button--primary .docs-story {
+        @apply bg-iota-gray-50 !important;
+    }
+}
+
+.sb-show-main {
+    &.dark {
+        @apply bg-iota-gray-900 !important;
+        @apply text-iota-blue-100;
+    }
+
+    &.light {
+        @apply bg-iota-gray-50 !important;
+        @apply text-iota-gray-800;
+    }
+}
+
+.dark {
+    @apply bg-iota-gray-900;
+
+    .sbdocs {
+        @apply bg-iota-gray-900;
+        p,
+        ul,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        span,
+        div {
+            @apply text-iota-blue-100;
+        }
+
+        .sbdocs-content {
+            @apply bg-iota-gray-900;
+            * > div {
+                @apply bg-iota-gray-800;
+            }
+        }
+
+        .docblock-colorpalette * {
+            @apply bg-iota-gray-900 !important;
+        }
+
+        .docs-story {
+            @apply bg-iota-gray-900 !important;
+        }
+
+        .docblock-code-toggle {
+            @apply bg-iota-gray-800;
+            @apply text-iota-blue-100;
+        }
+
+        tbody {
+            > tr > * {
+                @apply bg-iota-gray-900 !important;
+                div {
+                    @apply bg-iota-gray-900 !important;
+                    span {
+                        @apply bg-iota-gray-900;
+                        @apply border-iota-gray-800;
+                    }
+                }
+
+                select,
+                textarea,
+                button,
+                #control-fill {
+                    @apply bg-iota-gray-900;
+                    @apply border-iota-gray-800;
+                    @apply text-iota-blue-100;
+                }
+
+                label {
+                    @apply bg-iota-gray-700;
+                    @apply border border-iota-gray-800;
+                }
+
+                input:checked ~ span:last-of-type,
+                input:not(:checked) ~ span:first-of-type {
+                    @apply text-iota-blue-100;
+                    @apply bg-iota-blue-600;
+                    box-shadow: rgba(255, 255, 255, 0.1) 0 0 0 1px;
+                }
+            }
+        }
+    }
+}
+
+.light {
+    @apply bg-iota-gray-50;
+    .sbdocs-wrapper {
+        @apply bg-iota-gray-50;
+    }
+    #anchor--atoms-button--primary .docs-story {
+        @apply bg-iota-gray-50 !important;
+    }
+}
+
 h1 {
     font-size: 3.2em;
     line-height: 1.1;

@@ -41,7 +41,7 @@
         {label}
     {/if}
     {#if icon}
-        <Icon {icon} />
+        <Icon {icon} fill={darkmode ? 'white' : 'currentColor'} />
     {/if}
 </button>
 
