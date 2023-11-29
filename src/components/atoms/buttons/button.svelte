@@ -38,8 +38,6 @@
     ? VARIANT_COLORS[type].light ?? VARIANT_COLORS[type].dark
     : VARIANT_COLORS[type].dark;
   $: iconClasses = icon && !label ? BUTTON_WITH_ICON[size] : 'px-6';
-
-  $: console.log('component darkmode', darkmode)
 </script>
 
 <button
@@ -52,7 +50,7 @@
     {label}
   {/if}
   {#if icon}
-    <Icon icon="{icon}" />
+    <Icon icon="{icon}" fill={darkmode? 'white' : 'currentColor'}/>
   {/if}
 </button>
 
