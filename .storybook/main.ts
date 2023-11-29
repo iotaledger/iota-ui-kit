@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/svelte-vite'
+import type { StorybookConfig } from '@storybook/svelte-vite';
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx|svelte)"],
@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-docs",
     "storybook-dark-mode",
+    '@storybook/addon-svelte-csf',
   ],
   framework: {
     name: "@storybook/svelte-vite",
