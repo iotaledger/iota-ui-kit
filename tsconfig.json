@@ -23,9 +23,17 @@
             "$atoms": ["src/components/atoms"],
             "$atoms/*": ["src/components/atoms/*"],
             "$molecules": ["src/components/molecules"],
-            "$molecules/*": ["src/components/molecules/*"]
+            "$molecules/*": ["src/components/molecules/*"],
+            "$organisms": ["src/components/organisms"],
+            "$organisms/*": ["src/components/organisms/*"],
+            "$decorators": ["src/stories/decorators"],
+            "$decorators/*": ["src/stories/decorators/*"]
         }
     },
     "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
-    "references": [{ "path": "./tsconfig.node.json" }]
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
 }

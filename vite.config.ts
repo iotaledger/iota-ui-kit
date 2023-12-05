@@ -14,6 +14,10 @@ export default defineConfig({
             '$atoms/*': '/src/components/atoms/*',
             $molecules: '/src/components/molecules',
             '$molecules/*': '/src/components/molecules/*',
+            $organisms: '/src/components/organisms',
+            '$organisms/*': '/src/components/organisms/*',
+            $decorators: '/src/stories/decorators',
+            '$decorators/*': '/src/stories/decorators/*',
         },
     },
 })
