@@ -12,17 +12,9 @@
      */
     export let renderer: RendererType = RendererType.Svg
     export let loop: boolean = true
-    /**
-     * The width of the animation.
-     * For example percentages or pixels.
-     */
-    export let width: string = '100%'
-    /**
-     * The height of the animation.
-     * For example percentages or pixels.
-     */
-    export let height: string = '100%'
-
+    export let pointerEventsNone: boolean = false
+    export let backgroundColor: string = 'transparent'
+    
     let player: HTMLElement
 
     onMount(() => {
@@ -38,17 +30,17 @@
 
 <dotlottie-player
     bind:this={player}
+    class:pointer-events-none={pointerEventsNone}
+    style:--background-color={backgroundColor}
     {src}
     {autoplay}
     {loop}
-    style:--width={width}
-    style:--height={height}
 />
 
 <style lang="postcss">
     dotlottie-player {
-        @apply block;
-        width: var(--width);
-        height: var(--height);
-    }
+    @apply block;
+    @apply w-full h-full;
+    background-color: var(--background-color);
+}
 </style>
