@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-    import { Animation as AnimationComponent } from '$components/atoms';
+    import { Animation as AnimationComponent } from '$components/atoms'
     import type { Meta } from '@storybook/svelte'
 
     export const meta = {
@@ -14,7 +14,7 @@
                 control: { type: 'select' },
                 options: Object.values(RendererType),
             },
-        }
+        },
     } satisfies Meta<AnimationComponent>
 </script>
 
@@ -29,4 +29,4 @@
     <AnimationComponent {...reactiveArgs}></AnimationComponent>
 </Template>
 
-<Story name="Animation"/>
+<Story name="Animation" />
