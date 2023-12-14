@@ -8,11 +8,31 @@
         TITLE_TEXT_COLORS,
     } from './title.classes'
 
+    /**
+     * The size of the title
+     * @type {TitleSize}
+     */
     export let size: TitleSize = TitleSize.H2
+    /**
+     * The overline text to display
+     * @type {string}
+     */
     export let overline: string = ''
+    /**
+     * The subtitle text to display
+     * @type {string}
+     */
     export let subtitle: string = ''
     export let darkmode: boolean = false
+    /**
+     * The position of the title
+     * @type {TitlePosition}
+     */
     export let position: TitlePosition = TitlePosition.Start
+    /**
+     * Title to display
+     * @type {string}
+     */
     export let title: string
 
     $: sizeClass = TITLE_SIZES[size]
