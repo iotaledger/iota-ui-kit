@@ -24,4 +24,9 @@ export const TITLE_TEXT_COLORS: Record<string, { [Mode.Light]?: string; [Mode.Da
     },
 }
 
-export const TEXT_STYLES: string = 'text-lg leading-28'
+export const OVERLINE_TEXT: string = 'text-lg leading-28'
+
+export const SUBTITLE_TEXT: Record<string, string> = {
+    default: 'text-2xl leading-32',
+    smaller: 'text-xl leading-28',
+}
