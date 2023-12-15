@@ -67,7 +67,7 @@
     <div class="container mx-auto self-stretch">
         {#if backgroundMedia}
             <div class="absolute inset-0 z-0">
-                <MediaManager media={backgroundMedia} />
+                <MediaManager media={backgroundMedia} pointerEventsNone />
             </div>
         {/if}
 
