@@ -65,8 +65,7 @@
     args={{
         backgroundMedia: {
             type: MediaType.Video,
-            src:
-                'https://videos.ctfassets.net/xit7f234flxz/vWgyEvbf4sULsQJPaIKqf/a32fcfbefb146832045cb338f9b210b0/earth.webm',
+            src: 'https://videos.ctfassets.net/xit7f234flxz/vWgyEvbf4sULsQJPaIKqf/a32fcfbefb146832045cb338f9b210b0/earth.webm',
         },
         overline: 'Overline',
         title: 'Our Pathway To Bring Digital Autonomy To Everyone',
@@ -99,7 +98,6 @@
     }}
 />
 
-
 <Story
     name="Animation Hero"
     parameters={{
@@ -111,8 +109,7 @@
     args={{
         backgroundMedia: {
             type: MediaType.Animation,
-            src:
-                'https://lottie.host/e6da585b-705b-438b-b6b3-e53cb9c869a3/hfD2AcCSuN.json',
+            src: 'https://lottie.host/e6da585b-705b-438b-b6b3-e53cb9c869a3/hfD2AcCSuN.json',
             backgroundColor: '#131f37e6',
         },
         overline: 'Overline',

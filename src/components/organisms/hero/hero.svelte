@@ -14,7 +14,7 @@
     export let variant: HeroVariant = HeroVariant.Primary
     export let backgroundMedia: Media | undefined = {
         type: MediaType.Video,
-        src: 'https://videos.ctfassets.net/xit7f234flxz/vWgyEvbf4sULsQJPaIKqf/a32fcfbefb146832045cb338f9b210b0/earth.webm'
+        src: 'https://videos.ctfassets.net/xit7f234flxz/vWgyEvbf4sULsQJPaIKqf/a32fcfbefb146832045cb338f9b210b0/earth.webm',
     }
     /**
      * The id of the component

@@ -14,7 +14,7 @@
     export let loop: boolean = true
     export let pointerEventsNone: boolean = false
     export let backgroundColor: string = 'transparent'
-    
+
     let player: HTMLElement
 
     onMount(() => {
@@ -39,8 +39,8 @@
 
 <style lang="postcss">
     dotlottie-player {
-    @apply block;
-    @apply w-full h-full;
-    background-color: var(--background-color);
-}
+        @apply block;
+        @apply w-full h-full;
+        background-color: var(--background-color);
+    }
 </style>

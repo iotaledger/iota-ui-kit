@@ -1,10 +1,5 @@
 <script lang="ts">
-    import type {
-        AnimationMedia,
-        ImageMedia,
-        Media,
-        VideoMedia,
-    } from './media-manager.types'
+    import type { AnimationMedia, ImageMedia, Media, VideoMedia } from './media-manager.types'
     import { MediaType } from '..'
     import { IMAGE_DEFAULT_PROPS, VIDEO_DEFAULT_PROPS } from './media-manager.constants'
     import Animation from '$atoms/animation/animation.svelte'
@@ -18,9 +13,9 @@
 
     $: {
         if (media.type === MediaType.Image) {
-            imageMedia = {...IMAGE_DEFAULT_PROPS, ...media}
+            imageMedia = { ...IMAGE_DEFAULT_PROPS, ...media }
         } else if (media.type === MediaType.Video) {
-            videoMedia = {...VIDEO_DEFAULT_PROPS, ...media}
+            videoMedia = { ...VIDEO_DEFAULT_PROPS, ...media }
         } else if (media.type === MediaType.Animation) {
             animationMedia = media
         }
@@ -40,7 +35,8 @@
 {/if}
 
 <style lang="postcss">
-    img, video {
+    img,
+    video {
         @apply w-full h-full;
     }
 </style>
