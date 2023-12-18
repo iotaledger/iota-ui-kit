@@ -6,3 +6,5 @@ export { IconEnum } from './icon/icon.enums'
 
 export { RendererType } from './animation/animation.enums'
 export { default as Animation } from './animation/animation.svelte'
+
+export { default as Title } from './title/title.svelte'
