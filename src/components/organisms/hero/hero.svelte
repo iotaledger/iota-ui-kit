@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Button } from '$components/atoms'
-    import { IconText, AnchorLink } from '$components/molecules'
+    import { MediaType, type Media } from '$components/molecules'
+    import { IconText, AnchorLink, MediaManager } from '$components/molecules'
     import { Mode } from '$lib/enums'
     import { TEXT_COLORS, CONTENT_SECTION_CLASSES, TITLE_BOX_CLASSES } from './hero.classes'
     import { HeroContentSection, HeroVariant } from './hero.enums'
@@ -11,16 +12,10 @@
      * @type {HeroVariant}
      */
     export let variant: HeroVariant = HeroVariant.Primary
-    /**
-     * The background video of the component.
-     *
-     * Priority over `backgroundImage`.
-     */
-    export let backgroundVideo: string = ''
-    /**
-     * The background image of the component
-     */
-    export let backgroundImage: string = ''
+    export let backgroundMedia: Media | undefined = {
+        type: MediaType.Video,
+        src: 'https://videos.ctfassets.net/xit7f234flxz/vWgyEvbf4sULsQJPaIKqf/a32fcfbefb146832045cb338f9b210b0/earth.webm',
+    }
     /**
      * The id of the component
      */
@@ -70,16 +65,9 @@
 
 <section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20 px-30">
     <div class="container mx-auto self-stretch">
-        {#if backgroundVideo || backgroundImage}
+        {#if backgroundMedia}
             <div class="absolute inset-0 z-0">
-                {#if backgroundVideo}
-                    <video id="background-video" autoplay loop muted>
-                        <source src={backgroundVideo} type="video/mp4" />
-                    </video>
-                {:else if backgroundImage}
-                    <background-image style:--background="url({backgroundImage})"
-                    ></background-image>
-                {/if}
+                <MediaManager media={backgroundMedia} pointerEventsNone />
             </div>
         {/if}
 
@@ -172,19 +160,3 @@
         </div>
     </div>
 </section>
-
-<style lang="postcss">
-    #background-video,
-    background-image {
-        @apply absolute;
-        @apply block;
-        @apply inset-0;
-        @apply w-full h-full;
-        @apply pointer-events-none;
-        @apply object-cover;
-    }
-
-    background-image {
-        background: var(--background);
-    }
-</style>
