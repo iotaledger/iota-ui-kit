@@ -7,6 +7,9 @@ import { DEFAULT_COLORS } from './constants/default-colors.constants'
  */
 const toTailwindScale = (unit: number) => `${unit * 0.25}rem`
 
+/* Utilities */
+const pxToRem = (px: number, base: number = 16) => `${px / base}rem`
+
 module.exports = {
     theme: {
         extend: {
@@ -18,6 +21,24 @@ module.exports = {
             opacity: {
                 0.08: '0.08',
                 0.16: '0.16',
+            },
+            fontSize: {
+                14: pxToRem(14),
+                16: pxToRem(16),
+                18: pxToRem(18),
+                20: pxToRem(20),
+                28: pxToRem(28),
+                32: pxToRem(32),
+                40: pxToRem(40),
+                64: pxToRem(64),
+            },
+            lineHeight: {
+                28: pxToRem(28),
+                32: pxToRem(32),
+                58: pxToRem(58),
+                72: pxToRem(72),
+                88: pxToRem(88),
+                112: pxToRem(112),
             },
         },
     },
