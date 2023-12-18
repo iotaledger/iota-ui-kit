@@ -1,5 +1,6 @@
+export * from './animation'
 export * from './buttons'
 export * from './icon'
-export * from './animation'
 export * from './logo'
 export * from './menu-item'
+export * from './title'

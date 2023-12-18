@@ -162,7 +162,7 @@ body {
 
         .sbdocs-content {
             @apply bg-iota-gray-900;
-                        .sbdocs-preview {
+            .sbdocs-preview {
                 > :first-child {
                     @apply bg-iota-gray-800;
                 }
