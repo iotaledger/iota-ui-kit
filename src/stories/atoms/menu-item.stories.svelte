@@ -33,7 +33,7 @@
         menuItem: {
             title: 'Menu Item',
             href: '#',
-            darkmode: false,
+            darkmode: $isDarkModeEnabled,
         },
     }}
 />
