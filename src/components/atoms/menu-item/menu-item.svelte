@@ -9,13 +9,15 @@
      */
     export let menuItem: IMenuItem
 
-    $: colorClasses = menuItem.darkmode ? MENU_ITEM_COLORS[Mode.Dark] : MENU_ITEM_COLORS[Mode.Light]
+    $: colorClasses = menuItem?.darkmode
+        ? MENU_ITEM_COLORS[Mode.Dark]
+        : MENU_ITEM_COLORS[Mode.Light]
 </script>
 
 <a
-    href={menuItem.href}
-    target={menuItem.isExternal ? '_blank' : ''}
+    href={menuItem?.href}
+    target={menuItem?.isExternal ? '_blank' : ''}
     class="{colorClasses} px-4 py-8 text-sm font-medium"
 >
-    {menuItem.title}
+    {menuItem?.title}
 </a>
