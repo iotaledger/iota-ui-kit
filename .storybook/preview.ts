@@ -7,7 +7,6 @@ const preview: Preview = {
   parameters: {
     backgrounds: { disable: true },
     actions: { argTypesRegex: "^on[A-Z].*" },
-    layout: 'centered',
     controls: {
       matchers: {
         color: /(background|color)$/i,
