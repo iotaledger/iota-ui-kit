@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { TitleSize, TitlePosition } from './title.enums'
+    import { TitleSize } from './title.enums'
+    import { Position } from '$lib/enums'
     import {
         OVERLINE_TEXT,
         SUBTITLE_TEXT,
@@ -26,9 +27,9 @@
     export let darkmode: boolean = false
     /**
      * The position of the title
-     * @type {TitlePosition}
+     * @type {Position}
      */
-    export let position: TitlePosition = TitlePosition.Start
+    export let position: Position = Position.Start
     /**
      * Title to display
      * @type {string}
@@ -40,9 +41,10 @@
     $: titleColorClass = !darkmode ? TITLE_TEXT_COLORS.title.light : TITLE_TEXT_COLORS.title.dark
     $: textColorClass = !darkmode ? TITLE_TEXT_COLORS.text.light : TITLE_TEXT_COLORS.text.dark
     $: subtitleTextClass = size === TitleSize.H5 ? SUBTITLE_TEXT.smaller : SUBTITLE_TEXT.default
+    $: spaceBetweenClass = size === TitleSize.H6 ? 'space-y-6' : 'space-y-12'
 </script>
 
-<div class="flex flex-col space-y-12 font-medium {positionClass}">
+<div class="flex flex-col font-medium {positionClass} {spaceBetweenClass}">
     {#if overline.length > 0}
         <span class="{OVERLINE_TEXT} {textColorClass}">{overline} </span>
     {/if}

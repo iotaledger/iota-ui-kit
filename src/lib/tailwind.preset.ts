@@ -35,6 +35,7 @@ module.exports = {
             lineHeight: {
                 28: pxToRem(28),
                 32: pxToRem(32),
+                44: pxToRem(44),
                 58: pxToRem(58),
                 72: pxToRem(72),
                 88: pxToRem(88),

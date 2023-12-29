@@ -14,18 +14,31 @@
     export let loop: boolean = true
     export let pointerEventsNone: boolean = false
     export let backgroundColor: string = 'transparent'
+    export let hoverPauseEnabled: boolean = false
+    export let isHovered: boolean = false
 
     let player: HTMLElement
-
+    let animation: any
     onMount(() => {
-        Lottie.loadAnimation({
+        animation = Lottie.loadAnimation({
             renderer,
             container: player,
             loop,
             autoplay,
             path: src,
         })
+        if (hoverPauseEnabled) {
+            animation.pause()
+        }
     })
+
+    $: {
+        if (isHovered) {
+            animation?.play()
+        } else {
+            animation?.pause()
+        }
+    }
 </script>
 
 <dotlottie-player
@@ -35,6 +48,8 @@
     {src}
     {autoplay}
     {loop}
+    {isHovered}
+    {hoverPauseEnabled}
 />
 
 <style lang="postcss">
