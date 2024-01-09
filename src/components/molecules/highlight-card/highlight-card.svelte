@@ -6,6 +6,7 @@
 
     /**
      * Title to display
+     * @type {string}
      */
     export let title: string
 
@@ -64,96 +65,43 @@
             : CONTENT_JUSTIFICATION.between
 </script>
 
-{#if link}
-    <a
-        href={link}
-        target="_blank"
-        on:mouseenter={() => (isHovered = true)}
-        on:mouseleave={() => (isHovered = false)}
-    >
-        <highlight-card class={backgroundColor}>
-            {#if backgroundMedia}
-                <media-wrapper>
-                    <MediaManager
-                        media={backgroundMedia}
-                        pointerEventsNone
-                        {isHovered}
-                        hoverPauseEnabled
-                    />
-                </media-wrapper>
+<svelte:element
+    this={link ? 'a' : 'div'}
+    on:mouseenter={() => (isHovered = true)}
+    on:mouseleave={() => (isHovered = false)}
+    class="highlight-card {backgroundColor}"
+    target="_blank"
+    href={link}
+    role="link"
+    tabindex="0"
+>
+    {#if backgroundMedia}
+        <media-wrapper class="absolute inset-0 z-0">
+            <MediaManager media={backgroundMedia} pointerEventsNone {isHovered} hoverPauseEnabled />
+        </media-wrapper>
+    {/if}
+    <icon-link-wrapper class="absolute z-[1] top-8 right-8">
+        <Icon icon={IconEnum.UpRightArrow} width={32} height={32} />
+    </icon-link-wrapper>
+    <content-wrapper class="flex flex-col space-y-6 z-[1] h-full {alignmentClass} {justifyClass}">
+        <title-wrapper class="flex flex-col space-y-6">
+            {#if icon}
+                <Icon {icon} width={48} height={48} />
             {/if}
-            <icon-link-wrapper>
-                <Icon icon={IconEnum.UpRightArrow} width={32} height={32} />
-            </icon-link-wrapper>
-            <content-wrapper class="{alignmentClass} {justifyClass}">
-                <title-wrapper>
-                    {#if icon}
-                        <Icon {icon} width={48} height={48} />
-                    {/if}
-                    <Title {title} {overline} {subtitle} {position} size={TitleSize.H6} darkmode />
-                </title-wrapper>
-                {#if description}
-                    <p>{description}</p>
-                {/if}
-            </content-wrapper>
-        </highlight-card>
-    </a>
-{:else}
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <highlight-card
-        on:mouseenter={() => (isHovered = true)}
-        on:mouseleave={() => (isHovered = false)}
-        class={backgroundColor}
-    >
-        {#if backgroundMedia}
-            <media-wrapper>
-                <MediaManager
-                    media={backgroundMedia}
-                    pointerEventsNone
-                    {isHovered}
-                    hoverPauseEnabled
-                />
-            </media-wrapper>
+            <Title {title} {overline} {subtitle} {position} size={TitleSize.H6} darkmode />
+        </title-wrapper>
+        {#if description}
+            <p class="text-white/80">{description}</p>
         {/if}
-        <content-wrapper class="{alignmentClass} {justifyClass}">
-            <title-wrapper>
-                {#if icon}
-                    <Icon {icon} width={48} height={48} />
-                {/if}
-                <Title {title} {overline} {subtitle} {position} size={TitleSize.H6} darkmode />
-            </title-wrapper>
-            {#if description}
-                <p>{description}</p>
-            {/if}
-        </content-wrapper>
-    </highlight-card>
-{/if}
+    </content-wrapper>
+</svelte:element>
 
 <style lang="postcss">
-    highlight-card {
+    .highlight-card {
         min-width: 330px;
-        max-width: 600px;
+        max-width: 640px;
         height: 480px;
         aspect-ratio: 4/3;
         @apply flex flex-col w-full relative p-12 rounded-xl overflow-hidden;
-
-        media-wrapper {
-            @apply absolute inset-0 z-0;
-        }
-
-        icon-link-wrapper {
-            @apply absolute z-[1] top-8 right-8;
-        }
-        content-wrapper {
-            @apply flex flex-col space-y-6 z-[1] h-full;
-
-            title-wrapper {
-                @apply flex flex-col space-y-6;
-            }
-
-            p {
-                @apply text-white/80;
-            }
-        }
     }
 </style>

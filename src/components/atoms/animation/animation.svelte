@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Lottie from 'lottie-web'
+    import Lottie, { type AnimationItem } from 'lottie-web'
     import { onMount } from 'svelte'
     import { RendererType } from './animation.enums'
 
@@ -18,7 +18,7 @@
     export let isHovered: boolean = false
 
     let player: HTMLElement
-    let animation: any
+    let animation: AnimationItem | undefined
     onMount(() => {
         animation = Lottie.loadAnimation({
             renderer,
@@ -32,7 +32,7 @@
         }
     })
 
-    $: {
+    $: if (hoverPauseEnabled) {
         if (isHovered) {
             animation?.play()
         } else {
