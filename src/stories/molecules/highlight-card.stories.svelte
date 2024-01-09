@@ -57,7 +57,7 @@
 </Template>
 
 <Story
-    name="Blogpost Card"
+    name="Highlight Card"
     args={{
         title: 'Send IOTA Tokens with Javascript',
         overline: 'Overline',

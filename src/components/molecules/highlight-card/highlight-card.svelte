@@ -56,7 +56,7 @@
      */
     export let description: string = ''
 
-    let isHovered: boolean = true
+    let isHovered: boolean = false
 
     $: alignmentClass = CONTENT_ALIGNMENT[position]
     $: justifyClass =
@@ -77,12 +77,14 @@
 >
     {#if backgroundMedia}
         <media-wrapper class="absolute inset-0 z-0">
-            <MediaManager media={backgroundMedia} pointerEventsNone {isHovered} hoverPauseEnabled />
+            <MediaManager media={backgroundMedia} pointerEventsNone hoverPauseEnabled={isHovered} />
         </media-wrapper>
     {/if}
-    <icon-link-wrapper class="absolute z-[1] top-8 right-8">
-        <Icon icon={IconEnum.UpRightArrow} width={32} height={32} />
-    </icon-link-wrapper>
+    {#if link}
+        <icon-link-wrapper class="absolute z-[1] top-8 right-8">
+            <Icon icon={IconEnum.UpRightArrow} width={32} height={32} />
+        </icon-link-wrapper>
+    {/if}
     <content-wrapper class="flex flex-col space-y-6 z-[1] h-full {alignmentClass} {justifyClass}">
         <title-wrapper class="flex flex-col space-y-6">
             {#if icon}
