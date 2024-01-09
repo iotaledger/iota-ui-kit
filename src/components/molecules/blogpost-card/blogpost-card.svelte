@@ -5,19 +5,22 @@
 
     /**
      * Title to display
+     * @type {string}
      */
     export let title: string
     /**
      * Labels to display (as an array of strings)
+     * @type {string[]}
      */
-    export let labels: string[]
+    export let labels: string[] = []
     /**
      * Whether to use dark mode
+     * @type {boolean}
      */
     export let darkmode: boolean = false
     /**
      * Media to display
-     * @type {string}
+     * @type {Media}
      */
     export let media: Media
 
@@ -28,17 +31,19 @@
     <media-wrapper class="aspect-video w-full overflow-hidden">
         <MediaManager {media} pointerEventsNone />
     </media-wrapper>
-    <div class="flex flex-col items-start space-y-4">
-        <labels-wrapper class="flex space-x-2 text-sm {LABEL_COLORS[mode]}">
-            {#each labels as label, index}
-                <p>
-                    {label}
-                </p>
-                {#if index < labels.length - 1}
-                    <p>|</p>
-                {/if}
-            {/each}
-        </labels-wrapper>
+    <div class="flex flex-col items-start space-y-4 pr-8 w-full">
+        {#if labels.length}
+            <labels-wrapper class="flex space-x-2 text-sm {LABEL_COLORS[mode]}">
+                {#each labels as label, index}
+                    <p>
+                        {label}
+                    </p>
+                    {#if index < labels.length - 1}
+                        <p>|</p>
+                    {/if}
+                {/each}
+            </labels-wrapper>
+        {/if}
         <p class="text-lg font-medium {TITLE_COLORS[mode]}">{title}</p>
     </div>
 </blogpost-card>
