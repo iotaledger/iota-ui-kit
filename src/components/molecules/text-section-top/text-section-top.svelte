@@ -1,8 +1,13 @@
 <script lang="ts">
-    import { TitleSize, TitlePosition } from '$atoms/title'
+    import { TitleSize } from '$atoms/title'
     import { Button, Title } from '$components'
     import type { ComponentProps } from 'svelte'
-    import { DIRECTION_CLASSES, TEXT_COLORS } from './text-section-top.classes'
+    import {
+        DIRECTION_CLASSES,
+        PADDING_TOP_WITHOUT_OVERLINE_CLASSES,
+        PADDING_TOP_WITH_OVERLINE_CLASSES,
+        TEXT_COLORS,
+    } from './text-section-top.classes'
     import { Direction } from '$lib/enums'
 
     /**
@@ -22,11 +27,6 @@
     export let subtitle: string = ''
     export let darkmode: boolean = false
     /**
-     * The position of the title
-     * @type {TitlePosition}
-     */
-    export let position: TitlePosition = TitlePosition.Start
-    /**
      * Title to display
      * @type {string}
      */
@@ -45,20 +45,26 @@
 
     /**
      * Content direction
+     * @type {Direction}
      */
     export let direction: Direction = Direction.Row
 
     $: textColorClass = !darkmode ? TEXT_COLORS.light : TEXT_COLORS.dark
     $: directionClass = DIRECTION_CLASSES[direction]
+    $: paddingTopClass =
+        size !== TitleSize.H5 &&
+        (overline
+            ? PADDING_TOP_WITH_OVERLINE_CLASSES[size]
+            : PADDING_TOP_WITHOUT_OVERLINE_CLASSES[size])
 </script>
 
 <div class="flex w-full {directionClass}">
     <div class="lg:w-1/2">
-        <Title {size} {overline} {subtitle} {darkmode} {position} {title} />
+        <Title {size} {overline} {subtitle} {darkmode} {title} />
     </div>
-    <div class="flex flex-col text-left lg:w-1/2 space-y-12">
+    <div class="flex flex-col text-left lg:w-1/2 space-y-12 {paddingTopClass}">
         <p class="leading-6 {textColorClass}">{description}</p>
-        <buttons-wrapper class="flex space-x-2">
+        <buttons-wrapper class="flex space-x-4">
             {#each buttons as button}
                 <Button {...button} {darkmode} />
             {/each}
