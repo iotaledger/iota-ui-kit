@@ -12,9 +12,6 @@
             labels: {
                 control: { type: 'array' },
             },
-            darkmode: {
-                control: { type: 'boolean' },
-            },
             media: {
                 control: { type: 'object' },
             },
