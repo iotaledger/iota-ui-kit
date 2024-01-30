@@ -8,7 +8,7 @@ export const TEXT_COLORS: Record<Mode, string> = {
 
 export const DIRECTION_CLASSES = {
     [Direction.Row]: 'flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-28',
-    [Direction.Column]: 'flex-col space-y-6 justify-start items-start text-left',
+    [Direction.Column]: 'flex-col space-y-12 justify-start items-start text-left',
 }
 
 export const PADDING_TOP_WITH_OVERLINE_CLASSES = {

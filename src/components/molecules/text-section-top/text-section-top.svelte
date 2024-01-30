@@ -52,6 +52,7 @@
     $: textColorClass = !darkmode ? TEXT_COLORS.light : TEXT_COLORS.dark
     $: directionClass = DIRECTION_CLASSES[direction]
     $: paddingTopClass =
+        direction === Direction.Row &&
         size !== TitleSize.H5 &&
         (overline
             ? PADDING_TOP_WITH_OVERLINE_CLASSES[size]
