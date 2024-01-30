@@ -65,15 +65,13 @@
             : CONTENT_JUSTIFICATION.between
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <svelte:element
     this={link ? 'a' : 'div'}
     on:mouseenter={() => (isHovered = true)}
     on:mouseleave={() => (isHovered = false)}
     class="highlight-card {backgroundColor}"
-    target="_blank"
-    href={link}
-    role="link"
-    tabindex="0"
+    {...link ? { target: '_blank', href: link, role: 'link', tabindex: 0 } : {}}
 >
     {#if backgroundMedia}
         <media-wrapper class="absolute inset-0 z-0">
@@ -81,7 +79,11 @@
         </media-wrapper>
     {/if}
     {#if link}
-        <icon-link-wrapper class="absolute z-[1] top-8 right-8">
+        <icon-link-wrapper
+            class="absolute z-[1] top-8 right-8 {isHovered
+                ? 'top-6 right-6 '
+                : ''} transition-all duration-500 ease-in-out"
+        >
             <Icon icon={IconEnum.UpRightArrow} width={32} height={32} />
         </icon-link-wrapper>
     {/if}

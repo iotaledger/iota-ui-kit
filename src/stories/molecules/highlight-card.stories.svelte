@@ -41,6 +41,12 @@
                     type: 'text',
                 },
             },
+            position: {
+                control: {
+                    type: 'select',
+                },
+                options: Object.values(Position),
+            },
         },
     } satisfies Meta<HighlightCardComponent>
 </script>
@@ -50,6 +56,7 @@
     import type { Meta } from '@storybook/svelte'
     import { MediaType } from '$molecules'
     import { IconEnum } from '$components'
+    import { Position } from '$lib/enums'
 </script>
 
 <Template let:args>
