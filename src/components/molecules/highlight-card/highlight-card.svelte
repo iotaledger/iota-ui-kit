@@ -81,8 +81,8 @@
     {#if link}
         <icon-link-wrapper
             class="absolute z-[1] top-8 right-8 {isHovered
-                ? 'top-6 right-6 '
-                : ''} transition-all duration-500 ease-in-out"
+                ? 'translate-x-1 -translate-y-1'
+                : ''} transition-all duration-300"
         >
             <Icon icon={IconEnum.UpRightArrow} width={32} height={32} />
         </icon-link-wrapper>
