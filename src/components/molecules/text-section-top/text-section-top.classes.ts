@@ -12,13 +12,13 @@ export const DIRECTION_CLASSES = {
 }
 
 export const PADDING_TOP_WITH_OVERLINE_CLASSES = {
-    [TitleSize.H2]: 'pt-28',
-    [TitleSize.H3]: 'pt-[120px]',
-    [TitleSize.H4]: 'pt-28',
+    [TitleSize.H2]: 'lg:pt-28',
+    [TitleSize.H3]: 'lg:pt-[120px]',
+    [TitleSize.H4]: 'lg:pt-28',
 }
 
 export const PADDING_TOP_WITHOUT_OVERLINE_CLASSES = {
-    [TitleSize.H2]: 'pt-16',
-    [TitleSize.H3]: 'pt-12',
-    [TitleSize.H4]: 'pt-8',
+    [TitleSize.H2]: 'lg:pt-16',
+    [TitleSize.H3]: 'lg:pt-12',
+    [TitleSize.H4]: 'lg:pt-8',
 }
