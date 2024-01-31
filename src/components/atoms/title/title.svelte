@@ -42,7 +42,7 @@
     $: subtitleTextClass = size === TitleSize.H5 ? SUBTITLE_TEXT.smaller : SUBTITLE_TEXT.default
 </script>
 
-<div class="flex flex-col space-y-12 font-medium {positionClass}">
+<div class="flex flex-col space-y-6 lg:space-y-12 font-medium {positionClass}">
     {#if overline.length > 0}
         <span class="{OVERLINE_TEXT} {textColorClass}">{overline} </span>
     {/if}

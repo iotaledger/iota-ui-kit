@@ -2,7 +2,7 @@ import { Mode } from '$lib/enums'
 import { TitleSize, TitlePosition } from './title.enums'
 
 export const TITLE_SIZES: Record<TitleSize, string> = {
-    [TitleSize.H2]: 'text-8xl	leading-112',
+    [TitleSize.H2]: 'text-8xl leading-112',
     [TitleSize.H3]: 'text-7xl leading-88',
     [TitleSize.H4]: 'text-6xl leading-72',
     [TitleSize.H5]: 'text-5xl leading-58',
