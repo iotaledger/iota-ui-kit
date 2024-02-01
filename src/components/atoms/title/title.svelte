@@ -44,7 +44,7 @@
     $: spaceBetweenClass = size === TitleSize.H6 ? 'space-y-6' : 'space-y-12'
 </script>
 
-<div class="flex flex-col font-medium {positionClass} {spaceBetweenClass}">
+<div class="flex flex-col space-y-6 lg:space-y-12 font-medium {positionClass} {spaceBetweenClass}">
     {#if overline.length > 0}
         <span class="{OVERLINE_TEXT} {textColorClass}">{overline} </span>
     {/if}
