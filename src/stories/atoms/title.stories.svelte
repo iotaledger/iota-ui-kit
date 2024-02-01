@@ -13,7 +13,7 @@
             },
             position: {
                 control: { type: 'select' },
-                options: Object.values(TitlePosition),
+                options: Object.values(Position),
             },
             title: { control: 'text' },
             subtitle: { control: 'text' },
@@ -25,7 +25,8 @@
 <script lang="ts">
     import { isDarkModeEnabled } from '$lib/storybook'
     import { Story, Template } from '@storybook/addon-svelte-csf'
-    import { TitlePosition, TitleSize } from '$components/atoms/title'
+    import { TitleSize } from '$components/atoms/title'
+    import { Position } from '$lib/enums'
 </script>
 
 <Template let:args>
@@ -40,7 +41,7 @@
         title: 'Title Text',
         subtitle: 'Subtitle Text',
         overline: 'Overline',
-        position: TitlePosition.Start,
+        position: Position.Start,
         darkmode: $isDarkModeEnabled,
     }}
 />

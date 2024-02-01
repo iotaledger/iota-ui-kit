@@ -12,10 +12,6 @@
                 control: { type: 'select' },
                 options: Object.values(TitleSize),
             },
-            position: {
-                control: { type: 'select' },
-                options: Object.values(TitlePosition),
-            },
             title: { control: 'text' },
             subtitle: { control: 'text' },
             overline: { control: 'text' },
@@ -42,7 +38,7 @@
     import { isDarkModeEnabled } from '$lib/storybook'
     import { Story, Template } from '@storybook/addon-svelte-csf'
     import type { Meta } from '@storybook/svelte'
-    import { TitleSize, TitlePosition } from '$components/atoms/title'
+    import { TitleSize } from '$components/atoms/title'
     import { Direction } from '$lib/enums'
     import { MarginDecorator } from '$decorators'
 </script>

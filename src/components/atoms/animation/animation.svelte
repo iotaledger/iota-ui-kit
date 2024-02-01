@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Lottie from 'lottie-web'
+    import Lottie, { type AnimationItem } from 'lottie-web'
     import { onMount } from 'svelte'
     import { RendererType } from './animation.enums'
 
@@ -14,11 +14,13 @@
     export let loop: boolean = true
     export let pointerEventsNone: boolean = false
     export let backgroundColor: string = 'transparent'
+    export let hoverPauseEnabled: boolean = false
 
     let player: HTMLElement
+    let animation: AnimationItem | undefined
 
     onMount(() => {
-        Lottie.loadAnimation({
+        animation = Lottie.loadAnimation({
             renderer,
             container: player,
             loop,
@@ -26,6 +28,12 @@
             path: src,
         })
     })
+
+    $: if (hoverPauseEnabled) {
+        animation?.play()
+    } else {
+        animation?.pause()
+    }
 </script>
 
 <dotlottie-player
@@ -35,6 +43,7 @@
     {src}
     {autoplay}
     {loop}
+    {hoverPauseEnabled}
 />
 
 <style lang="postcss">
