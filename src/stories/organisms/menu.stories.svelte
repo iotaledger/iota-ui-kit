@@ -23,10 +23,10 @@
 </script>
 
 <script lang="ts">
-    import { isDarkModeEnabled } from '$lib/storybook'
+    import { isDarkModeEnabled } from '$storybook'
     import { Story, Template } from '@storybook/addon-svelte-csf'
-    import { CUSTOM_VIEWPORTS } from '$lib/storybook/constants'
-    import { ViewportsEnum } from '$lib/storybook/enums'
+    import { CUSTOM_VIEWPORTS } from '$storybook/constants'
+    import { ViewportsEnum } from '$storybook/enums'
     import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 </script>
 

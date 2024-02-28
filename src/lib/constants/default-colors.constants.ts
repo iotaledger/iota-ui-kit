@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import colors from 'tailwindcss/colors'
+import colors from 'tailwindcss/colors.js'
 
 const {
     lightBlue,
@@ -15,4 +15,4 @@ const {
     ...remainingColors
 } = colors
 
-export const DEFAULT_COLORS = remainingColors
+export { remainingColors as DEFAULT_COLORS }

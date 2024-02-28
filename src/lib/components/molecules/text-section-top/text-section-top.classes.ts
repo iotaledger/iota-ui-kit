@@ -1,4 +1,4 @@
-import { TitleSize } from '$components'
+import { TitleSize } from '$lib/components'
 import { Direction, Mode } from '$lib/enums'
 
 export const TEXT_COLORS: Record<Mode, string> = {

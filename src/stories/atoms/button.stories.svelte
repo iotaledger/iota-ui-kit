@@ -26,7 +26,7 @@
 
 <script lang="ts">
     import { IconEnum } from '$components'
-    import { isDarkModeEnabled } from '$lib/storybook'
+    import { isDarkModeEnabled } from '$storybook'
     import { Story, Template } from '@storybook/addon-svelte-csf'
     import type { Meta } from '@storybook/svelte'
 </script>

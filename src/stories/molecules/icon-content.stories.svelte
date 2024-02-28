@@ -29,7 +29,7 @@
 </script>
 
 <script lang="ts">
-    import { isDarkModeEnabled } from '$lib/storybook'
+    import { isDarkModeEnabled } from '$storybook'
     import { Story, Template } from '@storybook/addon-svelte-csf'
     import type { Meta } from '@storybook/svelte'
     import { Direction } from '$lib/enums'
