@@ -16,6 +16,7 @@
         "build-package:watch": "svelte-package -o package/dist -w",
         "package": "yarn run prepare-package && yarn run build-package",
         "package:watch": "yarn run prepare-package && yarn run build-package:watch",
+        "tag-release": "./scripts/tag_release.sh",
         "prepare": "husky install"
     },
     "devDependencies": {
