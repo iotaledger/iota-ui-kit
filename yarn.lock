@@ -6982,6 +6982,50 @@ __metadata:
   languageName: node
   linkType: hard
 
+"iota-ui-kit@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "iota-ui-kit@workspace:."
+  dependencies:
+    "@storybook/addon-docs": ^7.5.3
+    "@storybook/addon-essentials": ^7.5.3
+    "@storybook/addon-interactions": ^7.5.3
+    "@storybook/addon-links": ^7.5.3
+    "@storybook/addon-svelte-csf": ^4.0.13
+    "@storybook/blocks": ^7.5.3
+    "@storybook/manager-api": ^7.5.3
+    "@storybook/svelte": ^7.5.3
+    "@storybook/svelte-vite": ^7.5.3
+    "@storybook/theming": ^7.5.3
+    "@sveltejs/package": ^2.2.7
+    "@sveltejs/vite-plugin-svelte": ^2.5.2
+    "@tsconfig/svelte": ^5.0.2
+    "@typescript-eslint/eslint-plugin": ^6.11.0
+    "@typescript-eslint/parser": ^6.11.0
+    autoprefixer: ^10.4.16
+    eslint: ^8.53.0
+    eslint-config-prettier: ^9.0.0
+    eslint-plugin-svelte: ^2.35.0
+    husky: ^8.0.3
+    lint-staged: ^15.1.0
+    lottie-web: ^5.12.2
+    postcss: ^8.4.31
+    prettier: ^3.1.0
+    prettier-plugin-svelte: ^3.1.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    storybook: ^7.5.3
+    storybook-dark-mode: ^3.0.1
+    svelte: ^4.2.3
+    svelte-check: ^3.6.0
+    tailwindcss: ^3.3.5
+    tslib: ^2.6.2
+    typescript: ^5.2.2
+    vite: ^4.5.0
+  peerDependencies:
+    svelte: ^3.55.1
+  languageName: unknown
+  linkType: soft
+
 "ip@npm:^2.0.0":
   version: 2.0.0
   resolution: "ip@npm:2.0.0"
@@ -10855,50 +10899,6 @@ __metadata:
   checksum: 1a58f3f8b2fe493f595952ad2e8d2876a18e2de16b211c2e795af879863948db838bdcc962d300c7fbd8d827ee616905d7799c30a46206a045aec5f7c8e5031b
   languageName: node
   linkType: hard
-
-"vmmad-test-ui-kit@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "vmmad-test-ui-kit@workspace:."
-  dependencies:
-    "@storybook/addon-docs": ^7.5.3
-    "@storybook/addon-essentials": ^7.5.3
-    "@storybook/addon-interactions": ^7.5.3
-    "@storybook/addon-links": ^7.5.3
-    "@storybook/addon-svelte-csf": ^4.0.13
-    "@storybook/blocks": ^7.5.3
-    "@storybook/manager-api": ^7.5.3
-    "@storybook/svelte": ^7.5.3
-    "@storybook/svelte-vite": ^7.5.3
-    "@storybook/theming": ^7.5.3
-    "@sveltejs/package": ^2.2.7
-    "@sveltejs/vite-plugin-svelte": ^2.5.2
-    "@tsconfig/svelte": ^5.0.2
-    "@typescript-eslint/eslint-plugin": ^6.11.0
-    "@typescript-eslint/parser": ^6.11.0
-    autoprefixer: ^10.4.16
-    eslint: ^8.53.0
-    eslint-config-prettier: ^9.0.0
-    eslint-plugin-svelte: ^2.35.0
-    husky: ^8.0.3
-    lint-staged: ^15.1.0
-    lottie-web: ^5.12.2
-    postcss: ^8.4.31
-    prettier: ^3.1.0
-    prettier-plugin-svelte: ^3.1.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    storybook: ^7.5.3
-    storybook-dark-mode: ^3.0.1
-    svelte: ^4.2.3
-    svelte-check: ^3.6.0
-    tailwindcss: ^3.3.5
-    tslib: ^2.6.2
-    typescript: ^5.2.2
-    vite: ^4.5.0
-  peerDependencies:
-    svelte: ^3.55.1
-  languageName: unknown
-  linkType: soft
 
 "walker@npm:^1.0.8":
   version: 1.0.8
