@@ -20,6 +20,8 @@
                 control: { type: 'select' },
                 options: Object.values(IconEnum),
             },
+            href: { control: 'text' },
+            isExternal: { control: 'boolean' },
         },
     } satisfies Meta<Button>
 </script>
@@ -99,6 +101,20 @@
         size: ButtonSize.Medium,
         darkmode: $isDarkModeEnabled,
         disabled: false,
+        icon: IconEnum.UpRightArrow,
+    }}
+/>
+
+<Story
+    name="Primary As Link"
+    args={{
+        type: ButtonType.Primary,
+        label: 'Primary',
+        size: ButtonSize.Medium,
+        darkmode: $isDarkModeEnabled,
+        disabled: false,
+        href: 'https://iota.org',
+        isExternal: true,
         icon: IconEnum.UpRightArrow,
     }}
 />
