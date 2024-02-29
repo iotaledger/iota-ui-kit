@@ -23,6 +23,17 @@
     export let label: string = ''
     export let darkmode: boolean = false
     export let disabled: boolean = false
+
+    /**
+     * Use the button as a link
+     */
+    export let href: string = ''
+
+    /**
+     * Open the link in a new tab
+     */
+    export let isExternal: boolean = false
+
     /**
      * Selected Icon
      * @type {IconEnum}
@@ -36,17 +47,26 @@
     $: iconClasses = icon && !label ? BUTTON_WITH_ICON[size] : 'px-6'
 </script>
 
-<button type="button" class="{textClasses} {colorClasses} {iconClasses}" {disabled} on:click>
+<svelte:element
+    this={href ? 'a' : 'button'}
+    role={href ? 'link' : 'button'}
+    class="{textClasses} {colorClasses} {iconClasses}"
+    {disabled}
+    href={href || null}
+    target={href && isExternal ? '_blank' : null}
+    on:click
+>
     {#if label}
         {label}
     {/if}
     {#if icon}
         <Icon {icon} fill={darkmode ? 'white' : 'currentColor'} />
     {/if}
-</button>
+</svelte:element>
 
 <style lang="postcss">
-    button {
+    button,
+    a {
         @apply font-medium rounded-sm inline-flex justify-center items-center gap-4;
         @apply py-2;
         @apply disabled:opacity-50 disabled:cursor-not-allowed;
