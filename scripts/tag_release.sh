@@ -18,7 +18,7 @@ else
 fi
 
 echo "Bumping version in package.json..."
-sed -i.bak "4s/version\": \"\(.*\)\"/version\": \"$TARGET_VERSION\"/g" package.json
+sed -i.bak "s/version\": \"[^\"]*/version\": \"$TARGET_VERSION/" package.json
 rm package.json.bak
 
 

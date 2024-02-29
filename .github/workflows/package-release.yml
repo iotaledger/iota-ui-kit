@@ -1,54 +1,57 @@
 name: IOTA UI KIT Package Release
 
 on:
-  push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
-      - "v[0-9]+.[0-9]+.[0-9]+-rc.[0-9]+"
+    push:
+        tags:
+            - 'v[0-9]+.[0-9]+.[0-9]+'
+            - 'v[0-9]+.[0-9]+.[0-9]+-rc.[0-9]+'
 
 jobs:
-  set_tags:
-    name: Set Tags
-    runs-on: ubuntu-latest
-    outputs:
-      version_tag: ${{ steps.set_version_tag.outputs.version_tag }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    set_tags:
+        name: Set Tags
+        runs-on: ubuntu-latest
+        outputs:
+            version_tag: ${{ steps.set_version_tag.outputs.version_tag }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
 
-      - name: Set up the version tag
-        id: set_version_tag
-        run: |
-            echo "VERSION_TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+            - name: Set up the version tag
+              id: set_version_tag
+              run: |
+                  echo "VERSION_TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
-  package_publish:
-    name: Package Publish
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    package_publish:
+        name: Package Publish
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '18.19.x'
+                  registry-url: https://registry.npmjs.org/
+
+            - name: Use Yarn 3
+              run: corepack enable
+
+            - name: Install dependencies
+              run: yarn install
+
+            - name: Build Package
+              run: yarn run package
+
+            - name: Publish
+              run: cd package && npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    create_draft_release:
+        name: Create Draft Release
+        needs: [set_tags, package_publish]
+        uses: ./.github/workflows/create-draft-release.reusable.yml
         with:
-          node-version: '18.19.x'
-          registry-url: https://registry.npmjs.org/
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Build Package
-        run: yarn run package
-
-      - name: Publish
-        run: cd package && npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  create_draft_release:
-    name: Create Draft Release
-    needs: [set_tags, package_publish]
-    uses: ./.github/workflows/create-draft-release.reusable.yml
-    with:
-      name: IOTA UI KIT ${{ needs.set_tags.outputs.version_tag }}
-      version_tag: ${{ needs.set_tags.outputs.version_tag }}
+            name: IOTA UI KIT ${{ needs.set_tags.outputs.version_tag }}
+            version_tag: ${{ needs.set_tags.outputs.version_tag }}
