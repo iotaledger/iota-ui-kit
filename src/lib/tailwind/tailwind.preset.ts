@@ -28,6 +28,13 @@ export default {
                 lg: pxToRem(240),
             },
         },
+        screens: {
+            xs: '768px',
+            sm: '1024px',
+            md: '1200px',
+            lg: '1440px',
+            xl: '1920px',
+        },
         extend: {
             padding: {
                 18: toTailwindScale(18),
