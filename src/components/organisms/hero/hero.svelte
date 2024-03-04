@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Button } from '$components/atoms'
-    import { MediaType, type Media } from '$components/molecules'
+    import { type Media } from '$components/molecules'
     import { IconText, AnchorLink, MediaManager } from '$components/molecules'
     import { Mode } from '$lib/enums'
     import { TEXT_COLORS, CONTENT_SECTION_CLASSES, TITLE_BOX_CLASSES } from './hero.classes'
@@ -12,10 +12,8 @@
      * @type {HeroVariant}
      */
     export let variant: HeroVariant = HeroVariant.Primary
-    export let backgroundMedia: Media | undefined = {
-        type: MediaType.Video,
-        src: 'https://videos.ctfassets.net/xit7f234flxz/vWgyEvbf4sULsQJPaIKqf/a32fcfbefb146832045cb338f9b210b0/earth.webm',
-    }
+    export let backgroundMedia: Media | undefined
+
     /**
      * The id of the component
      */
@@ -63,7 +61,7 @@
     $: componentDarkmode = variant === HeroVariant.Primary ? darkmode : !darkmode
 </script>
 
-<section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20 px-30">
+<section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20">
     <div class="container mx-auto self-stretch">
         {#if backgroundMedia}
             <div class="absolute inset-0 z-0">
