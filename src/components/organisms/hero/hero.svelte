@@ -61,7 +61,7 @@
     $: componentDarkmode = variant === HeroVariant.Primary ? darkmode : !darkmode
 </script>
 
-<section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20 px-30">
+<section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20">
     <div class="container mx-auto self-stretch">
         {#if backgroundMedia}
             <div class="absolute inset-0 z-0">
