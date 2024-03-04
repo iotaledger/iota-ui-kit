@@ -5977,6 +5977,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esm-env@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "esm-env@npm:1.0.0"
+  checksum: 3372b918ebb213b2c31e9a6ebc437e1f20062363413f837b6ca4c47bda38d7ba983c3a1a8eb8d9d8434969e9366bba8632743f1b8c7cf637a9c8a25ae95d865e
+  languageName: node
+  linkType: hard
+
 "espree@npm:9.2.0":
   version: 9.2.0
   resolution: "espree@npm:9.2.0"
@@ -7005,6 +7012,7 @@ __metadata:
     eslint: ^8.53.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-svelte: ^2.35.0
+    esm-env: ^1.0.0
     husky: ^8.0.3
     lint-staged: ^15.1.0
     lottie-web: ^5.12.2

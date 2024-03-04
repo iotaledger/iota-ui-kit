@@ -13,7 +13,8 @@
                 control: { type: 'select' },
                 options: Object.values(IconEnum),
             },
-            href: { control: false },
+            href: { control: 'text' },
+            isExternal: { control: 'boolean' },
         },
     } satisfies Meta<AnchorLinkComponent>
 </script>
@@ -36,5 +37,6 @@
         darkmode: true,
         icon: IconEnum.UpRightArrow,
         href: '',
+        isExternal: false,
     }}
 />

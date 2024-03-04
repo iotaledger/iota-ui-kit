@@ -12,6 +12,21 @@ const pxToRem = (px: number, base: number = 16) => `${px / base}rem`
 
 export default {
     theme: {
+        container: {
+            center: true,
+            screens: {
+                sm: '1024px',
+                md: '1200px',
+                lg: '1440px',
+                xl: '1920px',
+            },
+            padding: {
+                DEFAULT: pxToRem(24),
+                sm: pxToRem(60),
+                md: pxToRem(120),
+                lg: pxToRem(240),
+            },
+        },
         extend: {
             padding: {
                 18: toTailwindScale(18),
