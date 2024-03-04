@@ -19,10 +19,20 @@
      */
     export let icon: IconEnum = IconEnum.UpRightArrow
 
+    /**
+     * Whether to open the link in a new tab
+     */
+    export let isExternal: boolean = false
+
     $: mode = darkmode ? Mode.Dark : Mode.Light
 </script>
 
-<anchor-link-wrapper as="a" {href} class={BACKGROUND_COLORS[mode]}>
+<a
+    class="anchor-link-wrapper {BACKGROUND_COLORS[mode]}"
+    {href}
+    target={isExternal ? '_blank' : null}
+    rel={isExternal ? 'noopener noreferrer' : null}
+>
     <anchor-link-content class={BORDER_COLORS[mode]}>
         <span class={TEXT_COLORS[mode]}>
             {label}
@@ -33,10 +43,10 @@
             </div>
         </icon-wrapper>
     </anchor-link-content>
-</anchor-link-wrapper>
+</a>
 
 <style lang="postcss">
-    anchor-link-wrapper {
+    .anchor-link-wrapper {
         @apply flex py-4 pl-6 w-full;
         @apply transition-all duration-200;
         @apply cursor-pointer;
