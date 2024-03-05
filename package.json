@@ -1,5 +1,5 @@
 {
-    "name": "iota-ui-kit",
+    "name": "@iota/ui-kit",
     "version": "0.0.0",
     "type": "module",
     "scripts": {
