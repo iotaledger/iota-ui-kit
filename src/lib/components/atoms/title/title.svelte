@@ -44,15 +44,15 @@
      */
     export let title: string
 
-    let defaultSize: TitleSize = HEADING_TO_SIZE[tag]
+    let fallbackSize: TitleSize = HEADING_TO_SIZE[tag]
 
-    $: defaultSize = size || HEADING_TO_SIZE[tag]
-    $: sizeClass = TITLE_SIZES_BY_POSITION[position][defaultSize]
+    $: fallbackSize = size || HEADING_TO_SIZE[tag]
+    $: sizeClass = TITLE_SIZES_BY_POSITION[position][fallbackSize]
     $: positionClass = TITLE_POSITIONS[position]
     $: titleColorClass = !darkmode ? TITLE_TEXT_COLORS.title.light : TITLE_TEXT_COLORS.title.dark
     $: textColorClass = !darkmode ? TITLE_TEXT_COLORS.text.light : TITLE_TEXT_COLORS.text.dark
     $: subtitleTextClass =
-        size === TitleSize.ExtraSmall ? SUBTITLE_TEXT.smaller : SUBTITLE_TEXT.default
+        fallbackSize === TitleSize.ExtraSmall ? SUBTITLE_TEXT.smaller : SUBTITLE_TEXT.default
 </script>
 
 <div class="flex flex-col font-medium space-y-6 {positionClass} layout--{position}">
