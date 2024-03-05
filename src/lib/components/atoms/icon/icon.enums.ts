@@ -1,6 +1,5 @@
 export enum IconEnum {
     ArrowTopRight = 'arrow-top-right',
-    ArrowLink = 'arrow-link',
     Atom = 'atom',
     Book = 'book',
     CircleArrowUp = 'circle-arrow-up',
@@ -12,6 +11,7 @@ export enum IconEnum {
     OpenSource = 'open-source',
     PieChart = 'pie-chart',
     Search = 'search',
+    SmallArrowBottomRight = 'small-arrow-bottom-right',
     Ticket = 'ticket',
     UserCard = 'user-card',
     UserWarning = 'user-warning',

@@ -1,5 +1,5 @@
 export { default as ArrowTopRight } from './arrow-top-right.svelte'
-export { default as ArrowLink } from './arrow-link.svelte'
+export { default as SmallArrowBottomRight } from './small-arrow-bottom-right.svelte'
 export { default as Atom } from './atom.svelte'
 export { default as Book } from './book.svelte'
 export { default as CircleArrowUp } from './circle-arrow-up.svelte'

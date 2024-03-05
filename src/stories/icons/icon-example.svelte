@@ -7,6 +7,7 @@
     export let width: number = 24
     export let height: number = 24
     export let darkmode: boolean = false
+    export let iconOutline: boolean = false
 
     // Update icon fill when theme changes
     $: if (darkmode) {
@@ -22,6 +23,18 @@
     class:bg-iota-gray-50={!darkmode}
     class:text-white={darkmode}
 >
-    <Icon {icon} {fill} {width} {height} />
-    <p>{name}</p>
+    <outline class:active={iconOutline}>
+        <Icon {icon} {fill} {width} {height} />
+    </outline>
+    <p class="text-center">{name}</p>
 </icon-example>
+
+<style lang="postcss">
+    outline {
+        @apply border border-transparent;
+    }
+
+    outline.active {
+        @apply border-iota-gray-500;
+    }
+</style>

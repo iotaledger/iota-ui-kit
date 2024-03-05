@@ -6,6 +6,7 @@
         argTypes: {
             fill: { control: 'color' },
             size: { control: { type: 'number', max: 100, min: 24 } },
+            iconOutline: { control: 'boolean' },
         },
     } satisfies Meta
 </script>
@@ -36,5 +37,6 @@
     args={{
         fill: $isDarkModeEnabled ? 'white' : 'black',
         size: 24,
+        iconOutline: false,
     }}
 />
