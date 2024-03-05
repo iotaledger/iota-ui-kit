@@ -1,10 +1,11 @@
 <script lang="ts" context="module">
     import type { Meta } from '@storybook/svelte'
     export const meta = {
-        title: 'Icons/Icons Gallery',
+        title: 'Icons/Icon Gallery',
         tags: ['autodocs'],
         argTypes: {
             fill: { control: 'color' },
+            size: { control: { type: 'number', max: 100, min: 24 } },
         },
     } satisfies Meta
 </script>
@@ -17,10 +18,15 @@
 </script>
 
 <Template let:args>
-    {@const reactiveArgs = { ...args, darkmode: $isDarkModeEnabled }}
+    {@const reactiveArgs = {
+        ...args,
+        width: args.size,
+        height: args.size,
+        darkmode: $isDarkModeEnabled,
+    }}
     <IconGallery {...reactiveArgs}>
-        {#each Object.entries(IconEnum) as [name, icon]}
-            <IconExample {icon} {...reactiveArgs} {name} />
+        {#each Object.values(IconEnum) as icon}
+            <IconExample {icon} {...reactiveArgs} name={icon} />
         {/each}
     </IconGallery>
 </Template>
@@ -29,5 +35,6 @@
     name="Icon Gallery"
     args={{
         fill: $isDarkModeEnabled ? 'white' : 'black',
+        size: 24,
     }}
 />
