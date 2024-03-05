@@ -1,9 +1,41 @@
 import type { ComponentType, SvelteComponent } from 'svelte'
 import { IconEnum } from './icon.enums'
-import { Bullet, Menu, UpRightArrow } from './icons'
+import {
+    ArrowTopRight,
+    Atom,
+    Book,
+    CircleArrowUp,
+    CoinStack,
+    Dart,
+    Event,
+    Menu,
+    Meter,
+    OpenSource,
+    PieChart,
+    Search,
+    SmallArrowBottomRight,
+    Ticket,
+    UserCard,
+    UserWarning,
+    XClone,
+} from './icons'
 
 export const ICON_MAP: Record<IconEnum, ComponentType<SvelteComponent>> = {
-    [IconEnum.UpRightArrow]: UpRightArrow,
+    [IconEnum.ArrowTopRight]: ArrowTopRight,
+    [IconEnum.Atom]: Atom,
+    [IconEnum.Book]: Book,
+    [IconEnum.CircleArrowUp]: CircleArrowUp,
+    [IconEnum.CoinStack]: CoinStack,
+    [IconEnum.Dart]: Dart,
+    [IconEnum.Event]: Event,
     [IconEnum.Menu]: Menu,
-    [IconEnum.Bullet]: Bullet,
+    [IconEnum.Meter]: Meter,
+    [IconEnum.OpenSource]: OpenSource,
+    [IconEnum.PieChart]: PieChart,
+    [IconEnum.Search]: Search,
+    [IconEnum.SmallArrowBottomRight]: SmallArrowBottomRight,
+    [IconEnum.Ticket]: Ticket,
+    [IconEnum.UserCard]: UserCard,
+    [IconEnum.UserWarning]: UserWarning,
+    [IconEnum.XClone]: XClone,
 }
