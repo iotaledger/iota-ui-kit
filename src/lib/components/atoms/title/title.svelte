@@ -36,22 +36,30 @@
      */
     export let title: string
 
+    /**
+     * Use the title size as a tag
+     */
+    export let sizeAsTag: boolean = false
+
     $: sizeClass = TITLE_SIZES[size]
     $: positionClass = TITLE_POSITIONS[position]
     $: titleColorClass = !darkmode ? TITLE_TEXT_COLORS.title.light : TITLE_TEXT_COLORS.title.dark
     $: textColorClass = !darkmode ? TITLE_TEXT_COLORS.text.light : TITLE_TEXT_COLORS.text.dark
     $: subtitleTextClass = size === TitleSize.H5 ? SUBTITLE_TEXT.smaller : SUBTITLE_TEXT.default
     $: spaceBetweenClass = size === TitleSize.H6 ? 'space-y-6' : 'space-y-12'
+    $: titleTag = sizeAsTag ? size : 'span'
 </script>
 
-<div class="flex flex-col space-y-6 lg:space-y-12 font-medium {positionClass} {spaceBetweenClass}">
+<div
+    class="flex flex-col space-y-6 lg:space-y-12 font-medium {positionClass} {spaceBetweenClass} layout--{position}"
+>
     {#if overline.length > 0}
         <span class="{OVERLINE_TEXT} {textColorClass}">{overline} </span>
     {/if}
 
-    <span class="{titleColorClass} {sizeClass}">
+    <svelte:element this={titleTag} class="{titleColorClass} {sizeClass}">
         {title}
-    </span>
+    </svelte:element>
 
     {#if subtitle.length > 0}
         <span class="{subtitleTextClass} {textColorClass}">
@@ -59,3 +67,16 @@
         </span>
     {/if}
 </div>
+
+<style lang="postcss">
+    .layout--start {
+        max-width: 708px;
+        min-width: 312px;
+        @apply pr-6;
+    }
+
+    .layout--center {
+        max-width: 800px;
+        min-width: 312px;
+    }
+</style>

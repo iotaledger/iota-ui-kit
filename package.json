@@ -66,9 +66,9 @@
     "exports": {
         ".": {
             "svelte": "./dist/components/index.js",
-            "types": "./dist/components/index.d.ts",
-            "enums": "./dist/enums/index.js"
+            "types": "./dist/components/index.d.ts"
         },
+        "./enums": "./dist/enums/index.js",
         "./preset": "./dist/tailwind/tailwind.preset.js"
     },
     "types": "./dist/components/index.d.ts",
