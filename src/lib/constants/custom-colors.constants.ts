@@ -1,4 +1,4 @@
-export const CUSTOM_COLORS: Record<string, Record<number, string>> = {
+const CUSTOM_COLORS: Record<string, Record<number, string>> = {
     'iota-blue': {
         50: '#F0F4FF',
         100: '#E0EAFF',
@@ -48,3 +48,5 @@ export const CUSTOM_COLORS: Record<string, Record<number, string>> = {
         900: '#8A0000',
     },
 }
+
+export { CUSTOM_COLORS }

@@ -1,4 +1,4 @@
-import { ObjectFit } from '$components/molecules/media-manager/media-manager.enums'
+import { ObjectFit } from '$lib/components/molecules/media-manager/media-manager.enums'
 import type { ImageProps, VideoProps } from './media-manager.types'
 
 export const VIDEO_DEFAULT_PROPS: VideoProps = {

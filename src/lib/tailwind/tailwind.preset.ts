@@ -1,5 +1,5 @@
-import { CUSTOM_COLORS } from './constants/custom-colors.constants'
-import { DEFAULT_COLORS } from './constants/default-colors.constants'
+import { CUSTOM_COLORS } from '../constants/custom-colors.constants.js'
+import { DEFAULT_COLORS } from '../constants/default-colors.constants.js'
 
 /**
  * One spacing unit is equal to 0.25rem, which translates to 4px
@@ -10,11 +10,12 @@ const toTailwindScale = (unit: number) => `${unit * 0.25}rem`
 /* Utilities */
 const pxToRem = (px: number, base: number = 16) => `${px / base}rem`
 
-module.exports = {
+export default {
     theme: {
         container: {
             center: true,
             screens: {
+                xs: '768px',
                 sm: '1024px',
                 md: '1200px',
                 lg: '1440px',
@@ -26,6 +27,13 @@ module.exports = {
                 md: pxToRem(120),
                 lg: pxToRem(240),
             },
+        },
+        screens: {
+            xs: '768px',
+            sm: '1024px',
+            md: '1200px',
+            lg: '1440px',
+            xl: '1920px',
         },
         extend: {
             padding: {

@@ -12,4 +12,7 @@ storybook-static
 !.yarn/sdks
 !.yarn/versions
 
+package/*
+dist/*
+.svelte-kit/*
 .eslintcache
