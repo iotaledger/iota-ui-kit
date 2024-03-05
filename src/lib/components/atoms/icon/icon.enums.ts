@@ -1,5 +1,15 @@
 export enum IconEnum {
-    UpRightArrow = 'up-right-arrow',
-    Menu = 'menu',
     Bullet = 'bullet',
+    CollectiveInvitation = 'collective-invitation',
+    ConflictOfInterest = 'conflict-of-interest',
+    Duplication = 'duplication',
+    Funding = 'funding',
+    Interview = 'interview',
+    MarketValue = 'market-value',
+    Menu = 'menu',
+    OpenSource = 'open-source',
+    RelevanceImpact = 'relevance-impact',
+    Risk = 'risk',
+    Submission = 'submission',
+    UpRightArrow = 'up-right-arrow',
 }
