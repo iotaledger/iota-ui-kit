@@ -7,7 +7,7 @@
      * The icon to display
      * @type {IconEnum}
      */
-    export let icon: IconEnum = IconEnum.UpRightArrow
+    export let icon: IconEnum = IconEnum.ArrowTopRight
     /**
      * Label to display
      */

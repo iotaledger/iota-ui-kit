@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Title, IconEnum, Icon, TitleSize } from '$components'
     import { Position } from '$lib/enums'
+    import { isMobileDevice } from '$lib/utils'
     import { MediaManager, type Media } from '../media-manager'
     import { CONTENT_ALIGNMENT, CONTENT_JUSTIFICATION } from './highlight-card.classes'
 
@@ -63,19 +64,30 @@
         description.length === 0 && position === Position.Center
             ? CONTENT_JUSTIFICATION.center
             : CONTENT_JUSTIFICATION.between
+
+    function handleMouseEnter(): void {
+        if (!isMobileDevice()) {
+            isHovered = true
+        }
+    }
+    function handleMouseLeave(): void {
+        if (!isMobileDevice()) {
+            isHovered = false
+        }
+    }
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <svelte:element
     this={link ? 'a' : 'div'}
-    on:mouseenter={() => (isHovered = true)}
-    on:mouseleave={() => (isHovered = false)}
+    on:mouseenter={handleMouseEnter}
+    on:mouseleave={handleMouseLeave}
     class="highlight-card {backgroundColor}"
     {...link ? { target: '_blank', href: link, role: 'link', tabindex: 0 } : {}}
 >
     {#if backgroundMedia}
         <media-wrapper class="absolute inset-0 z-0">
-            <MediaManager media={backgroundMedia} pointerEventsNone hoverPauseEnabled={isHovered} />
+            <MediaManager media={backgroundMedia} pointerEventsNone playOnHover {isHovered} />
         </media-wrapper>
     {/if}
     {#if link}
@@ -84,15 +96,17 @@
                 ? 'translate-x-1 -translate-y-1'
                 : ''} transition-all duration-300"
         >
-            <Icon icon={IconEnum.UpRightArrow} width={32} height={32} />
+            <Icon icon={IconEnum.ArrowTopRight} width={32} height={32} />
         </icon-link-wrapper>
     {/if}
     <content-wrapper class="flex flex-col space-y-6 z-[1] h-full {alignmentClass} {justifyClass}">
         <title-wrapper class="flex flex-col space-y-6">
             {#if icon}
-                <Icon {icon} width={48} height={48} />
+                <span class="text-white">
+                    <Icon {icon} width={48} height={48} currentColor />
+                </span>
             {/if}
-            <Title {title} {overline} {subtitle} {position} size={TitleSize.H6} darkmode />
+            <Title {title} {overline} {subtitle} {position} size={TitleSize.ExtraSmall} darkmode />
         </title-wrapper>
         {#if description}
             <p class="text-white/80">{description}</p>

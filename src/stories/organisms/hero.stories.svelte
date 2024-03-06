@@ -77,16 +77,16 @@
             {
                 type: ButtonType.Primary,
                 label: 'Button',
-                icon: IconEnum.UpRightArrow,
+                icon: IconEnum.ArrowTopRight,
             },
             {
                 type: ButtonType.Secondary,
                 label: 'Button',
-                icon: IconEnum.UpRightArrow,
+                icon: IconEnum.ArrowTopRight,
             },
         ],
         iconFeatures: new Array(3).fill(0).map(() => ({
-            icon: IconEnum.UpRightArrow,
+            icon: IconEnum.ArrowTopRight,
             label: 'Icon Feature',
         })),
         anchorLinks: new Array(3).fill(0).map(() => ({
@@ -122,16 +122,16 @@
             {
                 type: ButtonType.Primary,
                 label: 'Button',
-                icon: IconEnum.UpRightArrow,
+                icon: IconEnum.ArrowTopRight,
             },
             {
                 type: ButtonType.Secondary,
                 label: 'Button',
-                icon: IconEnum.UpRightArrow,
+                icon: IconEnum.ArrowTopRight,
             },
         ],
         iconFeatures: new Array(3).fill(0).map(() => ({
-            icon: IconEnum.UpRightArrow,
+            icon: IconEnum.ArrowTopRight,
             label: 'Icon Feature',
         })),
         anchorLinks: new Array(3).fill(0).map(() => ({

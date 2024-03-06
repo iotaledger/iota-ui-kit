@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { TitleSize } from '$atoms/title'
+    import { TitleSize, TitleTag } from '$atoms/title'
     import { Button, Title } from '$components'
     import type { ComponentProps } from 'svelte'
     import {
@@ -9,12 +9,18 @@
         TEXT_COLORS,
     } from './text-section-top.classes'
     import { Direction } from '$lib/enums'
+    import { HEADING_TO_SIZE } from '$components/atoms/title/title.constants'
 
+    /**
+     * The title tag to use
+     * @type {TitleTag}
+     */
+    export let titleTag: TitleTag = TitleTag.H2
     /**
      * The size of the title
      * @type {TitleSize}
      */
-    export let size: TitleSize = TitleSize.H2
+    export let size: TitleSize | undefined = undefined
     /**
      * The overline text to display
      * @type {string}
@@ -49,21 +55,23 @@
      */
     export let direction: Direction = Direction.Row
 
+    $: titleSize = size || HEADING_TO_SIZE[titleTag]
+
     $: textColorClass = !darkmode ? TEXT_COLORS.light : TEXT_COLORS.dark
     $: directionClass = DIRECTION_CLASSES[direction]
     $: paddingTopClass =
         direction === Direction.Row &&
-        size !== TitleSize.H5 &&
+        titleSize !== TitleSize.ExtraSmall &&
         (overline
-            ? PADDING_TOP_WITH_OVERLINE_CLASSES[size]
-            : PADDING_TOP_WITHOUT_OVERLINE_CLASSES[size])
+            ? PADDING_TOP_WITH_OVERLINE_CLASSES[titleSize]
+            : PADDING_TOP_WITHOUT_OVERLINE_CLASSES[titleSize])
 </script>
 
 <div class="flex w-full {directionClass}">
     <div class="lg:w-1/2">
-        <Title {size} {overline} {subtitle} {darkmode} {title} />
+        <Title {size} tag={titleTag} {overline} {subtitle} {darkmode} {title} />
     </div>
-    <div class="flex flex-col text-left lg:w-1/2 space-y-12 {paddingTopClass}">
+    <div class="flex flex-col text-left lg:w-1/2 space-y-12 {paddingTopClass || ''}">
         <p class="leading-6 {textColorClass}">{description}</p>
         <buttons-wrapper class="flex space-x-4">
             {#each buttons as button}

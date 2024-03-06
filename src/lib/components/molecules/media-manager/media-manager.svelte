@@ -7,7 +7,8 @@
 
     export let media: Media
     export let pointerEventsNone: boolean = false
-    export let hoverPauseEnabled: boolean = false
+    export let playOnHover: boolean = false
+    export let isHovered: boolean = false
 
     let imageMedia: ImageMedia
     let videoMedia: VideoMedia | undefined
@@ -23,11 +24,14 @@
             animationMedia = media
         }
     }
-    $: if (!isMobileDevice()) {
-        if (hoverPauseEnabled) {
-            videoElement?.play()
-        } else if (!hoverPauseEnabled) {
-            videoElement?.pause()
+
+    $: if (playOnHover) {
+        isHovered ? void videoElement?.play() : videoElement?.pause()
+    }
+
+    function onMouseLeave(): void {
+        if (playOnHover) {
+            isHovered = false
         }
     }
 </script>
@@ -39,21 +43,17 @@
     {@const { src, loop, autoplay, objectFit } = videoMedia}
     <video
         bind:this={videoElement}
-        {autoplay}
+        autoplay={isMobileDevice() || (!playOnHover && autoplay)}
         {loop}
         muted
         class={objectFit}
         class:pointer-events-none={pointerEventsNone}
+        on:mouseleave={onMouseLeave}
     >
         <source {src} type="video/mp4" />
     </video>
 {:else if media.type === MediaType.Animation && animationMedia}
-    <Animation
-        {...animationMedia}
-        {pointerEventsNone}
-        hoverPauseEnabled={hoverPauseEnabled && !isMobileDevice()}
-        autoplay={!hoverPauseEnabled && isMobileDevice()}
-    />
+    <Animation {...animationMedia} {pointerEventsNone} {playOnHover} {isHovered} />
 {/if}
 
 <style lang="postcss">

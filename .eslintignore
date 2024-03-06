@@ -7,3 +7,5 @@
 **/README.md
 **/.storybook/*
 dist
+package/*
+.svelte-kit/*

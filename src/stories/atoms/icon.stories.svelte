@@ -34,7 +34,7 @@
 <Story
     name="Icon"
     args={{
-        icon: IconEnum.UpRightArrow,
+        icon: IconEnum.ArrowTopRight,
         width: 24,
         height: 24,
     }}

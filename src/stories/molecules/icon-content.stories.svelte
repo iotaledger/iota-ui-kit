@@ -43,7 +43,7 @@
 <Story
     name="IconContent"
     args={{
-        icon: IconEnum.Bullet,
+        icon: IconEnum.Atom,
         title: 'Content Title',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
         darkmode: $isDarkModeEnabled,

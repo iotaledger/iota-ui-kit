@@ -5,3 +5,5 @@
 **/vercel/*
 **/README.md
 .storybook/*
+package/*
+.svelte-kit/*
