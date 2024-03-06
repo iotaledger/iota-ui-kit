@@ -15,15 +15,19 @@
         tags: ['autodocs'],
         argTypes: {
             size: {
-                control: { type: 'select' },
+                control: { type: 'select', labels: getEnumLabels(TitleSize) },
                 options: Object.values(TitleSize),
             },
             title: { control: 'text' },
+            titleTag: {
+                control: { type: 'select', labels: getEnumLabels(TitleTag) },
+                options: Object.values(TitleTag),
+            },
             subtitle: { control: 'text' },
             overline: { control: 'text' },
             description: { control: 'text' },
             direction: {
-                control: { type: 'select' },
+                control: { type: 'select', labels: getEnumLabels(Direction) },
                 options: Object.values(Direction),
             },
             buttons: {
@@ -44,9 +48,10 @@
     import { isDarkModeEnabled } from '$storybook'
     import { Story, Template } from '@storybook/addon-svelte-csf'
     import type { Meta } from '@storybook/svelte'
-    import { TitleSize } from '$components/atoms/title'
+    import { TitleSize, TitleTag } from '$components/atoms/title'
     import { Direction } from '$lib/enums'
     import { MarginDecorator } from '$decorators'
+    import { getEnumLabels } from '$storybook/utils/map-enum-labels'
 </script>
 
 <Template let:args>
@@ -58,7 +63,7 @@
     name="TextSectionTop"
     args={{
         darkmode: $isDarkModeEnabled,
-        size: TitleSize.H3,
+        size: TitleSize.Medium,
         direction: Direction.Row,
         title: 'Title Text',
         subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',

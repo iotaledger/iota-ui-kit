@@ -106,7 +106,7 @@
                     <Icon {icon} width={48} height={48} currentColor />
                 </span>
             {/if}
-            <Title {title} {overline} {subtitle} {position} size={TitleSize.H6} darkmode />
+            <Title {title} {overline} {subtitle} {position} size={TitleSize.ExtraSmall} darkmode />
         </title-wrapper>
         {#if description}
             <p class="text-white/80">{description}</p>

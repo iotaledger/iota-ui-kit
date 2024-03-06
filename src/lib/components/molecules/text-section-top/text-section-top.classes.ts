@@ -12,13 +12,13 @@ export const DIRECTION_CLASSES = {
 }
 
 export const PADDING_TOP_WITH_OVERLINE_CLASSES: Partial<Record<TitleSize, string>> = {
-    [TitleSize.H2]: 'lg:pt-28',
-    [TitleSize.H3]: 'lg:pt-[120px]',
-    [TitleSize.H4]: 'lg:pt-28',
+    [TitleSize.Large]: 'lg:pt-28',
+    [TitleSize.Medium]: 'lg:pt-[120px]',
+    [TitleSize.Small]: 'lg:pt-28',
 }
 
 export const PADDING_TOP_WITHOUT_OVERLINE_CLASSES: Partial<Record<TitleSize, string>> = {
-    [TitleSize.H2]: 'lg:pt-16',
-    [TitleSize.H3]: 'lg:pt-12',
-    [TitleSize.H4]: 'lg:pt-8',
+    [TitleSize.Large]: 'lg:pt-16',
+    [TitleSize.Medium]: 'lg:pt-12',
+    [TitleSize.Small]: 'lg:pt-8',
 }
