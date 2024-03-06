@@ -2,7 +2,7 @@
     <slot />
 </icon-gallery>
 
-<style>
+<style lang="postcss">
     icon-gallery {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }

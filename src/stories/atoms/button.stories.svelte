@@ -90,7 +90,7 @@
         size: ButtonSize.Medium,
         darkmode: $isDarkModeEnabled,
         disabled: false,
-        icon: IconEnum.UpRightArrow,
+        icon: IconEnum.ArrowTopRight,
     }}
 />
 
@@ -101,7 +101,7 @@
         size: ButtonSize.Medium,
         darkmode: $isDarkModeEnabled,
         disabled: false,
-        icon: IconEnum.UpRightArrow,
+        icon: IconEnum.ArrowTopRight,
     }}
 />
 
@@ -115,6 +115,6 @@
         disabled: false,
         href: 'https://iota.org',
         isExternal: true,
-        icon: IconEnum.UpRightArrow,
+        icon: IconEnum.ArrowTopRight,
     }}
 />

@@ -2,6 +2,7 @@
     import Lottie, { type AnimationItem } from 'lottie-web'
     import { onMount } from 'svelte'
     import { RendererType } from './animation.enums'
+    import { isMobileDevice } from '$lib/utils'
 
     export let src: string =
         'https://lottie.host/05761115-2753-4236-8e02-049e9b61969f/X6gyzVzo8S.json'
@@ -14,25 +15,30 @@
     export let loop: boolean = true
     export let pointerEventsNone: boolean = false
     export let backgroundColor: string = 'transparent'
-    export let hoverPauseEnabled: boolean = false
+    export let playOnHover: boolean = false
+    export let isHovered: boolean = false
 
     let player: HTMLElement
     let animation: AnimationItem | undefined
+
+    $: if (playOnHover) {
+        isHovered ? void animation?.play() : animation?.pause()
+    }
 
     onMount(() => {
         animation = Lottie.loadAnimation({
             renderer,
             container: player,
             loop,
-            autoplay,
+            autoplay: isMobileDevice() || (!playOnHover && autoplay),
             path: src,
         })
     })
 
-    $: if (hoverPauseEnabled) {
-        animation?.play()
-    } else {
-        animation?.pause()
+    function onMouseLeave(): void {
+        if (playOnHover) {
+            animation?.pause()
+        }
     }
 </script>
 
@@ -41,9 +47,10 @@
     class:pointer-events-none={pointerEventsNone}
     style:--background-color={backgroundColor}
     {src}
-    {autoplay}
+    autoplay={isMobileDevice() || (!playOnHover && autoplay)}
     {loop}
-    {hoverPauseEnabled}
+    role="img"
+    on:mouseleave={onMouseLeave}
 />
 
 <style lang="postcss">

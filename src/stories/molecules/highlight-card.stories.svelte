@@ -69,7 +69,7 @@
         title: 'Send IOTA Tokens with Javascript',
         overline: 'Overline',
         subtitle: 'Subtitle',
-        icon: IconEnum.Bullet,
+        icon: IconEnum.Atom,
         backgroundMedia: {
             src: 'https://lottie.host/f7277c23-b529-4c2a-ae08-0358068e792d/gbUnU4pWbh.json',
             type: MediaType.Animation,

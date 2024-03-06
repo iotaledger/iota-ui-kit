@@ -33,7 +33,7 @@
 <Story
     name="IconText"
     args={{
-        icon: IconEnum.UpRightArrow,
+        icon: IconEnum.ArrowTopRight,
         label: 'IconText',
         darkmode: false,
     }}

@@ -17,7 +17,7 @@
      * Selected Icon
      * @type {IconEnum}
      */
-    export let icon: IconEnum = IconEnum.UpRightArrow
+    export let icon: IconEnum = IconEnum.ArrowTopRight
 
     /**
      * Whether to open the link in a new tab

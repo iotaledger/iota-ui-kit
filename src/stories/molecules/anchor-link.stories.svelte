@@ -35,7 +35,7 @@
     args={{
         label: 'Anchor Link',
         darkmode: true,
-        icon: IconEnum.UpRightArrow,
+        icon: IconEnum.ArrowTopRight,
         href: '',
         isExternal: false,
     }}

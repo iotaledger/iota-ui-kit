@@ -2,10 +2,16 @@
     import { ButtonType, IconEnum } from '$components'
     import { TextSectionTop as TextSectionTopComponent } from '$molecules'
 
+    type MarginDecoratorType = { Component: typeof MarginDecorator }
+
     export const meta = {
         title: 'Molecules/TextSectionTop',
         component: TextSectionTopComponent,
-        decorators: [() => ({ Component: MarginDecorator })],
+        decorators: [
+            (): MarginDecoratorType => ({
+                Component: MarginDecorator,
+            }),
+        ],
         tags: ['autodocs'],
         argTypes: {
             size: {
@@ -61,12 +67,12 @@
             {
                 type: ButtonType.Primary,
                 label: 'Button',
-                icon: IconEnum.UpRightArrow,
+                icon: IconEnum.ArrowTopRight,
             },
             {
                 type: ButtonType.Secondary,
                 label: 'Button',
-                icon: IconEnum.UpRightArrow,
+                icon: IconEnum.ArrowTopRight,
             },
         ],
         description:

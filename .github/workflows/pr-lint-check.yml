@@ -1,0 +1,27 @@
+name: Pull Request Lint Check
+
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+
+jobs:
+    lint-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '18.19.x'
+                  registry-url: https://registry.npmjs.org/
+
+            - name: Use Yarn 3
+              run: corepack enable
+
+            - name: Install dependencies
+              run: yarn install
+
+            - name: Lint Check
+              run: yarn run lint && yarn run type-check
