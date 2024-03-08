@@ -8,13 +8,13 @@
         TITLE_SIZES_BY_POSITION,
         TITLE_TEXT_COLORS,
     } from './title.classes'
-    import { HEADING_TO_SIZE } from './title.constants'
+    import { HEADING_TO_SIZE, SIZE_TO_HEADING } from './title.constants'
 
     /**
      * The HTML tag to use for the title
      * @type {TitleTag}
      */
-    export let tag: TitleTag = TitleTag.H2
+    export let tag: TitleTag | undefined = undefined
 
     /**
      * The size of the title
@@ -44,15 +44,19 @@
      */
     export let title: string
 
-    let fallbackSize: TitleSize = HEADING_TO_SIZE[tag]
+    let titleSize: TitleSize = TitleSize.Medium
+    let titleTagFallback: TitleTag = TitleTag.H2
 
-    $: fallbackSize = size || HEADING_TO_SIZE[tag]
-    $: sizeClass = TITLE_SIZES_BY_POSITION[position][fallbackSize]
+    $: if (!(size === undefined && tag === undefined)) {
+        titleSize = size || (tag ? HEADING_TO_SIZE[tag] : TitleSize.Medium)
+        titleTagFallback = tag || (size ? SIZE_TO_HEADING[size] : TitleTag.H2)
+    }
+    $: sizeClass = TITLE_SIZES_BY_POSITION[position][titleSize]
     $: positionClass = TITLE_POSITIONS[position]
     $: titleColorClass = !darkmode ? TITLE_TEXT_COLORS.title.light : TITLE_TEXT_COLORS.title.dark
     $: textColorClass = !darkmode ? TITLE_TEXT_COLORS.text.light : TITLE_TEXT_COLORS.text.dark
     $: subtitleTextClass =
-        fallbackSize === TitleSize.ExtraSmall ? SUBTITLE_TEXT.smaller : SUBTITLE_TEXT.default
+        titleSize === TitleSize.ExtraSmall ? SUBTITLE_TEXT.smaller : SUBTITLE_TEXT.default
 </script>
 
 <div class="flex flex-col font-medium space-y-6 {positionClass} layout--{position}">
@@ -60,7 +64,7 @@
         <span class="{OVERLINE_TEXT} {textColorClass}">{overline} </span>
     {/if}
 
-    <svelte:element this={tag} class="{titleColorClass} {sizeClass}">
+    <svelte:element this={titleTagFallback} class="{titleColorClass} {sizeClass}">
         {title}
     </svelte:element>
 
