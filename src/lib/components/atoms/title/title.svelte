@@ -11,6 +11,11 @@
     import { HEADING_TO_SIZE, SIZE_TO_HEADING } from './title.constants'
 
     /**
+     * The id for the title
+     * @type {string}
+     */
+    export let id: string | null = null
+    /**
      * The HTML tag to use for the title
      * @type {TitleTag}
      */
@@ -64,7 +69,7 @@
         <span class="{OVERLINE_TEXT} {textColorClass}">{overline} </span>
     {/if}
 
-    <svelte:element this={titleTagFallback} class="{titleColorClass} {sizeClass}">
+    <svelte:element this={titleTagFallback} {id} class="{titleColorClass} {sizeClass}">
         {title}
     </svelte:element>
 

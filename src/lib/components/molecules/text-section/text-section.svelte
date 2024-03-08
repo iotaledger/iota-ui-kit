@@ -15,6 +15,10 @@
     import { HEADING_TO_SIZE, SIZE_TO_HEADING } from '$components/atoms/title/title.constants'
 
     /**
+     * The title id
+     */
+    export let id: string | null = null
+    /**
      * The title tag to use
      * @type {TitleTag}
      */
@@ -85,7 +89,7 @@
 </script>
 
 <div class="flex w-full {directionClass} {paddingBottomClass}">
-    <Title size={titleSize} tag={titleTagFallback} {overline} {subtitle} {darkmode} {title} />
+    <Title {id} size={titleSize} tag={titleTagFallback} {overline} {subtitle} {darkmode} {title} />
     <right-box
         class="flex flex-col text-left space-y-12 {paddingTopClass || ''} {paddingLeftClass}"
     >
