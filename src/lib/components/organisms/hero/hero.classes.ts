@@ -26,14 +26,8 @@ export const TEXT_COLORS: Record<HeroVariant, Record<Mode, Record<HeroContentSec
     },
 }
 
-export const CONTENT_SECTION_CLASSES: Record<HeroContentSection, string> = {
+export const CONTENT_SECTION_CLASSES: Omit<Record<HeroContentSection, string>, 'title'> = {
     [HeroContentSection.Overline]: 'text-lg font-medium',
-    [HeroContentSection.Title]: 'text-6xl font-medium',
     [HeroContentSection.Subtitle]: 'text-2xl font-medium max-w-[480px]',
     [HeroContentSection.Paragraph]: 'text-base font-normal',
-}
-
-export const TITLE_BOX_CLASSES: Record<HeroVariant, string> = {
-    [HeroVariant.Primary]: 'text-left max-w-[564px] pr-6',
-    [HeroVariant.Secondary]: 'text-center max-w-[994px] w-full mx-auto items-center',
 }

@@ -1,11 +1,12 @@
 <script lang="ts">
-    import { Button } from '$components/atoms'
+    import { Button, Title, TitleSize, TitleTag } from '$components/atoms'
     import { type Media } from '$components/molecules'
     import { IconText, AnchorLink, MediaManager } from '$components/molecules'
     import { Mode } from '$lib/enums'
-    import { TEXT_COLORS, CONTENT_SECTION_CLASSES, TITLE_BOX_CLASSES } from './hero.classes'
+    import { TEXT_COLORS, CONTENT_SECTION_CLASSES } from './hero.classes'
     import { HeroContentSection, HeroVariant } from './hero.enums'
     import type { ComponentProps } from 'svelte'
+    import { Position } from '$lib/enums'
 
     /**
      * The variant of the component
@@ -37,6 +38,8 @@
     export let title: string
     export let subtitle: string = ''
     export let paragraph: string = ''
+    export let titleSize: TitleSize = TitleSize.Medium
+    export let titleTag: TitleTag = TitleTag.H1
     /**
      * Video to show on the right side of the component.
      * Only for the primary variant of the component.
@@ -59,11 +62,31 @@
      */
     export let anchorLinks: ComponentProps<AnchorLink>[] = []
 
+    enum JustifyContent {
+        Start = 'justify-start',
+        Center = 'justify-center',
+        End = 'justify-end',
+        Between = 'justify-between',
+    }
+
     let componentDarkmode: boolean | undefined
 
     $: isVariantPrimary = variant === HeroVariant.Primary
     $: mode = darkmode ? Mode.Dark : Mode.Light
     $: componentDarkmode = variant === HeroVariant.Primary ? darkmode : !darkmode
+    $: justifyClass = getJustifyClass(isVariantPrimary, media)
+
+    function getJustifyClass(isVariantPrimary: boolean, media: string | undefined): JustifyContent {
+        if (isVariantPrimary) {
+            if (media) {
+                return JustifyContent.Between
+            } else {
+                return JustifyContent.Start
+            }
+        } else {
+            return JustifyContent.Center
+        }
+    }
 </script>
 
 <section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20">
@@ -76,54 +99,38 @@
 
         <div class="flex flex-col relative h-full">
             <div class="flex flex-col py-18 h-full justify-center">
-                <div class="flex flex-row items-center justify-between space-x-6 mb-5">
-                    {#if overline || title || subtitle}
-                        <div class="flex flex-col space-y-12 {TITLE_BOX_CLASSES[variant]}">
-                            {#if overline}
-                                <span
-                                    class="{TEXT_COLORS[variant][mode][
-                                        HeroContentSection.Overline
-                                    ]} {CONTENT_SECTION_CLASSES[HeroContentSection.Overline]}"
-                                    >{overline}</span
-                                >
-                            {/if}
-
-                            <h1
-                                class="{TEXT_COLORS[variant][mode][
-                                    HeroContentSection.Title
-                                ]} {CONTENT_SECTION_CLASSES[HeroContentSection.Title]}"
-                                id={titleId}
-                            >
-                                {title}
-                            </h1>
-
-                            {#if subtitle}
-                                <h4
-                                    class="{TEXT_COLORS[variant][mode][
-                                        HeroContentSection.Subtitle
-                                    ]} {CONTENT_SECTION_CLASSES[HeroContentSection.Subtitle]}"
-                                >
-                                    {subtitle}
-                                </h4>
-                            {/if}
-                        </div>
-                    {/if}
-
+                <div
+                    class="flex flex-col sm:flex-row items-center sm:space-x-6 mb-5 {justifyClass}"
+                >
+                    <div class="sm:min-w-[472px] lg:min-w-[564px] xl:min-w-none">
+                        <Title
+                            id={titleId}
+                            tag={titleTag}
+                            size={titleSize}
+                            {title}
+                            {subtitle}
+                            {overline}
+                            position={!isVariantPrimary ? Position.Center : Position.Start}
+                            darkmode={componentDarkmode}
+                        />
+                    </div>
                     {#if media && isVariantPrimary}
-                        <video
-                            width="589"
-                            height="377"
-                            controls
-                            class="h-[377px] rounded-md border border-black/0.16 object-cover cursor-pointer"
-                        >
-                            <source src={media} type="video/mp4" />
-                            <track kind="captions" />
-                        </video>
+                        <div class="w-full xl:w-auto my-[60px]">
+                            <video
+                                controls
+                                class="max-h-[377px] w-auto rounded-md border border-black/0.16 object-cover cursor-pointer"
+                            >
+                                <source src={media} type="video/mp4" />
+                                <track kind="captions" />
+                            </video>
+                        </div>
                     {/if}
                 </div>
 
                 {#if paragraph || buttons.length > 0}
-                    <div class="flex flex-row space-x-6 justify-between mt-auto">
+                    <div
+                        class="flex flex-col space-y-12 sm:space-y-0 sm:flex-row sm:space-x-6 justify-between mt-auto"
+                    >
                         {#if paragraph}
                             <p
                                 class="flex-1 max-w-[486px] text-left {TEXT_COLORS[variant][mode][
@@ -134,7 +141,9 @@
                             </p>
                         {/if}
                         {#if buttons.length}
-                            <div class="flex-1 flex flex-row justify-end items-end space-x-4">
+                            <div
+                                class="flex flex-row justify-start sm:justify-end items-end space-x-4"
+                            >
                                 {#each buttons as button}
                                     <Button {...button} darkmode={componentDarkmode} />
                                 {/each}
@@ -153,7 +162,7 @@
                         </div>
                     {/if}
                     {#if anchorLinks.length}
-                        <nav class="grid grid-cols-4">
+                        <nav class="grid grid-cols-1 gap-y-4 sm:grid-cols-4">
                             {#each anchorLinks as anchorLink}
                                 <AnchorLink {...anchorLink} darkmode={componentDarkmode} />
                             {/each}
