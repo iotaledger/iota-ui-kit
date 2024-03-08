@@ -19,6 +19,11 @@
      */
     export let id: string = 'hero'
     /**
+     * The id of the title
+     * @type {string}
+     */
+    export let titleId: string | null = null
+    /**
      * Enforce darkmode
      * @type {boolean}
      */
@@ -87,6 +92,7 @@
                                 class="{TEXT_COLORS[variant][mode][
                                     HeroContentSection.Title
                                 ]} {CONTENT_SECTION_CLASSES[HeroContentSection.Title]}"
+                                id={titleId}
                             >
                                 {title}
                             </h1>

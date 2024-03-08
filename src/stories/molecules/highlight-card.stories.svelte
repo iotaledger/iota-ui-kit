@@ -47,6 +47,13 @@
                 },
                 options: Object.values(Position),
             },
+            align: {
+                control: {
+                    type: 'select',
+                    labels: getEnumLabels(Align),
+                },
+                options: Object.values(Align),
+            },
         },
     } satisfies Meta<HighlightCardComponent>
 </script>
@@ -56,7 +63,8 @@
     import type { Meta } from '@storybook/svelte'
     import { MediaType } from '$molecules'
     import { IconEnum } from '$components'
-    import { Position } from '$lib/enums'
+    import { Align, Position } from '$lib/enums'
+    import { getEnumLabels } from '$storybook/utils/map-enum-labels'
 </script>
 
 <Template let:args>

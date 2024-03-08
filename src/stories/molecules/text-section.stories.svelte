@@ -1,12 +1,12 @@
 <script lang="ts" context="module">
     import { ButtonType, IconEnum } from '$components'
-    import { TextSectionTop as TextSectionTopComponent } from '$molecules'
+    import { TextSection as TextSectionComponent, TextSectionVariant } from '$molecules'
 
     type MarginDecoratorType = { Component: typeof MarginDecorator }
 
     export const meta = {
-        title: 'Molecules/TextSectionTop',
-        component: TextSectionTopComponent,
+        title: 'Molecules/TextSection',
+        component: TextSectionComponent,
         decorators: [
             (): MarginDecoratorType => ({
                 Component: MarginDecorator,
@@ -30,6 +30,10 @@
                 control: { type: 'select', labels: getEnumLabels(Direction) },
                 options: Object.values(Direction),
             },
+            variant: {
+                control: { type: 'select', labels: getEnumLabels(TextSectionVariant) },
+                options: Object.values(TextSectionVariant),
+            },
             buttons: {
                 control: {
                     type: 'object',
@@ -41,7 +45,7 @@
                 },
             },
         },
-    } satisfies Meta<TextSectionTopComponent>
+    } satisfies Meta<TextSectionComponent>
 </script>
 
 <script lang="ts">
@@ -56,18 +60,18 @@
 
 <Template let:args>
     {@const reactiveArgs = { ...args, darkmode: $isDarkModeEnabled }}
-    <TextSectionTopComponent {...reactiveArgs}></TextSectionTopComponent>
+    <TextSectionComponent {...reactiveArgs}></TextSectionComponent>
 </Template>
 
 <Story
     name="TextSectionTop"
     args={{
         darkmode: $isDarkModeEnabled,
-        size: TitleSize.Medium,
         direction: Direction.Row,
         title: 'Title Text',
         subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         overline: 'Overline',
+        variant: TextSectionVariant.Top,
         buttons: [
             {
                 type: ButtonType.Primary,
@@ -82,5 +86,28 @@
         ],
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
+    }}
+/>
+<Story
+    name="TextSectionLeft"
+    args={{
+        darkmode: $isDarkModeEnabled,
+        direction: Direction.Column,
+        title: 'Application Process',
+        overline: 'Overline',
+        variant: TextSectionVariant.Left,
+        buttons: [
+            {
+                type: ButtonType.Primary,
+                label: 'Apply',
+                icon: IconEnum.ArrowTopRight,
+            },
+            {
+                type: ButtonType.Secondary,
+                label: 'See the full process',
+                icon: IconEnum.ArrowTopRight,
+            },
+        ],
+        description: 'Applying for a Grant made simple. Here is what to expect.',
     }}
 />
