@@ -25,7 +25,7 @@ export const PADDING_TOP_WITHOUT_OVERLINE_CLASSES: Partial<Record<TitleSize, str
 }
 
 export const PADDING_LEFT_CLASSES: Record<Direction, string> = {
-    [Direction.Row]: 'md:pl-[104px]',
+    [Direction.Row]: 'lg:pl-[104px]',
     [Direction.Column]: 'pl-0',
 }
 
