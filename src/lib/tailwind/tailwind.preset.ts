@@ -15,17 +15,16 @@ export default {
         container: {
             center: true,
             screens: {
-                xs: '768px',
-                sm: '1024px',
-                md: '1200px',
+                sm: '768px',
+                md: '1024px',
                 lg: '1440px',
                 xl: '1920px',
             },
             padding: {
                 DEFAULT: pxToRem(24),
-                sm: pxToRem(60),
-                md: pxToRem(120),
-                lg: pxToRem(240),
+                md: pxToRem(60),
+                lg: pxToRem(120),
+                xl: pxToRem(240),
             },
         },
         screens: {

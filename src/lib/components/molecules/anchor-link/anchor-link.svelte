@@ -47,13 +47,15 @@
 
 <style lang="postcss">
     .anchor-link-wrapper {
-        @apply flex py-4 pl-6 w-full;
+        @apply flex py-3 sm:py-4 pr-3 sm:pr-0 pl-6 w-full;
         @apply transition-all duration-200;
         @apply cursor-pointer;
+        @apply rounded-xl sm:rounded-none;
+        @apply border border-black border-opacity-0.16 sm:border-none;
 
         anchor-link-content {
-            @apply py-3 pr-4 flex items-center justify-between w-full;
-            @apply border-r border-opacity-0.16;
+            @apply sm:py-3 sm:pr-4 flex items-center justify-between w-full space-x-2;
+            @apply sm:border-r border-opacity-0.16;
 
             span {
                 @apply text-lg font-medium leading-7;
