@@ -66,15 +66,19 @@
 
 <div class="flex flex-col font-medium space-y-6 {positionClass} layout--{position}">
     {#if overline.length > 0}
-        <span class="{OVERLINE_TEXT} {textColorClass}">{overline} </span>
+        <span class="whitespace-pre-line {OVERLINE_TEXT} {textColorClass}">{overline}</span>
     {/if}
 
-    <svelte:element this={titleTagFallback} {id} class="{titleColorClass} {sizeClass}">
+    <svelte:element
+        this={titleTagFallback}
+        {id}
+        class="whitespace-pre-line {titleColorClass} {sizeClass}"
+    >
         {title}
     </svelte:element>
 
     {#if subtitle.length > 0}
-        <span class="{subtitleTextClass} {textColorClass}">
+        <span class="whitespace-pre-line {subtitleTextClass} {textColorClass}">
             {subtitle}
         </span>
     {/if}
