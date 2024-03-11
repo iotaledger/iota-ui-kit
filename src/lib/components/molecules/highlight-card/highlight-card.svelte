@@ -127,7 +127,7 @@
                     <span class="{OVERLINE_TEXT} text-white/80">{overline}</span>
                 {/if}
 
-                <h6 class="text-white text-4xl leading-44 font-medium">
+                <h6 class="whitespace-pre-line text-white text-4xl leading-44 font-medium">
                     {title}
                 </h6>
 
