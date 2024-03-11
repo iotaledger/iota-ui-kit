@@ -34,3 +34,25 @@ export const BUTTON_WITH_ICON: Record<ButtonSize, string> = {
     [ButtonSize.Medium]: 'px-2 w-12',
     [ButtonSize.Large]: 'px-2 w-14',
 }
+
+export const WHITE_ICON_FILL = 'text-white'
+export const BLUE_ICON_FILL = 'text-iota-blue-600'
+
+export const BUTTON_LIGHTMODE_ICON_FILL: Record<ButtonType, Record<Mode, string>> = {
+    [ButtonType.Primary]: {
+        [Mode.Dark]: WHITE_ICON_FILL,
+        [Mode.Light]: WHITE_ICON_FILL,
+    },
+    [ButtonType.Destructive]: {
+        [Mode.Dark]: WHITE_ICON_FILL,
+        [Mode.Light]: WHITE_ICON_FILL,
+    },
+    [ButtonType.Secondary]: {
+        [Mode.Dark]: WHITE_ICON_FILL,
+        [Mode.Light]: BLUE_ICON_FILL,
+    },
+    [ButtonType.Ghost]: {
+        [Mode.Dark]: WHITE_ICON_FILL,
+        [Mode.Light]: BLUE_ICON_FILL,
+    },
+}

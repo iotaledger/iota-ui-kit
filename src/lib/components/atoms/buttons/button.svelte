@@ -3,7 +3,12 @@
     import { FONT_FAMILY_CLASS } from '$lib/constants'
     import { ButtonSize, ButtonType } from '.'
     import type { IconEnum } from '../icon/icon.enums'
-    import { BUTTON_WITH_ICON, TEXT_SIZES, VARIANT_COLORS } from './button.classes'
+    import {
+        BUTTON_WITH_ICON,
+        TEXT_SIZES,
+        VARIANT_COLORS,
+        BUTTON_LIGHTMODE_ICON_FILL,
+    } from './button.classes'
 
     /**
      * The type of button
@@ -46,6 +51,9 @@
         ? VARIANT_COLORS[type].light ?? VARIANT_COLORS[type].dark
         : VARIANT_COLORS[type].dark
     $: iconClasses = icon && !label ? BUTTON_WITH_ICON[size] : 'px-6'
+    $: iconFill = darkmode
+        ? BUTTON_LIGHTMODE_ICON_FILL[type].dark
+        : BUTTON_LIGHTMODE_ICON_FILL[type].light
 </script>
 
 <svelte:element
@@ -61,7 +69,7 @@
         {label}
     {/if}
     {#if icon}
-        <span class={darkmode ? 'text-white' : 'text-blue-600'}>
+        <span class={iconFill}>
             <Icon {icon} currentColor />
         </span>
     {/if}

@@ -76,7 +76,7 @@
     <svelte:element
         this={titleTagFallback}
         {id}
-        class="whitespace-pre-line {titleColorClass} {sizeClass} {FONT_FAMILY_CLASS.primary}"
+        class="whitespace-pre-line font-medium {titleColorClass} {sizeClass} {FONT_FAMILY_CLASS.primary}"
     >
         {title}
     </svelte:element>
