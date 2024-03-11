@@ -89,7 +89,7 @@
     }
 </script>
 
-<section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20">
+<section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20 pb-8 sm:pb-0">
     <div class="container mx-auto self-stretch">
         {#if backgroundMedia}
             <div class="absolute inset-0 z-0">
@@ -155,14 +155,14 @@
             {#if iconFeatures.length || anchorLinks.length}
                 <div class="flex flex-col">
                     {#if iconFeatures.length}
-                        <div class="grid grid-cols-5 gap-x-12 py-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-5 gap-x-12 gap-y-8 py-12 sm:py-6">
                             {#each iconFeatures as iconFeature}
                                 <IconText {...iconFeature} darkmode={componentDarkmode} />
                             {/each}
                         </div>
                     {/if}
                     {#if anchorLinks.length}
-                        <nav class="grid grid-cols-1 gap-y-4 sm:grid-cols-4">
+                        <nav class="grid grid-cols-1 gap-y-4 sm:grid-cols-4 py-6 sm:py-0">
                             {#each anchorLinks as anchorLink}
                                 <AnchorLink {...anchorLink} darkmode={componentDarkmode} />
                             {/each}
