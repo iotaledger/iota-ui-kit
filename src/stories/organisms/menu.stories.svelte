@@ -46,7 +46,12 @@
     }}
     args={{
         darkmode: $isDarkModeEnabled,
+        activeIndex: 0,
         menuItems: [
+            {
+                title: 'Home',
+                href: '',
+            },
             {
                 title: 'Products',
                 href: '',

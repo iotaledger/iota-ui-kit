@@ -6,11 +6,17 @@
         component: MenuItemComponent,
         tags: ['autodocs'],
         argTypes: {
-            menuItem: {
-                description: 'Menu item',
-                control: {
-                    type: 'object',
-                },
+            title: {
+                control: { type: 'text' },
+            },
+            href: {
+                control: { type: 'text' },
+            },
+            isExternal: {
+                control: { type: 'boolean' },
+            },
+            isActive: {
+                control: { type: 'boolean' },
             },
         },
     } satisfies Meta<MenuItemComponent>
@@ -30,10 +36,7 @@
 <Story
     name="Menu Item"
     args={{
-        menuItem: {
-            title: 'Menu Item',
-            href: '#',
-            darkmode: $isDarkModeEnabled,
-        },
+        title: 'Menu Item',
+        darkmode: $isDarkModeEnabled,
     }}
 />

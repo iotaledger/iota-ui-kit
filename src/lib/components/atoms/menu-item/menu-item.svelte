@@ -1,23 +1,46 @@
 <script lang="ts">
     import { Mode } from '$lib/enums'
-    import type { IMenuItem } from '.'
     import { MENU_ITEM_COLORS } from './menu-item.classes'
 
     /**
-     * Menu item
-     * @type {IMenuItem}
+     * Menu item title
+     * @type {string}
      */
-    export let menuItem: IMenuItem
+    export let title: string
+    /**
+     * Menu item href
+     * @type {string}
+     */
+    export let href: string | null = null
+    /**
+     * Open in new tab
+     */
+    export let isExternal: boolean = false
+    /**
+     * Is item active
+     */
+    export let isActive: boolean = false
+    export let darkmode: boolean = false
 
-    $: colorClasses = menuItem?.darkmode
-        ? MENU_ITEM_COLORS[Mode.Dark]
-        : MENU_ITEM_COLORS[Mode.Light]
+    $: colorClasses = darkmode ? MENU_ITEM_COLORS[Mode.Dark] : MENU_ITEM_COLORS[Mode.Light]
 </script>
 
 <a
-    href={menuItem?.href}
-    target={menuItem?.isExternal ? '_blank' : ''}
-    class="{colorClasses} px-4 py-8 text-sm font-medium"
+    {href}
+    target={isExternal ? '_blank' : null}
+    class="{colorClasses} px-4 py-8 text-sm font-medium leading-[15px]"
+    class:active={isActive}
+    class:darkmode
+    on:click
 >
-    {menuItem?.title}
+    {title}
 </a>
+
+<style lang="postcss">
+    a.active {
+        @apply border-b border-iota-gray-900;
+        &.darkmode {
+            @apply border-b border-white;
+        }
+    }
+</style>
