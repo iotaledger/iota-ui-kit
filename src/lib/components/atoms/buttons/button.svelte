@@ -60,7 +60,9 @@
         {label}
     {/if}
     {#if icon}
-        <Icon {icon} fill={darkmode ? 'white' : 'currentColor'} />
+        <span class={darkmode ? 'text-white' : 'text-blue-600'}>
+            <Icon {icon} currentColor />
+        </span>
     {/if}
 </svelte:element>
 
