@@ -30,7 +30,7 @@
 <style lang="postcss">
     div {
         p {
-            @apply text-lg;
+            @apply text-lg font-medium;
         }
     }
 </style>

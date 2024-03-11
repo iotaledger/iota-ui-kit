@@ -39,7 +39,9 @@
         <Icon {icon} width={48} height={48} currentColor />
     </span>
     <div class="flex flex-col items-start space-y-4 pl-3">
-        <p class="text-2xl font-medium leading-32 {TITLE_COLORS[mode]}">{title}</p>
+        <p class="whitespace-pre-line text-2xl font-medium leading-32 {TITLE_COLORS[mode]}">
+            {title}
+        </p>
         <p class="leading-28 {DESCRIPTION_COLORS[mode]}">{description}</p>
     </div>
 </div>
