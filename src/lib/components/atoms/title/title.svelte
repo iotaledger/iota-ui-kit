@@ -65,7 +65,7 @@
         titleSize === TitleSize.ExtraSmall ? SUBTITLE_TEXT.smaller : SUBTITLE_TEXT.default
 </script>
 
-<div class="flex flex-col font-medium space-y-6 {positionClass} layout--{position}">
+<div class="flex flex-col font-medium space-y-12 {positionClass} layout--{position}">
     {#if overline.length > 0}
         <span
             class="whitespace-pre-line {OVERLINE_TEXT} {textColorClass} {FONT_FAMILY_CLASS.primary}"
