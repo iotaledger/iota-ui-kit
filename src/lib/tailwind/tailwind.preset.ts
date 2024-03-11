@@ -35,6 +35,9 @@ export default {
             xl: '1920px',
         },
         extend: {
+            fontFamily: {
+                archivo: ['Archivo', 'sans-serif'],
+            },
             padding: {
                 18: toTailwindScale(18),
                 30: toTailwindScale(30),
