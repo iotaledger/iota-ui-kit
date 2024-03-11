@@ -2,8 +2,16 @@
     import { Mode } from '$lib/enums'
     import { MENU_ITEM_COLORS } from './menu-item.classes'
 
+    /**
+     * Menu item title
+     * @type {string}
+     */
     export let title: string
-    export let href: string
+    /**
+     * Menu item href
+     * @type {string}
+     */
+    export let href: string | null = null
     /**
      * Open in new tab
      */
