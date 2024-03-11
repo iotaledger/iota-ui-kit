@@ -1,5 +1,6 @@
 <script lang="ts">
     import { Icon, IconEnum } from '$atoms'
+    import { FONT_FAMILY_CLASS } from '$lib/constants'
     import { Mode } from '$lib/enums'
     import { BACKGROUND_COLORS, BORDER_COLORS, ICON_FILL, TEXT_COLORS } from '.'
     /**
@@ -34,7 +35,7 @@
     rel={isExternal ? 'noopener noreferrer' : null}
 >
     <anchor-link-content class={BORDER_COLORS[mode]}>
-        <span class={TEXT_COLORS[mode]}>
+        <span class="{TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.primary}">
             {label}
         </span>
         <icon-wrapper>

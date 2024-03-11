@@ -7,6 +7,7 @@
         TITLE_COLORS,
     } from './icon-content.classes'
     import { Direction, Mode } from '$lib/enums'
+    import { FONT_FAMILY_CLASS } from '$lib/constants'
 
     /**
      * The icon to display
@@ -39,7 +40,11 @@
         <Icon {icon} width={48} height={48} currentColor />
     </span>
     <div class="flex flex-col items-start space-y-4 pl-3">
-        <p class="whitespace-pre-line text-2xl font-medium leading-32 {TITLE_COLORS[mode]}">
+        <p
+            class="whitespace-pre-line text-2xl font-medium leading-32 {TITLE_COLORS[
+                mode
+            ]} {FONT_FAMILY_CLASS.primary}"
+        >
             {title}
         </p>
         <p class="leading-28 {DESCRIPTION_COLORS[mode]}">{description}</p>

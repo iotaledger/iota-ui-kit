@@ -1,5 +1,6 @@
 <script lang="ts">
     import { Icon } from '$atoms'
+    import { FONT_FAMILY_CLASS } from '$lib/constants'
     import { ButtonSize, ButtonType } from '.'
     import type { IconEnum } from '../icon/icon.enums'
     import { BUTTON_WITH_ICON, TEXT_SIZES, VARIANT_COLORS } from './button.classes'
@@ -50,7 +51,7 @@
 <svelte:element
     this={href ? 'a' : 'button'}
     role={href ? 'link' : 'button'}
-    class="{textClasses} {colorClasses} {iconClasses}"
+    class="{textClasses} {colorClasses} {iconClasses} {FONT_FAMILY_CLASS.primary}"
     {disabled}
     href={href || null}
     target={href && isExternal ? '_blank' : null}
