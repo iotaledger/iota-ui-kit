@@ -2,6 +2,7 @@
     import { IconEnum, Icon } from '$components'
     import { ICON_FILL, TEXT_COLORS } from './icon-text.classes'
     import { Mode } from '$lib/enums'
+    import { FONT_FAMILY_CLASS } from '$lib/constants'
 
     /**
      * The icon to display
@@ -24,7 +25,7 @@
     <span class={ICON_FILL[mode]}>
         <Icon {icon} width={32} height={32} currentColor />
     </span>
-    <p class={TEXT_COLORS[mode]}>{label}</p>
+    <p class="{TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.primary}">{label}</p>
 </div>
 
 <style lang="postcss">

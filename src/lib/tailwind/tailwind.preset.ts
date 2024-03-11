@@ -17,24 +17,27 @@ export default {
             screens: {
                 sm: '768px',
                 md: '1024px',
-                lg: '1440px',
+                lg: '1400px',
                 xl: '1920px',
             },
             padding: {
                 DEFAULT: pxToRem(24),
-                md: pxToRem(60),
+                md: pxToRem(48),
                 lg: pxToRem(120),
                 xl: pxToRem(240),
             },
         },
         screens: {
-            xs: '768px',
-            sm: '1024px',
-            md: '1200px',
-            lg: '1440px',
+            sm: '768px',
+            md: '1024px',
+            lg: '1400px',
             xl: '1920px',
         },
         extend: {
+            fontFamily: {
+                archivo: ['Archivo', 'sans-serif'],
+                inter: ['Inter', 'sans-serif'],
+            },
             padding: {
                 18: toTailwindScale(18),
                 30: toTailwindScale(30),

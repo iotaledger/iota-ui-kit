@@ -9,6 +9,7 @@
         TITLE_TEXT_COLORS,
     } from './title.classes'
     import { HEADING_TO_SIZE, SIZE_TO_HEADING } from './title.constants'
+    import { FONT_FAMILY_CLASS } from '$lib/constants'
 
     /**
      * The id for the title
@@ -64,21 +65,26 @@
         titleSize === TitleSize.ExtraSmall ? SUBTITLE_TEXT.smaller : SUBTITLE_TEXT.default
 </script>
 
-<div class="flex flex-col font-medium space-y-6 {positionClass} layout--{position}">
+<div class="flex flex-col font-medium space-y-12 {positionClass} layout--{position}">
     {#if overline.length > 0}
-        <span class="whitespace-pre-line {OVERLINE_TEXT} {textColorClass}">{overline}</span>
+        <span
+            class="whitespace-pre-line {OVERLINE_TEXT} {textColorClass} {FONT_FAMILY_CLASS.primary}"
+            >{overline}</span
+        >
     {/if}
 
     <svelte:element
         this={titleTagFallback}
         {id}
-        class="whitespace-pre-line {titleColorClass} {sizeClass}"
+        class="whitespace-pre-line font-medium {titleColorClass} {sizeClass} {FONT_FAMILY_CLASS.primary}"
     >
         {title}
     </svelte:element>
 
     {#if subtitle.length > 0}
-        <span class="whitespace-pre-line {subtitleTextClass} {textColorClass}">
+        <span
+            class="whitespace-pre-line {subtitleTextClass} {textColorClass} {FONT_FAMILY_CLASS.primary}"
+        >
             {subtitle}
         </span>
     {/if}
