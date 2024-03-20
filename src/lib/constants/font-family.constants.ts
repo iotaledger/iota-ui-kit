@@ -4,6 +4,6 @@ interface IFontFamily {
 }
 
 export const FONT_FAMILY_CLASS: IFontFamily = {
-    primary: 'font-archivo',
+    primary: 'font-alliance-no1',
     secondary: 'font-inter',
 }
