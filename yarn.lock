@@ -1881,13 +1881,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/archivo@npm:^5.0.17":
-  version: 5.0.17
-  resolution: "@fontsource/archivo@npm:5.0.17"
-  checksum: 20acb18aa9cfb0c397f8ab868fa48dca31d04140dccd9c67045a408e3bc9f909f3a62ab767fc1add22b89c75129dbdb08b4f756f12d9ce967234cfed3bd605f9
-  languageName: node
-  linkType: hard
-
 "@fontsource/inter@npm:^5.0.17":
   version: 5.0.17
   resolution: "@fontsource/inter@npm:5.0.17"
@@ -1942,7 +1935,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@iota/ui-kit@workspace:."
   dependencies:
-    "@fontsource/archivo": ^5.0.17
     "@fontsource/inter": ^5.0.17
     "@storybook/addon-docs": ^7.5.3
     "@storybook/addon-essentials": ^7.5.3
