@@ -58,7 +58,6 @@
         "svelte": "^3.55.1"
     },
     "dependencies": {
-        "@fontsource/archivo": "^5.0.17",
         "@fontsource/inter": "^5.0.17",
         "esm-env": "^1.0.0",
         "lottie-web": "^5.12.2",
