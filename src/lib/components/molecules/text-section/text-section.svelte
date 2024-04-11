@@ -90,16 +90,22 @@
 
 <div class="flex w-full {directionClass} {paddingBottomClass}">
     <Title {id} size={titleSize} tag={titleTagFallback} {overline} {subtitle} {darkmode} {title} />
-    <right-box
-        class="flex flex-col text-left space-y-12 {paddingTopClass || ''} {paddingLeftClass}"
-    >
-        <p class="leading-6 {textColorClass}">{description}</p>
-        <buttons-wrapper class="flex space-x-4">
-            {#each buttons as button}
-                <Button {...button} {darkmode} />
-            {/each}
-        </buttons-wrapper>
-    </right-box>
+    {#if description || buttons.length > 0}
+        <right-box
+            class="flex flex-col text-left space-y-12 {paddingTopClass || ''} {paddingLeftClass}"
+        >
+            {#if description}
+                <p class="leading-6 {textColorClass}">{description}</p>
+            {/if}
+            {#if buttons.length > 0}
+                <buttons-wrapper class="flex space-x-4">
+                    {#each buttons as button}
+                        <Button {...button} {darkmode} />
+                    {/each}
+                </buttons-wrapper>
+            {/if}
+        </right-box>
+    {/if}
 </div>
 
 <style lang="postcss">
