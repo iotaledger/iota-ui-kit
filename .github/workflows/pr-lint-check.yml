@@ -17,9 +17,6 @@ jobs:
                   node-version: '18.19.x'
                   registry-url: https://registry.npmjs.org/
 
-            - name: Use Yarn 3
-              run: corepack enable
-
             - name: Install dependencies
               run: yarn install
 
