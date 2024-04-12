@@ -25,7 +25,7 @@
     <span class={ICON_FILL[mode]}>
         <Icon {icon} width={32} height={32} currentColor />
     </span>
-    <p class="{TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.primary}">{label}</p>
+    <p class="whitespace-pre-line {TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.primary}">{label}</p>
 </div>
 
 <style lang="postcss">
