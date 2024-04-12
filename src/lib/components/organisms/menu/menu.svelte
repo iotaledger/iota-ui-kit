@@ -36,12 +36,16 @@
 
 {#if isMobileMenuOpen}
     <button
-        class="fixed z-[-1] top-full left-0 outline-none border-none p-0 w-full h-screen cursor-auto"
+        class="fixed z-[-1] top-0 left-0 outline-none border-none p-0 w-full h-screen cursor-auto"
         on:click={toggleMobileMenu}
     />
 {/if}
 
-<nav class="container w-full" class:relative={isMobileMenuOpen}>
+<nav
+    class="container w-full"
+    class:relative={isMobileMenuOpen}
+    class:overflow-y-hidden={!isMobileMenuOpen}
+>
     <div class="flex flex-row items-center justify-between px-6 py-3 md:py-0">
         <a href="/">
             <Logo {darkmode} />
@@ -65,7 +69,11 @@
         </button>
     </div>
 
-    <aside class="md:hidden w-full relative" class:hidden={!isMobileMenuOpen}>
+    <aside
+        class="md:hidden w-full relative transition-[max-height] duration-200 ease-in-out {isMobileMenuOpen
+            ? 'max-h-screen'
+            : 'max-h-0'}"
+    >
         <menu-items class="flex flex-col items-start justify-start space-y-8 py-[60px] px-6">
             {#each menuItems as menuItem, index}
                 {@const handleOnClick = getActiveIndexSetter(index)}
