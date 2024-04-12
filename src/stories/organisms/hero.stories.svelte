@@ -2,7 +2,7 @@
     import type { Meta } from '@storybook/svelte'
 
     import { Hero as HeroComponent } from '$organisms'
-    import { ButtonType, IconEnum } from '$components'
+    import { ButtonType, IconEnum, TitleSize, TitleTag } from '$components'
     import { HeroVariant } from '$components/organisms'
 
     export const meta = {
@@ -35,6 +35,20 @@
                     values: [],
                 },
             },
+            titleSize: {
+                control: {
+                    type: 'select',
+                    labels: getEnumLabels(TitleSize),
+                },
+                options: Object.values(TitleSize),
+            },
+            titleTag: {
+                control: {
+                    type: 'select',
+                    labels: getEnumLabels(TitleTag),
+                },
+                options: Object.values(TitleTag),
+            },
         },
     } satisfies Meta<HeroComponent>
 </script>
@@ -46,6 +60,7 @@
     import { ViewportsEnum } from '$storybook/enums'
     import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
     import { MediaType } from '$components'
+    import { getEnumLabels } from '$storybook/utils/map-enum-labels'
 </script>
 
 <Template let:args>

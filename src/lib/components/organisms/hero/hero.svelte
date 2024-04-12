@@ -89,7 +89,7 @@
     }
 </script>
 
-<section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20 pb-8 sm:pb-0">
+<section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20 pb-8 md:pb-0">
     <div class="container mx-auto self-stretch">
         {#if backgroundMedia}
             <div class="absolute inset-0 z-0">
@@ -100,9 +100,9 @@
         <div class="flex flex-col relative h-full">
             <div class="flex flex-col py-18 h-full justify-center">
                 <div
-                    class="flex flex-col sm:flex-row items-center sm:space-x-6 mb-5 {justifyClass}"
+                    class="flex flex-col md:flex-row items-center md:space-x-6 mb-10 {justifyClass}"
                 >
-                    <div class="sm:min-w-[472px] lg:min-w-[564px] xl:min-w-none">
+                    <div class="md:min-w-[472px] lg:min-w-[564px] xl:min-w-none">
                         <Title
                             id={titleId}
                             tag={titleTag}
@@ -115,7 +115,7 @@
                         />
                     </div>
                     {#if media && isVariantPrimary}
-                        <div class="w-full xl:w-auto my-[60px]">
+                        <div class="w-full xl:w-auto max-md:mt-[60px] md:mb-[67px]">
                             <video
                                 controls
                                 class="max-h-[377px] w-auto rounded-md border border-black/0.16 object-cover cursor-pointer"
@@ -129,7 +129,7 @@
 
                 {#if paragraph || buttons.length > 0}
                     <div
-                        class="flex flex-col space-y-12 sm:space-y-0 sm:flex-row sm:space-x-6 justify-between mt-auto"
+                        class="flex flex-col space-y-12 md:space-y-0 md:flex-row md:space-x-6 justify-between mt-auto pt-[60px] md:pt-0"
                     >
                         {#if paragraph}
                             <p
@@ -142,7 +142,7 @@
                         {/if}
                         {#if buttons.length}
                             <div
-                                class="flex flex-row justify-start sm:justify-end items-end space-x-4"
+                                class="flex flex-row flex-wrap md:flex-nowrap justify-start md:justify-end items-end gap-4"
                             >
                                 {#each buttons as button}
                                     <Button {...button} darkmode={componentDarkmode} />
@@ -155,14 +155,14 @@
             {#if iconFeatures.length || anchorLinks.length}
                 <div class="flex flex-col">
                     {#if iconFeatures.length}
-                        <div class="grid grid-cols-1 sm:grid-cols-5 gap-x-12 gap-y-8 py-12 sm:py-6">
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-x-12 gap-y-8 py-12 md:py-6">
                             {#each iconFeatures as iconFeature}
                                 <IconText {...iconFeature} darkmode={componentDarkmode} />
                             {/each}
                         </div>
                     {/if}
                     {#if anchorLinks.length}
-                        <nav class="grid grid-cols-1 gap-y-4 sm:grid-cols-4 py-6 sm:py-0">
+                        <nav class="grid grid-cols-1 gap-y-4 md:grid-cols-4 py-6 md:py-0">
                             {#each anchorLinks as anchorLink}
                                 <AnchorLink {...anchorLink} darkmode={componentDarkmode} />
                             {/each}

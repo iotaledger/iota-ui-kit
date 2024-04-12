@@ -22,7 +22,7 @@
      * The title tag to use
      * @type {TitleTag}
      */
-    export let titleTag: TitleTag = TitleTag.H2
+    export let titleTag: TitleTag | undefined = undefined
     /**
      * The size of the title
      * @type {TitleSize}
@@ -68,14 +68,11 @@
      */
     export let variant: TextSectionVariant = TextSectionVariant.Top
 
-    let titleSize: TitleSize = TitleSize.Large
-    let titleTagFallback: TitleTag = TitleTag.H2
+    let titleSize: TitleSize
+    let titleTagFallback: TitleTag
 
-    $: if (!(size === undefined && titleTag === undefined)) {
-        titleSize = size || (titleTag ? HEADING_TO_SIZE[titleTag] : TitleSize.Medium)
-        titleTagFallback = titleTag || (size ? SIZE_TO_HEADING[size] : TitleTag.H2)
-    }
-
+    $: titleSize = size || (titleTag ? HEADING_TO_SIZE[titleTag] : TitleSize.Medium)
+    $: titleTagFallback = titleTag || (size ? SIZE_TO_HEADING[size] : TitleTag.H3)
     $: textColorClass = !darkmode ? TEXT_COLORS.light : TEXT_COLORS.dark
     $: directionClass = DIRECTION_CLASSES[direction]
     $: paddingTopClass =
