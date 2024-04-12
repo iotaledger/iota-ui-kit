@@ -146,9 +146,9 @@
 
 <style lang="postcss">
     .highlight-card {
-        min-width: 330px;
+        min-width: 312px;
         max-width: 640px;
-        height: 480px;
+        min-height: 480px;
         aspect-ratio: 4/3;
         @apply flex flex-col w-full relative p-12 rounded-xl overflow-hidden;
     }
