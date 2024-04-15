@@ -59,7 +59,7 @@
 <svelte:element
     this={href ? 'a' : 'button'}
     role={href ? 'link' : 'button'}
-    class="whitespace-pre-line {textClasses} {colorClasses} {iconClasses} {FONT_FAMILY_CLASS.primary}"
+    class="whitespace-pre-line transition-colors {textClasses} {colorClasses} {iconClasses} {FONT_FAMILY_CLASS.primary}"
     {disabled}
     href={href || null}
     target={href && isExternal ? '_blank' : null}
