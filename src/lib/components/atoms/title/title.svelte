@@ -50,13 +50,11 @@
      */
     export let title: string
 
-    let titleSize: TitleSize = TitleSize.Medium
-    let titleTagFallback: TitleTag = TitleTag.H2
+    let titleSize: TitleSize
+    let titleTagFallback: TitleTag
 
-    $: if (!(size === undefined && tag === undefined)) {
-        titleSize = size || (tag ? HEADING_TO_SIZE[tag] : TitleSize.Medium)
-        titleTagFallback = tag || (size ? SIZE_TO_HEADING[size] : TitleTag.H2)
-    }
+    $: titleSize = size || (tag ? HEADING_TO_SIZE[tag] : TitleSize.Medium)
+    $: titleTagFallback = tag || (size ? SIZE_TO_HEADING[size] : TitleTag.H3)
     $: sizeClass = TITLE_SIZES_BY_POSITION[position][titleSize]
     $: positionClass = TITLE_POSITIONS[position]
     $: titleColorClass = !darkmode ? TITLE_TEXT_COLORS.title.light : TITLE_TEXT_COLORS.title.dark

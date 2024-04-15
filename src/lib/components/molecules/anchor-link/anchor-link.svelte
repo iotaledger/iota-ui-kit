@@ -35,7 +35,7 @@
     rel={isExternal ? 'noopener noreferrer' : null}
 >
     <anchor-link-content class={BORDER_COLORS[mode]}>
-        <span class="{TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.primary}">
+        <span class="whitespace-pre-line {TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.primary}">
             {label}
         </span>
         <icon-wrapper>

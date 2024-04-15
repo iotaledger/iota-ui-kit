@@ -44,7 +44,7 @@
                 {/each}
             </labels-wrapper>
         {/if}
-        <p class="text-lg font-medium {TITLE_COLORS[mode]}">{title}</p>
+        <p class="whitespace-pre-line text-lg font-medium {TITLE_COLORS[mode]}">{title}</p>
     </div>
 </blogpost-card>
 

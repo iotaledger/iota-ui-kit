@@ -40,12 +40,13 @@
     {@const { src, alt, objectFit } = imageMedia}
     <img {src} {alt} class={objectFit} class:pointer-events-none={pointerEventsNone} />
 {:else if media.type === MediaType.Video && videoMedia}
-    {@const { src, loop, autoplay, objectFit } = videoMedia}
+    {@const { src, loop, autoplay, objectFit, poster } = videoMedia}
     <video
         bind:this={videoElement}
         autoplay={isMobileDevice() || (!playOnHover && autoplay)}
         {loop}
         muted
+        {poster}
         class={objectFit}
         class:pointer-events-none={pointerEventsNone}
         on:mouseleave={onMouseLeave}

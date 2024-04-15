@@ -54,6 +54,11 @@
                 },
                 options: Object.values(Align),
             },
+            isExternal: {
+                control: {
+                    type: 'boolean',
+                },
+            },
         },
     } satisfies Meta<HighlightCardComponent>
 </script>

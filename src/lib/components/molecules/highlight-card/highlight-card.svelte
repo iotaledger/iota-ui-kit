@@ -69,6 +69,11 @@
 
     export let align: Align = Align.Center
 
+    /**
+     * Is the link external
+     */
+    export let isExternal: boolean = false
+
     let isHovered: boolean = false
 
     $: itemsAlignClass = icon ? ALIGNMENT_WITH_ICON : ITEMS_ALIGNMENT_CLASSES[align]
@@ -77,6 +82,10 @@
         description.length === 0 && position === Position.Center
             ? CONTENT_JUSTIFICATION.center
             : CONTENT_JUSTIFICATION.between
+    $: externalLinkProps = {
+        target: isExternal ? '_blank' : null,
+        rel: isExternal ? 'noopener noreferrer' : null,
+    }
 
     function handleMouseEnter(): void {
         if (!isMobileDevice()) {
@@ -96,7 +105,7 @@
     on:mouseenter={handleMouseEnter}
     on:mouseleave={handleMouseLeave}
     class="highlight-card flex flex-col {backgroundColor} {itemsAlignClass}"
-    {...link ? { target: '_blank', href: link, role: 'link', tabindex: 0 } : {}}
+    {...link ? { ...externalLinkProps, href: link, role: 'link', tabindex: 0 } : {}}
 >
     {#if backgroundMedia}
         <media-wrapper class="absolute inset-0 z-0 text-2xl">
@@ -146,9 +155,9 @@
 
 <style lang="postcss">
     .highlight-card {
-        min-width: 330px;
-        max-width: 640px;
-        height: 480px;
+        min-width: 312px;
+        max-width: 800px;
+        min-height: 480px;
         aspect-ratio: 4/3;
         @apply flex flex-col w-full relative p-12 rounded-xl overflow-hidden;
     }
