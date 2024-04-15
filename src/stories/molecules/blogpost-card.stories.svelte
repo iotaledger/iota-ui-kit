@@ -9,6 +9,15 @@
             title: {
                 control: { type: 'text' },
             },
+            description: {
+                control: { type: 'text' },
+            },
+            href: {
+                control: { type: 'text' },
+            },
+            isExternal: {
+                control: { type: 'boolean' },
+            },
             labels: {
                 control: { type: 'array' },
             },
