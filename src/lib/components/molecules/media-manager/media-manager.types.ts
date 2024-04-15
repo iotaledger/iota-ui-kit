@@ -22,6 +22,7 @@ export type VideoProps = {
     objectFit?: ObjectFit
     autoplay?: boolean
     loop?: boolean
+    poster?: string
 }
 
 export type ImageProps = {
