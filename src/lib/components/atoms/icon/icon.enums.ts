@@ -5,6 +5,7 @@ export enum IconEnum {
     CircleArrowUp = 'circle-arrow-up',
     CircleHive = 'circle-hive',
     CoinStack = 'coin-stack',
+    Convergence = 'convergence',
     DAO = 'dao',
     Dart = 'dart',
     Event = 'event',
