@@ -21,6 +21,7 @@
      */
     export let isActive: boolean = false
     export let darkmode: boolean = false
+    export let mobile: boolean = false
 
     $: colorClasses = darkmode ? MENU_ITEM_COLORS[Mode.Dark] : MENU_ITEM_COLORS[Mode.Light]
 </script>
@@ -28,7 +29,7 @@
 <a
     {href}
     target={isExternal ? '_blank' : null}
-    class="{colorClasses} px-4 py-8 text-sm font-medium leading-[15px]"
+    class="{colorClasses} {mobile ? 'pb-2' : 'px-4 py-8'} text-sm font-medium leading-[15px]"
     class:active={isActive}
     class:darkmode
     on:click
