@@ -78,7 +78,7 @@
 <style lang="postcss">
     button,
     a {
-        @apply font-medium rounded-sm inline-flex justify-center items-center gap-4;
+        @apply font-medium rounded-md inline-flex justify-center items-center gap-4;
         @apply py-2;
         @apply disabled:opacity-50 disabled:cursor-not-allowed;
     }
