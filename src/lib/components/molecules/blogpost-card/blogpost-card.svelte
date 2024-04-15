@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { FONT_FAMILY_CLASS } from '$lib/constants'
     import { Mode } from '$lib/enums'
     import { MediaManager, type Media } from '../media-manager'
     import { LABEL_COLORS, TITLE_COLORS } from './blogpost-card.classes'
@@ -8,6 +9,11 @@
      * @type {string}
      */
     export let title: string
+    /**
+     * Description to display
+     * @type {string}
+     */
+    export let description: string = ''
     /**
      * Labels to display (as an array of strings)
      * @type {string[]}
@@ -23,34 +29,55 @@
      * @type {Media}
      */
     export let media: Media
+    /**
+     * Href to navigate to
+     * @type {string}
+     */
+    export let href: string | null = null
+    /**
+     * Is the link external
+     */
+    export let isExternal: boolean = false
 
     $: mode = darkmode ? Mode.Dark : Mode.Light
+    $: externalProps = isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 </script>
 
-<blogpost-card class="flex flex-col items-start justify-center w-full space-y-6">
+<svelte:element
+    this={href ? 'a' : 'div'}
+    {href}
+    {...externalProps}
+    class="blogpost-card flex flex-col items-start justify-center w-full space-y-6"
+>
     <media-wrapper class="aspect-video w-full overflow-hidden">
         <MediaManager {media} pointerEventsNone />
     </media-wrapper>
     <div class="flex flex-col items-start space-y-4 pr-8 w-full">
+        <h6
+            class="whitespace-pre-line text-lg font-medium {TITLE_COLORS[
+                mode
+            ]} {FONT_FAMILY_CLASS.primary}"
+        >
+            {title}
+        </h6>
+        {#if description}
+            <p class="text-sm text-iota-gray-600 {FONT_FAMILY_CLASS.secondary}">{description}</p>
+        {/if}
         {#if labels.length}
-            <labels-wrapper class="flex space-x-2 text-sm {LABEL_COLORS[mode]}">
-                {#each labels as label, index}
-                    <p>
+            <labels-wrapper class="flex flex-wrap gap-2 {LABEL_COLORS[mode]}">
+                {#each labels as label}
+                    <p class="py-1 px-3 border border-black/0.16 text-sm rounded-2xl">
                         {label}
                     </p>
-                    {#if index < labels.length - 1}
-                        <p>|</p>
-                    {/if}
                 {/each}
             </labels-wrapper>
         {/if}
-        <p class="whitespace-pre-line text-lg font-medium {TITLE_COLORS[mode]}">{title}</p>
     </div>
-</blogpost-card>
+</svelte:element>
 
 <style lang="postcss">
-    blogpost-card {
-        min-width: 330px;
+    .blogpost-card {
+        min-width: 312px;
         max-width: 464px;
     }
 </style>
