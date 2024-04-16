@@ -25,10 +25,6 @@
      */
     export let isMobileMenuOpen: boolean = false
 
-    function getActiveIndexSetter(index: number): () => void {
-        return () => (activeIndex = index)
-    }
-
     function toggleMobileMenu(): void {
         isMobileMenuOpen = !isMobileMenuOpen
     }
@@ -52,13 +48,7 @@
         </a>
         <desktop-menu-items class="hidden md:flex flex-row items-center space-x-4">
             {#each menuItems as menuItem, index}
-                {@const handleOnClick = getActiveIndexSetter(index)}
-                <MenuItem
-                    {...menuItem}
-                    {darkmode}
-                    isActive={activeIndex === index}
-                    on:click={handleOnClick}
-                />
+                <MenuItem {...menuItem} {darkmode} isActive={activeIndex === index} />
             {/each}
         </desktop-menu-items>
         <button
@@ -76,14 +66,7 @@
     >
         <menu-items class="flex flex-col items-start justify-start space-y-8 py-[60px] px-6">
             {#each menuItems as menuItem, index}
-                {@const handleOnClick = getActiveIndexSetter(index)}
-                <MenuItem
-                    {...menuItem}
-                    {darkmode}
-                    isActive={activeIndex === index}
-                    on:click={handleOnClick}
-                    mobile
-                />
+                <MenuItem {...menuItem} {darkmode} isActive={activeIndex === index} mobile />
             {/each}
         </menu-items>
     </aside>
