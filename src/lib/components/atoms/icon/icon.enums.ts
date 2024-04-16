@@ -21,6 +21,7 @@ export enum IconEnum {
     Search = 'search',
     SecurityShield = 'security-shield',
     SmallArrowBottomRight = 'small-arrow-bottom-right',
+    SmartContract = 'smart-contract',
     SquareDots = 'square-dots',
     SquareLayers = 'square-layers',
     Ticket = 'ticket',

@@ -66,7 +66,13 @@
     >
         <menu-items class="flex flex-col items-start justify-start space-y-8 py-[60px] px-6">
             {#each menuItems as menuItem, index}
-                <MenuItem {...menuItem} {darkmode} isActive={activeIndex === index} mobile />
+                <MenuItem
+                    {...menuItem}
+                    {darkmode}
+                    isActive={activeIndex === index}
+                    mobile
+                    on:click={toggleMobileMenu}
+                />
             {/each}
         </menu-items>
     </aside>
