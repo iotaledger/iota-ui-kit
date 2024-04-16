@@ -42,7 +42,7 @@
     class:relative={isMobileMenuOpen}
     class:overflow-y-hidden={!isMobileMenuOpen}
 >
-    <div class="flex flex-row items-center justify-between px-6 py-3 md:py-0">
+    <div class="flex flex-row items-center justify-between px-6">
         <a href="/">
             {#if $$slots.logo}
                 <slot name="logo" />
