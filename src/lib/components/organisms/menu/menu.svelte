@@ -42,9 +42,13 @@
     class:relative={isMobileMenuOpen}
     class:overflow-y-hidden={!isMobileMenuOpen}
 >
-    <div class="flex flex-row items-center justify-between px-6 py-3 md:py-0">
+    <div class="flex flex-row items-center justify-between px-6">
         <a href="/">
-            <Logo {darkmode} />
+            {#if $$slots.logo}
+                <slot name="logo" />
+            {:else}
+                <Logo {darkmode} />
+            {/if}
         </a>
         <desktop-menu-items class="hidden md:flex flex-row items-center space-x-4">
             {#each menuItems as menuItem, index}
