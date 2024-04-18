@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Lottie, { type AnimationItem } from 'lottie-web'
+    import Lottie, { type AnimationDirection, type AnimationItem } from 'lottie-web'
     import { onMount } from 'svelte'
     import { RendererType } from './animation.enums'
     import { isMobileDevice } from '$lib/utils'
@@ -12,17 +12,46 @@
      * @type {RendererType}
      */
     export let renderer: RendererType = RendererType.Svg
+    /**
+     * Whether the animation should loop.
+     */
     export let loop: boolean = true
+    /**
+     * Whether the animation should play on hover.
+     */
     export let pointerEventsNone: boolean = false
+    /**
+     * The background color of the animation.
+     */
     export let backgroundColor: string = 'transparent'
+    /**
+     * Whether the animation should play on hover.
+     */
     export let playOnHover: boolean = false
+    /**
+     * Whether the animation is hovered.
+     */
     export let isHovered: boolean = false
+    /**
+     * The speed of the animation.
+     */
+    export let speed: number = 1
+    /**
+     * The direction of the animation.
+     * @type {1 | -1}
+     */
+    export let direction: AnimationDirection = 1
 
     let player: HTMLElement
     let animation: AnimationItem | undefined
 
     $: if (playOnHover) {
         isHovered ? void animation?.play() : animation?.pause()
+    }
+
+    $: if (animation) {
+        animation.setSpeed(speed)
+        animation.setDirection(direction)
     }
 
     onMount(() => {

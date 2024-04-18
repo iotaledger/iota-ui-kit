@@ -14,6 +14,22 @@
                 control: { type: 'select' },
                 options: Object.values(RendererType),
             },
+            playOnHover: {
+                control: 'boolean',
+            },
+            pointerEventsNone: {
+                control: 'boolean',
+            },
+            backgroundColor: {
+                control: 'color',
+            },
+            speed: {
+                control: 'number',
+            },
+            direction: {
+                control: { type: 'select' },
+                options: [1, -1],
+            },
         },
     } satisfies Meta<AnimationComponent>
 </script>
