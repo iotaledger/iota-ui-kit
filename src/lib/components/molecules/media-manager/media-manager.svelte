@@ -25,13 +25,11 @@
         }
     }
 
-    $: if (playOnHover) {
-        isHovered ? void videoElement?.play() : videoElement?.pause()
-    }
-
-    function onMouseLeave(): void {
-        if (playOnHover) {
-            isHovered = false
+    $: if (playOnHover && videoElement) {
+        if (isHovered) {
+            void videoElement.play()
+        } else {
+            videoElement.pause()
         }
     }
 </script>
@@ -49,7 +47,6 @@
         {poster}
         class={objectFit}
         class:pointer-events-none={pointerEventsNone}
-        on:mouseleave={onMouseLeave}
     >
         <source {src} type="video/mp4" />
     </video>

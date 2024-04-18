@@ -3,13 +3,18 @@
     import { OVERLINE_TEXT } from '$components/atoms/title/title.classes'
     import { Position, Align } from '$lib/enums'
     import { isMobileDevice } from '$lib/utils'
-    import { MediaManager, type Media } from '../media-manager'
+    import { MediaManager } from '../media-manager'
+    import { HighlightCardVariant } from './highlight-card.enums'
+    import { slide, fade } from 'svelte/transition'
+    import { cubicIn } from 'svelte/easing'
+
     import {
         ALIGNMENT_WITH_ICON,
         CONTENT_ALIGNMENT,
         CONTENT_JUSTIFICATION,
         ITEMS_ALIGNMENT_CLASSES,
     } from './highlight-card.classes'
+    import type { ComponentProps } from 'svelte'
 
     /**
      * Title to display
@@ -46,10 +51,10 @@
     export let link: string | null = null
 
     /**
-     * The media to display
-     * @type {Media}
+     * The media to display in the background
+     * @type {HighlightCardBackground}
      */
-    export let backgroundMedia: Media | null = null
+    export let backgroundMedia: Omit<ComponentProps<MediaManager>, 'isHovered'> | null = null
 
     /**
      * Background color of the card
@@ -74,6 +79,11 @@
      */
     export let isExternal: boolean = false
 
+    /**
+     * The variant of the card
+     */
+    export let variant: HighlightCardVariant = HighlightCardVariant.Static
+
     let isHovered: boolean = false
 
     $: itemsAlignClass = icon ? ALIGNMENT_WITH_ICON : ITEMS_ALIGNMENT_CLASSES[align]
@@ -86,6 +96,7 @@
         target: isExternal ? '_blank' : null,
         rel: isExternal ? 'noopener noreferrer' : null,
     }
+    $: showElementsOnHover = variant === HighlightCardVariant.Hover
 
     function handleMouseEnter(): void {
         if (!isMobileDevice()) {
@@ -108,8 +119,13 @@
     {...link ? { ...externalLinkProps, href: link, role: 'link', tabindex: 0 } : {}}
 >
     {#if backgroundMedia}
-        <media-wrapper class="absolute inset-0 z-0 text-2xl">
-            <MediaManager media={backgroundMedia} pointerEventsNone playOnHover {isHovered} />
+        <media-wrapper
+            class="absolute inset-0 z-0 text-2xl"
+            class:opacity-0={showElementsOnHover && !isHovered}
+            class:transition-opacity={showElementsOnHover}
+            class:duration-300={showElementsOnHover}
+        >
+            <MediaManager {...backgroundMedia} {isHovered} />
         </media-wrapper>
     {/if}
     {#if link}
@@ -148,7 +164,19 @@
             </div>
         </title-wrapper>
         {#if description}
-            <p class="text-white/80">{description}</p>
+            {#if showElementsOnHover}
+                {#if isHovered}
+                    <div transition:slide>
+                        <p transition:fade={{ easing: cubicIn }} class="text-white/80">
+                            {description}
+                        </p>
+                    </div>
+                {/if}
+            {:else}
+                <p class="text-white/80">
+                    {description}
+                </p>
+            {/if}
         {/if}
     </content-wrapper>
 </svelte:element>

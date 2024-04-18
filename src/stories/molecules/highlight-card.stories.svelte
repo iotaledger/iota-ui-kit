@@ -59,6 +59,13 @@
                     type: 'boolean',
                 },
             },
+            variant: {
+                control: {
+                    type: 'select',
+                    labels: getEnumLabels(HighlightCardVariant),
+                },
+                options: Object.values(HighlightCardVariant),
+            },
         },
     } satisfies Meta<HighlightCardComponent>
 </script>
@@ -66,7 +73,7 @@
 <script lang="ts">
     import { Story, Template } from '@storybook/addon-svelte-csf'
     import type { Meta } from '@storybook/svelte'
-    import { MediaType } from '$molecules'
+    import { HighlightCardVariant, MediaType } from '$molecules'
     import { IconEnum } from '$components'
     import { Align, Position } from '$lib/enums'
     import { getEnumLabels } from '$storybook/utils/map-enum-labels'
@@ -84,10 +91,32 @@
         subtitle: 'Subtitle',
         icon: IconEnum.Atom,
         backgroundMedia: {
-            src: 'https://lottie.host/f7277c23-b529-4c2a-ae08-0358068e792d/gbUnU4pWbh.json',
-            type: MediaType.Animation,
+            media: {
+                src: 'https://lottie.host/f7277c23-b529-4c2a-ae08-0358068e792d/gbUnU4pWbh.json',
+                type: MediaType.Animation,
+            },
         },
         link: 'https://iota.org',
+        description:
+            'Allowing the EVM chain to communicate outside of the chain and interact, through the IOTA/Shimmer layer, with other chains and even non-EVM chain smart contracts',
+    }}
+/>
+
+<Story
+    name="Hoverable Highlight Card"
+    args={{
+        title: 'Send IOTA Tokens with Javascript',
+        overline: 'Overline',
+        subtitle: 'Subtitle',
+        icon: IconEnum.Atom,
+        variant: HighlightCardVariant.Hover,
+        backgroundMedia: {
+            autoplay: true,
+            media: {
+                src: 'https://lottie.host/f7277c23-b529-4c2a-ae08-0358068e792d/gbUnU4pWbh.json',
+                type: MediaType.Animation,
+            },
+        },
         description:
             'Allowing the EVM chain to communicate outside of the chain and interact, through the IOTA/Shimmer layer, with other chains and even non-EVM chain smart contracts',
     }}
