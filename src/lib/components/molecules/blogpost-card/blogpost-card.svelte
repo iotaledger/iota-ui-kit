@@ -49,7 +49,7 @@
     {...externalProps}
     class="blogpost-card flex flex-col items-start justify-center w-full space-y-6"
 >
-    <media-wrapper class="aspect-video w-full overflow-hidden">
+    <media-wrapper class="aspect-video w-full overflow-hidden rounded">
         <MediaManager {media} pointerEventsNone />
     </media-wrapper>
     <div class="flex flex-col items-start space-y-4 pr-8 w-full">
