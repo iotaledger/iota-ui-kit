@@ -3,7 +3,7 @@
     import { OVERLINE_TEXT } from '$components/atoms/title/title.classes'
     import { Position, Align } from '$lib/enums'
     import { isMobileDevice } from '$lib/utils'
-    import { MediaManager } from '../media-manager'
+    import { MediaManager, type Media } from '../media-manager'
     import { HighlightCardVariant } from './highlight-card.enums'
 
     import {
@@ -12,7 +12,6 @@
         CONTENT_JUSTIFICATION,
         ITEMS_ALIGNMENT_CLASSES,
     } from './highlight-card.classes'
-    import type { ComponentProps } from 'svelte'
 
     /**
      * Title to display
@@ -50,9 +49,9 @@
 
     /**
      * The media to display in the background
-     * @type {HighlightCardBackground}
+     * @type {Media}
      */
-    export let backgroundMedia: Omit<ComponentProps<MediaManager>, 'isHovered'> | null = null
+    export let backgroundMedia: Media | null = null
 
     /**
      * Background color of the card
@@ -118,12 +117,12 @@
 >
     {#if backgroundMedia}
         <media-wrapper
-            class="absolute inset-0 z-0 text-2xl"
+            class="absolute inset-0 z-0 text-2xl pointer-events-none"
             class:opacity-0={showElementsOnHover && !isHovered}
             class:transition-opacity={showElementsOnHover}
             class:duration-300={showElementsOnHover}
         >
-            <MediaManager {...backgroundMedia} {isHovered} />
+            <MediaManager media={backgroundMedia} {isHovered} playOnHover={showElementsOnHover} />
         </media-wrapper>
     {/if}
     {#if link}
@@ -136,7 +135,7 @@
         </icon-link-wrapper>
     {/if}
     {#if icon}
-        <span class="text-white flex" class:justify-center={position === Position.Center}>
+        <span class="text-white flex z-[1]" class:justify-center={position === Position.Center}>
             <Icon {icon} width={48} height={48} currentColor />
         </span>
     {/if}

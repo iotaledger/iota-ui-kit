@@ -111,11 +111,8 @@
         icon: IconEnum.Atom,
         variant: HighlightCardVariant.Hover,
         backgroundMedia: {
-            autoplay: true,
-            media: {
-                src: 'https://lottie.host/f7277c23-b529-4c2a-ae08-0358068e792d/gbUnU4pWbh.json',
-                type: MediaType.Animation,
-            },
+            src: 'https://files.iota.org/media/ui-kit/cards/black/compressed/IOTA_card_black_6.mp4',
+            type: MediaType.Video,
         },
         description:
             'Allowing the EVM chain to communicate outside of the chain and interact, through the IOTA/Shimmer layer, with other chains and even non-EVM chain smart contracts',
