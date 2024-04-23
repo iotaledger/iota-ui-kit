@@ -5,8 +5,6 @@
     import { isMobileDevice } from '$lib/utils'
     import { MediaManager } from '../media-manager'
     import { HighlightCardVariant } from './highlight-card.enums'
-    import { slide, fade } from 'svelte/transition'
-    import { cubicIn } from 'svelte/easing'
 
     import {
         ALIGNMENT_WITH_ICON,
@@ -165,13 +163,11 @@
         </title-wrapper>
         {#if description}
             {#if showElementsOnHover}
-                {#if isHovered}
-                    <div transition:slide>
-                        <p transition:fade={{ easing: cubicIn }} class="text-white/80">
-                            {description}
-                        </p>
-                    </div>
-                {/if}
+                <hoverable-description class="grid" class:isHovered>
+                    <p class="text-white/80 overflow-hidden">
+                        {description}
+                    </p>
+                </hoverable-description>
             {:else}
                 <p class="text-white/80">
                     {description}
@@ -185,8 +181,20 @@
     .highlight-card {
         min-width: 312px;
         max-width: 800px;
-        min-height: 480px;
         aspect-ratio: 4/3;
         @apply flex flex-col w-full relative p-12 rounded-xl overflow-hidden;
+
+        hoverable-description {
+            grid-template-rows: 0fr;
+            opacity: 0;
+            transition-property: grid-template-rows, opacity;
+            transition-duration: 200ms;
+            transition-timing-function: ease-in-out;
+
+            &.isHovered {
+                grid-template-rows: 1fr;
+                opacity: 1;
+            }
+        }
     }
 </style>
