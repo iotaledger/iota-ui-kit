@@ -91,10 +91,8 @@
         subtitle: 'Subtitle',
         icon: IconEnum.Atom,
         backgroundMedia: {
-            media: {
-                src: 'https://lottie.host/f7277c23-b529-4c2a-ae08-0358068e792d/gbUnU4pWbh.json',
-                type: MediaType.Animation,
-            },
+            src: 'https://files.iota.org/media/ui-kit/cards/black/compressed/IOTA_card_black_6.mp4',
+            type: MediaType.Video,
         },
         link: 'https://iota.org',
         description:
