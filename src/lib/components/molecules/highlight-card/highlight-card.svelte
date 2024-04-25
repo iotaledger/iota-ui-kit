@@ -93,7 +93,7 @@
         target: isExternal ? '_blank' : null,
         rel: isExternal ? 'noopener noreferrer' : null,
     }
-    $: showElementsOnHover = variant === HighlightCardVariant.Hover
+    $: isHoverVariant = variant === HighlightCardVariant.Hover
 
     function handleMouseEnter(): void {
         if (!isMobileDevice()) {
@@ -113,16 +113,12 @@
     on:mouseenter={handleMouseEnter}
     on:mouseleave={handleMouseLeave}
     class="highlight-card flex flex-col {backgroundColor} {itemsAlignClass}"
+    class:isHoverable={isHoverVariant}
     {...link ? { ...externalLinkProps, href: link, role: 'link', tabindex: 0 } : {}}
 >
     {#if backgroundMedia}
-        <media-wrapper
-            class="absolute inset-0 z-0 text-2xl pointer-events-none"
-            class:opacity-0={showElementsOnHover && !isHovered}
-            class:transition-opacity={showElementsOnHover}
-            class:duration-300={showElementsOnHover}
-        >
-            <MediaManager media={backgroundMedia} {isHovered} playOnHover={showElementsOnHover} />
+        <media-wrapper class="absolute inset-0 z-0 text-2xl pointer-events-none">
+            <MediaManager media={backgroundMedia} {isHovered} playOnHover={isHoverVariant} />
         </media-wrapper>
     {/if}
     {#if link}
@@ -139,7 +135,9 @@
             <Icon {icon} width={48} height={48} currentColor />
         </span>
     {/if}
-    <content-wrapper class="flex flex-col space-y-6 z-[1] {alignmentClass} {justifyClass}">
+    <content-wrapper
+        class="flex flex-col space-y-6 z-[1] overflow-hidden {alignmentClass} {justifyClass}"
+    >
         <title-wrapper class="flex flex-col space-y-6">
             <div
                 class="flex flex-col font-medium space-y-6"
@@ -161,17 +159,9 @@
             </div>
         </title-wrapper>
         {#if description}
-            {#if showElementsOnHover}
-                <hoverable-description class="grid" class:isHovered>
-                    <p class="text-white/80 overflow-hidden">
-                        {description}
-                    </p>
-                </hoverable-description>
-            {:else}
-                <p class="text-white/80">
-                    {description}
-                </p>
-            {/if}
+            <description class="text-white/80">
+                {description}
+            </description>
         {/if}
     </content-wrapper>
 </svelte:element>
@@ -182,18 +172,27 @@
         max-width: 800px;
         aspect-ratio: 4/3;
         @apply flex flex-col w-full relative p-12 rounded-xl overflow-hidden;
+    }
 
-        hoverable-description {
-            grid-template-rows: 0fr;
-            opacity: 0;
-            transition-property: grid-template-rows, opacity;
-            transition-duration: 200ms;
-            transition-timing-function: ease-in-out;
+    .highlight-card.isHoverable description {
+        @apply max-h-0 opacity-0;
+        @apply duration-300 ease-linear;
+        transition-property: max-height, opacity;
+    }
 
-            &.isHovered {
-                grid-template-rows: 1fr;
-                opacity: 1;
-            }
+    .highlight-card.isHoverable:hover description {
+        @apply max-h-[500px] opacity-100;
+    }
+
+    .highlight-card.isHoverable {
+        media-wrapper {
+            @apply opacity-0;
+            @apply transition-opacity duration-300;
+            transition-timing-function: cubic-bezier(0.2, 0, 0.8, 1);
+        }
+
+        &:hover media-wrapper {
+            @apply opacity-100;
         }
     }
 </style>
