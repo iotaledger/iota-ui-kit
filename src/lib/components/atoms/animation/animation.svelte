@@ -45,13 +45,17 @@
     let player: HTMLElement
     let animation: AnimationItem | undefined
 
-    $: if (playOnHover) {
-        isHovered ? void animation?.play() : animation?.pause()
-    }
-
     $: if (animation) {
         animation.setSpeed(speed)
         animation.setDirection(direction)
+    }
+
+    $: if (playOnHover && animation) {
+        if (isHovered) {
+            animation?.play()
+        } else {
+            animation?.pause()
+        }
     }
 
     onMount(() => {
@@ -63,12 +67,6 @@
             path: src,
         })
     })
-
-    function onMouseLeave(): void {
-        if (playOnHover) {
-            animation?.pause()
-        }
-    }
 </script>
 
 <dotlottie-player
@@ -79,7 +77,6 @@
     autoplay={isMobileDevice() || (!playOnHover && autoplay)}
     {loop}
     role="img"
-    on:mouseleave={onMouseLeave}
 />
 
 <style lang="postcss">
