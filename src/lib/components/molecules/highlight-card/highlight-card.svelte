@@ -113,7 +113,7 @@
     on:mouseenter={handleMouseEnter}
     on:mouseleave={handleMouseLeave}
     class="highlight-card flex flex-col {backgroundColor} {itemsAlignClass}"
-    class:isHoverable={isHoverVariant}
+    class:variant--hover={isHoverVariant}
     {...link ? { ...externalLinkProps, href: link, role: 'link', tabindex: 0 } : {}}
 >
     {#if backgroundMedia}
@@ -172,27 +172,34 @@
         max-width: 800px;
         aspect-ratio: 4/3;
         @apply flex flex-col w-full relative p-12 rounded-xl overflow-hidden;
-    }
 
-    .highlight-card.isHoverable description {
-        @apply max-h-0 opacity-0;
-        @apply duration-300 ease-linear;
-        transition-property: max-height, opacity;
-    }
+        &.variant--hover {
+            description {
+                @apply max-h-0 opacity-0;
+                @apply mt-0;
+                transition:
+                    max-height 300ms,
+                    opacity 400ms,
+                    margin-top 400ms;
+                @apply ease-in-out;
+            }
 
-    .highlight-card.isHoverable:hover description {
-        @apply max-h-[500px] opacity-100;
-    }
+            media-wrapper {
+                @apply opacity-0;
+                @apply duration-300 ease-in-out;
+                transition-property: opacity;
+            }
 
-    .highlight-card.isHoverable {
-        media-wrapper {
-            @apply opacity-0;
-            @apply transition-opacity duration-300;
-            transition-timing-function: cubic-bezier(0.2, 0, 0.8, 1);
-        }
+            &:hover {
+                description {
+                    @apply max-h-[500px] opacity-100;
+                    @apply mt-6;
+                }
 
-        &:hover media-wrapper {
-            @apply opacity-100;
+                media-wrapper {
+                    @apply opacity-100;
+                }
+            }
         }
     }
 </style>
