@@ -24,15 +24,9 @@
                     type: 'object',
                 },
             },
-            iconFeatures: {
+            bottomStrip: {
                 control: {
                     type: 'object',
-                },
-            },
-            anchorLinks: {
-                control: {
-                    type: 'object',
-                    values: [],
                 },
             },
             titleSize: {
@@ -61,6 +55,7 @@
     import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
     import { MediaType } from '$components'
     import { getEnumLabels } from '$storybook/utils/map-enum-labels'
+    import { ContentStripType } from '$components/molecules/content-strip/content-strip.enums'
 </script>
 
 <Template let:args>
@@ -100,14 +95,13 @@
                 icon: IconEnum.ArrowTopRight,
             },
         ],
-        iconFeatures: new Array(3).fill(0).map(() => ({
-            icon: IconEnum.ArrowTopRight,
-            label: 'Icon Feature',
-        })),
-        anchorLinks: new Array(3).fill(0).map(() => ({
-            label: 'Anchor link',
-            href: '#',
-        })),
+        bottomStrip: {
+            type: ContentStripType.AnchorStrip,
+            items: new Array(3).fill(0).map(() => ({
+                label: 'Anchor link',
+                href: '#',
+            })),
+        },
         media: 'https://videos.ctfassets.net/xit7f234flxz/7BqsHwcJ0cjnSY77lhYyO7/5d5d9c6688a791d21cc651fa54f2896c/woman.webm',
         variant: HeroVariant.Secondary,
     }}
@@ -145,14 +139,13 @@
                 icon: IconEnum.ArrowTopRight,
             },
         ],
-        iconFeatures: new Array(3).fill(0).map(() => ({
-            icon: IconEnum.ArrowTopRight,
-            label: 'Icon Feature',
-        })),
-        anchorLinks: new Array(3).fill(0).map(() => ({
-            label: 'Anchor link',
-            href: '#',
-        })),
+        bottomStrip: {
+            type: ContentStripType.AnchorStrip,
+            items: new Array(3).fill(0).map(() => ({
+                label: 'Anchor link',
+                href: '#',
+            })),
+        },
         media: 'https://videos.ctfassets.net/xit7f234flxz/7BqsHwcJ0cjnSY77lhYyO7/5d5d9c6688a791d21cc651fa54f2896c/woman.webm',
         variant: HeroVariant.Secondary,
     }}
