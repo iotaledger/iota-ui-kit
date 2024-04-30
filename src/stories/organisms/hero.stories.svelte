@@ -55,7 +55,7 @@
     import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
     import { MediaType } from '$components'
     import { getEnumLabels } from '$storybook/utils/map-enum-labels'
-    import { ContentStripType } from '$components/molecules/content-strip/content-strip.enums'
+    import { BottomStripType } from '$components/organisms/hero/hero.enums'
 </script>
 
 <Template let:args>
@@ -96,7 +96,7 @@
             },
         ],
         bottomStrip: {
-            type: ContentStripType.AnchorStrip,
+            type: BottomStripType.AnchorLink,
             items: new Array(3).fill(0).map(() => ({
                 label: 'Anchor link',
                 href: '#',
@@ -140,7 +140,7 @@
             },
         ],
         bottomStrip: {
-            type: ContentStripType.AnchorStrip,
+            type: BottomStripType.AnchorLink,
             items: new Array(3).fill(0).map(() => ({
                 label: 'Anchor link',
                 href: '#',
