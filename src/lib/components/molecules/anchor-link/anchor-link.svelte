@@ -8,6 +8,10 @@
      * @type {string}
      */
     export let label: string
+    /**
+     * Darkmode
+     * @type {boolean}
+     */
     export let darkmode: boolean = false
     /**
      * Link to
@@ -35,21 +39,19 @@
     target={isExternal ? '_blank' : null}
     rel={isExternal ? 'noopener noreferrer' : null}
 >
-    <anchor-link-content>
-        <span class="whitespace-pre-line {TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.primary}">
-            {label}
-        </span>
-        <icon-wrapper>
-            <div class={ICON_FILL[mode]}>
-                <Icon {icon} currentColor />
-            </div>
-        </icon-wrapper>
-    </anchor-link-content>
+    <span class="whitespace-pre-line {TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.primary}">
+        {label}
+    </span>
+    <icon-wrapper>
+        <div class={ICON_FILL[mode]}>
+            <Icon {icon} currentColor />
+        </div>
+    </icon-wrapper>
 </a>
 
 <style lang="postcss">
     .anchor-link-wrapper {
-        @apply flex py-0.5 md:py-4 pl-0 md:pl-6 w-full;
+        @apply py-[14px] md:py-7 px-6 md:pl-6 md:pr-0 w-full;
         @apply transition-all duration-200;
         @apply cursor-pointer;
         @apply rounded-2xl;
@@ -73,16 +75,14 @@
             }
         }
 
-        anchor-link-content {
-            @apply py-3 px-6 md:px-0 md:py-4 flex items-center w-full space-x-6;
+        @apply flex items-center w-full space-x-6;
 
-            span {
-                @apply text-xl font-medium leading-7;
-            }
+        span {
+            @apply text-xl font-medium leading-7;
+        }
 
-            icon-wrapper {
-                @apply rotate-45;
-            }
+        icon-wrapper {
+            @apply rotate-45;
         }
     }
 </style>

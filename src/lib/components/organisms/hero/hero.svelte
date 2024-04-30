@@ -1,16 +1,17 @@
 <script lang="ts">
     import { Button, Title, TitleSize, TitleTag } from '$components/atoms'
-    import {
-        MediaManager,
-        ContentStrip,
-        type Media,
-        type TContentStrip,
-    } from '$components/molecules'
+    import { AnchorLink, IconText, MediaManager, type Media } from '$components/molecules'
     import { Align, Mode, Position } from '$lib/enums'
-    import { BODY_TEXT_COLOR, POSITION_CLASSES } from './hero.classes'
-    import { HeroVariant } from './hero.enums'
+    import {
+        BODY_TEXT_COLOR,
+        POSITION_CLASSES,
+        STRIP_ALINGMENT_CLASS,
+        STRIP_SEPARATION_CLASS,
+    } from './hero.classes'
+    import { BottomStripType, HeroVariant } from './hero.enums'
     import type { ComponentProps } from 'svelte'
     import { FONT_FAMILY_CLASS } from '$lib/constants'
+    import type { TBottomStrip } from './hero.types'
 
     /**
      * The variant of the component
@@ -74,9 +75,9 @@
 
     /**
      * The content in the bottom strip
-     * @type {TContentStrip}
+     * @type {TBottomStrip}
      */
-    export let bottomStrip: TContentStrip | undefined = undefined
+    export let bottomStrip: TBottomStrip | undefined = undefined
 
     $: isVariantPrimary = variant === HeroVariant.Primary
     $: itemsPosition = variant === HeroVariant.Secondary ? Position.Center : Position.Start
@@ -149,11 +150,24 @@
             {/if}
         </div>
         {#if bottomStrip}
-            <ContentStrip
-                strip={bottomStrip}
-                {darkmode}
-                align={isVariantPrimary ? Align.Start : Align.Center}
-            />
+            <bottom-strip
+                class="pb-6 w-full flex flex-col md:flex-row {STRIP_SEPARATION_CLASS[
+                    bottomStrip.type
+                ]} {STRIP_ALINGMENT_CLASS[
+                    bottomStrip.align ?? isVariantPrimary ? Align.Start : Align.Center
+                ]}"
+                class:justify-between={bottomStrip.spaceBetween}
+            >
+                {#if bottomStrip.type === BottomStripType.AnchorLink}
+                    {#each bottomStrip.items as anchor}
+                        <AnchorLink {...anchor} {darkmode} />
+                    {/each}
+                {:else}
+                    {#each bottomStrip.items as iconContent}
+                        <IconText {...iconContent} {darkmode} />
+                    {/each}
+                {/if}
+            </bottom-strip>
         {/if}
     </div>
 </section>
