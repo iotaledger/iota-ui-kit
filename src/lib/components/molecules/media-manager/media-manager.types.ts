@@ -23,6 +23,7 @@ export type VideoProps = {
     autoplay?: boolean
     loop?: boolean
     poster?: string
+    disablePlaysInline?: boolean
 }
 
 export type ImageProps = {

@@ -1,12 +1,17 @@
 <script lang="ts">
     import { Button, Title, TitleSize, TitleTag } from '$components/atoms'
-    import { type Media } from '$components/molecules'
-    import { IconText, AnchorLink, MediaManager } from '$components/molecules'
-    import { Mode } from '$lib/enums'
-    import { TEXT_COLORS, CONTENT_SECTION_CLASSES } from './hero.classes'
-    import { HeroContentSection, HeroVariant } from './hero.enums'
+    import { AnchorLink, IconText, MediaManager, type Media } from '$components/molecules'
+    import { Align, Mode, Position } from '$lib/enums'
+    import {
+        BODY_TEXT_COLOR,
+        POSITION_CLASSES,
+        STRIP_ALINGMENT_CLASS,
+        STRIP_SEPARATION_CLASS,
+    } from './hero.classes'
+    import { BottomStripType, HeroVariant } from './hero.enums'
     import type { ComponentProps } from 'svelte'
-    import { Position } from '$lib/enums'
+    import { FONT_FAMILY_CLASS } from '$lib/constants'
+    import type { TBottomStrip } from './hero.types'
 
     /**
      * The variant of the component
@@ -32,13 +37,29 @@
 
     export let overline: string = ''
     /**
+     * The title of the hero
      * @type {string}
-     *
      */
     export let title: string
+    /**
+     * The subtitle of the hero
+     * @type {string}
+     */
     export let subtitle: string = ''
+    /**
+     * The paragraph of the hero
+     * @type {string}
+     */
     export let paragraph: string = ''
+    /**
+     * The size of the title
+     * @type {TitleSize}
+     */
     export let titleSize: TitleSize = TitleSize.Medium
+    /**
+     * The tag of the title
+     * @type {TitleTag}
+     */
     export let titleTag: TitleTag = TitleTag.H1
     /**
      * Video to show on the right side of the component.
@@ -53,123 +74,106 @@
     export let buttons: ComponentProps<Button>[] = []
 
     /**
-     * @type {ComponentProps<IconText>[]}
+     * The content in the bottom strip
+     * @type {TBottomStrip}
      */
-    export let iconFeatures: ComponentProps<IconText>[] = []
-
-    /**
-     * @type {ComponentProps<AnchorLink>[]}
-     */
-    export let anchorLinks: ComponentProps<AnchorLink>[] = []
-
-    enum JustifyContent {
-        Start = 'justify-start',
-        Center = 'justify-center',
-        End = 'justify-end',
-        Between = 'justify-between',
-    }
-
-    let componentDarkmode: boolean | undefined
+    export let bottomStrip: TBottomStrip | undefined = undefined
 
     $: isVariantPrimary = variant === HeroVariant.Primary
+    $: itemsPosition = variant === HeroVariant.Secondary ? Position.Center : Position.Start
     $: mode = darkmode ? Mode.Dark : Mode.Light
-    $: componentDarkmode = variant === HeroVariant.Primary ? darkmode : !darkmode
-    $: justifyClass = getJustifyClass(isVariantPrimary, media)
-
-    function getJustifyClass(isVariantPrimary: boolean, media: string | undefined): JustifyContent {
-        if (isVariantPrimary) {
-            if (media) {
-                return JustifyContent.Between
-            } else {
-                return JustifyContent.Start
-            }
-        } else {
-            return JustifyContent.Center
-        }
-    }
 </script>
 
-<section {id} class="min-h-screen flex items-stretch h-full bg-white relative pt-20 pb-8 md:pb-0">
-    <div class="container mx-auto self-stretch">
-        {#if backgroundMedia}
-            <div class="absolute inset-0 z-0">
-                <MediaManager media={backgroundMedia} pointerEventsNone />
-            </div>
-        {/if}
-
-        <div class="flex flex-col relative h-full">
-            <div class="flex flex-col py-18 h-full justify-center">
-                <div
-                    class="flex flex-col md:flex-row items-center md:space-x-6 mb-10 {justifyClass}"
-                >
-                    <div class="md:min-w-[472px] lg:min-w-[564px] xl:min-w-none">
-                        <Title
-                            id={titleId}
-                            tag={titleTag}
-                            size={titleSize}
-                            {title}
-                            {subtitle}
-                            {overline}
-                            position={!isVariantPrimary ? Position.Center : Position.Start}
-                            darkmode={componentDarkmode}
-                        />
-                    </div>
-                    {#if media && isVariantPrimary}
-                        <div class="w-full xl:w-auto max-md:mt-[60px] md:mb-[67px]">
-                            <video
-                                controls
-                                class="max-h-[377px] w-auto rounded-md border border-black/0.16 object-cover cursor-pointer"
-                            >
-                                <source src={media} type="video/mp4" />
-                                <track kind="captions" />
-                            </video>
-                        </div>
-                    {/if}
+<section {id} class="flex flex-col relative h-full pt-[60px] md:pt-20">
+    <div class="container mx-auto h-full flex flex-col space-y-6 flex-1">
+        <div
+            class="flex flex-col md:flex-row md:items-center h-full flex-1 {POSITION_CLASSES[
+                variant
+            ]}"
+        >
+            {#if backgroundMedia}
+                <div class="absolute inset-0 z-0">
+                    <MediaManager media={backgroundMedia} pointerEventsNone />
                 </div>
+            {/if}
 
+            <hero-title
+                class="flex flex-col max-w-lg md:max-w-none md:w-1/2 space-y-12 items-center justify-center h-full z-[1]"
+                class:md:pr-24={isVariantPrimary && media}
+            >
+                <Title
+                    id={titleId}
+                    size={titleSize}
+                    tag={titleTag}
+                    {overline}
+                    {subtitle}
+                    {darkmode}
+                    {title}
+                    position={itemsPosition}
+                />
                 {#if paragraph || buttons.length > 0}
-                    <div
-                        class="flex flex-col space-y-12 md:space-y-0 md:flex-row md:space-x-6 justify-between mt-auto pt-[60px] md:pt-0"
-                    >
+                    <content-box class="flex flex-col text-left space-y-12">
                         {#if paragraph}
                             <p
-                                class="flex-1 max-w-[486px] text-left {TEXT_COLORS[variant][mode][
-                                    HeroContentSection.Paragraph
-                                ]}  {CONTENT_SECTION_CLASSES[HeroContentSection.Paragraph]}"
+                                class="leading-6 {BODY_TEXT_COLOR[
+                                    mode
+                                ]} {FONT_FAMILY_CLASS.secondary}"
+                                class:text-center={itemsPosition === Position.Center}
                             >
                                 {paragraph}
                             </p>
                         {/if}
-                        {#if buttons.length}
-                            <div
-                                class="flex flex-row flex-wrap md:flex-nowrap justify-start md:justify-end items-end gap-4"
+                        {#if buttons.length > 0}
+                            <buttons-wrapper
+                                class="flex space-x-4"
+                                class:justify-center={itemsPosition === Position.Center}
                             >
                                 {#each buttons as button}
-                                    <Button {...button} darkmode={componentDarkmode} />
+                                    <Button {...button} {darkmode} />
                                 {/each}
-                            </div>
+                            </buttons-wrapper>
                         {/if}
-                    </div>
+                    </content-box>
                 {/if}
-            </div>
-            {#if iconFeatures.length || anchorLinks.length}
-                <div class="flex flex-col">
-                    {#if iconFeatures.length}
-                        <div class="grid grid-cols-1 md:grid-cols-5 gap-x-12 gap-y-8 py-12 md:py-6">
-                            {#each iconFeatures as iconFeature}
-                                <IconText {...iconFeature} darkmode={componentDarkmode} />
-                            {/each}
-                        </div>
-                    {/if}
-                    {#if anchorLinks.length}
-                        <nav class="grid grid-cols-1 gap-y-4 md:grid-cols-4 py-6 md:py-0">
-                            {#each anchorLinks as anchorLink}
-                                <AnchorLink {...anchorLink} darkmode={componentDarkmode} />
-                            {/each}
-                        </nav>
-                    {/if}
+            </hero-title>
+
+            {#if media && variant === HeroVariant.Primary}
+                <div class="w-full md:w-1/2 my-[72px] md:my-auto">
+                    <video
+                        controls
+                        class="max-h-[377px] w-auto rounded-md border border-black/0.16 object-cover cursor-pointer"
+                    >
+                        <source src={media} type="video/mp4" />
+                        <track kind="captions" />
+                    </video>
                 </div>
             {/if}
         </div>
+        {#if bottomStrip}
+            <bottom-strip
+                class="pb-6 w-full flex flex-col md:flex-row {STRIP_SEPARATION_CLASS[
+                    bottomStrip.type
+                ]} {STRIP_ALINGMENT_CLASS[
+                    bottomStrip.align ?? isVariantPrimary ? Align.Start : Align.Center
+                ]}"
+                class:justify-between={bottomStrip.spaceBetween}
+            >
+                {#if bottomStrip.type === BottomStripType.AnchorLink}
+                    {#each bottomStrip.items as anchor}
+                        <AnchorLink {...anchor} {darkmode} />
+                    {/each}
+                {:else}
+                    {#each bottomStrip.items as iconContent}
+                        <IconText {...iconContent} {darkmode} />
+                    {/each}
+                {/if}
+            </bottom-strip>
+        {/if}
     </div>
 </section>
+
+<style lang="postcss">
+    section {
+        min-height: max(100vh, 800px);
+    }
+</style>

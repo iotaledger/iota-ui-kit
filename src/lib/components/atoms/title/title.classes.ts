@@ -2,15 +2,15 @@ import { Mode, Position } from '$lib/enums'
 import { TitleSize } from './title.enums'
 
 const TITLE_SIZES_START_POSITION: Record<TitleSize, string> = {
-    [TitleSize.Large]: 'text-6xl leading-72 sm:text-8xl sm:leading-112',
-    [TitleSize.Medium]: 'text-5xl leading-58 sm:text-7xl sm:leading-88',
-    [TitleSize.Small]: 'text-4xl leading-44 sm:text-6xl sm:leading-72',
-    [TitleSize.ExtraSmall]: 'text-3xl leading-9 sm:text-5xl sm:leading-58',
+    [TitleSize.Large]: 'text-6xl leading-72 md:text-8xl md:leading-112',
+    [TitleSize.Medium]: 'text-5xl leading-58 md:text-7xl md:leading-88',
+    [TitleSize.Small]: 'text-4xl leading-44 md:text-6xl md:leading-72',
+    [TitleSize.ExtraSmall]: 'text-3xl leading-9 md:text-5xl md:leading-58',
 }
 
 const TITLE_SIZES_CENTER_POSITION: Record<TitleSize, string> = {
     ...TITLE_SIZES_START_POSITION,
-    [TitleSize.ExtraSmall]: 'text-3xl leading-9 xs:text-6xl xs:leading-72',
+    [TitleSize.ExtraSmall]: 'text-3xl leading-9 md:text-6xl md:leading-72',
 }
 
 export const TITLE_SIZES_BY_POSITION: Record<Position, Record<TitleSize, string>> = {

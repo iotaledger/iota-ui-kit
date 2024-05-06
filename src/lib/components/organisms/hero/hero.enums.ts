@@ -3,9 +3,7 @@ export enum HeroVariant {
     Secondary = 'secondary',
 }
 
-export enum HeroContentSection {
-    Overline = 'overline',
-    Title = 'title',
-    Subtitle = 'subtitle',
-    Paragraph = 'paragraph',
+export enum BottomStripType {
+    IconText = 'icon-text',
+    AnchorLink = 'anchor-link',
 }
