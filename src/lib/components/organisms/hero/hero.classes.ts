@@ -1,33 +1,31 @@
-import { Mode } from '$lib/enums'
-import { HeroContentSection, HeroVariant } from './hero.enums'
+import { Align, Mode } from '$lib/enums'
+import { HeroVariant, BottomStripType } from './hero.enums'
 
-const LIGHT_TEXT_COLORS: Record<HeroContentSection, string> = {
-    [HeroContentSection.Overline]: 'text-white',
-    [HeroContentSection.Title]: 'text-white',
-    [HeroContentSection.Subtitle]: 'text-white',
-    [HeroContentSection.Paragraph]: 'text-white',
+export const DARK_BODY_COLOR = 'text-white'
+export const LIGHT_BODY_COLOR = 'text-iota-gray-900'
+
+export const BODY_TEXT_COLOR = {
+    [Mode.Dark]: DARK_BODY_COLOR,
+    [Mode.Light]: LIGHT_BODY_COLOR,
 }
 
-const DARK_TEXT_COLORS: Record<HeroContentSection, string> = {
-    [HeroContentSection.Overline]: 'text-iota-gray-600',
-    [HeroContentSection.Title]: 'text-iota-gray-900',
-    [HeroContentSection.Subtitle]: 'text-iota-gray-600',
-    [HeroContentSection.Paragraph]: 'text-iota-gray-600',
+export const ITEM_ALIGNMENT_CLASSES: Record<HeroVariant, string> = {
+    [HeroVariant.Primary]: 'items-start',
+    [HeroVariant.Secondary]: 'items-center',
 }
 
-export const TEXT_COLORS: Record<HeroVariant, Record<Mode, Record<HeroContentSection, string>>> = {
-    [HeroVariant.Primary]: {
-        [Mode.Light]: DARK_TEXT_COLORS,
-        [Mode.Dark]: LIGHT_TEXT_COLORS,
-    },
-    [HeroVariant.Secondary]: {
-        [Mode.Dark]: DARK_TEXT_COLORS,
-        [Mode.Light]: LIGHT_TEXT_COLORS,
-    },
+export const POSITION_CLASSES: Record<HeroVariant, string> = {
+    [HeroVariant.Primary]: 'justify-center md:justify-start',
+    [HeroVariant.Secondary]: 'justify-center items-center',
 }
 
-export const CONTENT_SECTION_CLASSES: Omit<Record<HeroContentSection, string>, 'title'> = {
-    [HeroContentSection.Overline]: 'text-lg font-medium',
-    [HeroContentSection.Subtitle]: 'text-2xl font-medium max-w-[480px]',
-    [HeroContentSection.Paragraph]: 'text-base font-normal',
+export const STRIP_SEPARATION_CLASS: Record<BottomStripType, string> = {
+    [BottomStripType.IconText]: 'space-y-6 md:space-y-0 md:space-x-20',
+    [BottomStripType.AnchorLink]: 'space-y-4 md:space-y-0 md:space-x-6',
+}
+
+export const STRIP_ALINGMENT_CLASS: Record<Align, string> = {
+    [Align.Center]: 'justify-center',
+    [Align.Start]: 'justify-start',
+    [Align.End]: 'justify-end',
 }

@@ -9,6 +9,7 @@
     export let pointerEventsNone: boolean = false
     export let playOnHover: boolean = false
     export let isHovered: boolean = false
+    export let disablePlaysInline: boolean = false
 
     let imageMedia: ImageMedia
     let videoMedia: VideoMedia | undefined
@@ -38,7 +39,14 @@
     {@const { src, alt, objectFit } = imageMedia}
     <img {src} {alt} class={objectFit} class:pointer-events-none={pointerEventsNone} />
 {:else if media.type === MediaType.Video && videoMedia}
-    {@const { src, loop, autoplay, objectFit, poster } = videoMedia}
+    {@const {
+        src,
+        loop,
+        autoplay,
+        objectFit,
+        poster,
+        disablePlaysInline: disablePlaysInlineFallback,
+    } = videoMedia}
     <video
         bind:this={videoElement}
         autoplay={isMobileDevice() || (!playOnHover && autoplay)}
@@ -47,6 +55,7 @@
         {poster}
         class={objectFit}
         class:pointer-events-none={pointerEventsNone}
+        playsinline={disablePlaysInline ? false : !disablePlaysInlineFallback}
     >
         <source {src} type="video/mp4" />
     </video>

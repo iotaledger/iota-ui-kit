@@ -2,12 +2,16 @@
     import { Icon, IconEnum } from '$atoms'
     import { FONT_FAMILY_CLASS } from '$lib/constants'
     import { Mode } from '$lib/enums'
-    import { BACKGROUND_COLORS, BORDER_COLORS, ICON_FILL, TEXT_COLORS } from '.'
+    import { BORDER_COLOR, ICON_FILL, TEXT_COLORS } from '.'
     /**
      * Label
      * @type {string}
      */
     export let label: string
+    /**
+     * Darkmode
+     * @type {boolean}
+     */
     export let darkmode: boolean = false
     /**
      * Link to
@@ -29,42 +33,56 @@
 </script>
 
 <a
-    class="anchor-link-wrapper {BACKGROUND_COLORS[mode]}"
+    class="anchor-link-wrapper {BORDER_COLOR[mode]}"
+    class:darkmode
     {href}
     target={isExternal ? '_blank' : null}
     rel={isExternal ? 'noopener noreferrer' : null}
 >
-    <anchor-link-content class={BORDER_COLORS[mode]}>
-        <span class="whitespace-pre-line {TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.primary}">
-            {label}
-        </span>
-        <icon-wrapper>
-            <div class={ICON_FILL[mode]}>
-                <Icon {icon} currentColor />
-            </div>
-        </icon-wrapper>
-    </anchor-link-content>
+    <span class="whitespace-pre-line {TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.primary}">
+        {label}
+    </span>
+    <icon-wrapper>
+        <div class={ICON_FILL[mode]}>
+            <Icon {icon} currentColor />
+        </div>
+    </icon-wrapper>
 </a>
 
 <style lang="postcss">
     .anchor-link-wrapper {
-        @apply flex py-3 sm:py-4 pr-3 sm:pr-0 pl-6 w-full;
+        @apply py-[14px] md:py-7 px-6 md:pl-6 md:pr-0 w-full;
         @apply transition-all duration-200;
         @apply cursor-pointer;
-        @apply rounded-xl sm:rounded-none;
-        @apply border border-black border-opacity-0.16 sm:border-none;
+        @apply rounded-2xl;
+        @apply border border-opacity-0.16;
+        backdrop-filter: blur(8px);
 
-        anchor-link-content {
-            @apply sm:py-3 sm:pr-4 flex items-center justify-between w-full space-x-2;
-            @apply sm:border-r border-opacity-0.16;
+        &:hover {
+            background-color: rgba(21, 115, 255, 0.08);
+        }
+        &:active {
+            background-color: rgba(21, 115, 255, 0.16);
+        }
 
-            span {
-                @apply text-lg font-medium leading-7;
+        &.darkmode {
+            @apply bg-black bg-opacity-[0.01];
+            &:hover {
+                @apply bg-white bg-opacity-0.08;
             }
-
-            icon-wrapper {
-                @apply rotate-90;
+            &:active {
+                @apply bg-white bg-opacity-0.16;
             }
+        }
+
+        @apply flex items-center w-full space-x-6;
+
+        span {
+            @apply text-xl font-medium leading-7;
+        }
+
+        icon-wrapper {
+            @apply rotate-45;
         }
     }
 </style>
