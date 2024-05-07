@@ -151,7 +151,7 @@
         </div>
         {#if bottomStrip}
             <bottom-strip
-                class="pb-6 w-full flex flex-col md:flex-row {STRIP_SEPARATION_CLASS[
+                class="pb-6 w-full flex flex-col md:flex-row z-[1] {STRIP_SEPARATION_CLASS[
                     bottomStrip.type
                 ]} {STRIP_ALINGMENT_CLASS[
                     bottomStrip.align ?? isVariantPrimary ? Align.Start : Align.Center
