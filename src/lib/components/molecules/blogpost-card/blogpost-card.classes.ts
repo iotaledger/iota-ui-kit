@@ -5,7 +5,12 @@ export const TITLE_COLORS = {
     [Mode.Dark]: 'text-white',
 }
 
-export const LABEL_COLORS = {
+export const TEXT_COLORS = {
     [Mode.Light]: 'text-iota-gray-600',
     [Mode.Dark]: 'text-white',
+}
+
+export const TAG_BORDER_COLORS = {
+    [Mode.Light]: 'border-black',
+    [Mode.Dark]: 'border-white',
 }

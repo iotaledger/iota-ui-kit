@@ -3,7 +3,7 @@
     import { MediaType } from '..'
     import { IMAGE_DEFAULT_PROPS, VIDEO_DEFAULT_PROPS } from './media-manager.constants'
     import { Animation } from '$atoms'
-    import { isMobileDevice } from '$lib/utils'
+    import { MobileDetector } from '$components/atoms'
 
     export let media: Media
     export let pointerEventsNone: boolean = false
@@ -15,6 +15,8 @@
     let videoMedia: VideoMedia | undefined
     let animationMedia: AnimationMedia | undefined
     let videoElement: HTMLVideoElement | null = null
+
+    let isMobile: boolean = false
 
     $: {
         if (media.type === MediaType.Image) {
@@ -33,7 +35,13 @@
             videoElement.pause()
         }
     }
+
+    $: if (isMobile && videoElement && videoMedia?.autoplay) {
+        void videoElement.play()
+    }
 </script>
+
+<MobileDetector bind:isMobile />
 
 {#if media.type === MediaType.Image && imageMedia}
     {@const { src, alt, objectFit } = imageMedia}
@@ -49,7 +57,7 @@
     } = videoMedia}
     <video
         bind:this={videoElement}
-        autoplay={isMobileDevice() || (!playOnHover && autoplay)}
+        autoplay={isMobile || (!playOnHover && autoplay)}
         {loop}
         muted
         {poster}

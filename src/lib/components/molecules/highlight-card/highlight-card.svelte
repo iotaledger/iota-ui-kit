@@ -2,7 +2,7 @@
     import { IconEnum, Icon } from '$components'
     import { OVERLINE_TEXT } from '$components/atoms/title/title.classes'
     import { Position, Align } from '$lib/enums'
-    import { isMobileDevice } from '$lib/utils'
+    import { MobileDetector } from '$components/atoms'
     import { MediaManager, type Media } from '../media-manager'
     import { HighlightCardVariant } from './highlight-card.enums'
 
@@ -82,6 +82,7 @@
     export let variant: HighlightCardVariant = HighlightCardVariant.Static
 
     let isHovered: boolean = false
+    let isMobile: boolean = false
 
     $: itemsAlignClass = icon ? ALIGNMENT_WITH_ICON : ITEMS_ALIGNMENT_CLASSES[align]
     $: alignmentClass = CONTENT_ALIGNMENT[position]
@@ -96,16 +97,18 @@
     $: isHoverVariant = variant === HighlightCardVariant.Hover
 
     function handleMouseEnter(): void {
-        if (!isMobileDevice()) {
+        if (!isMobile) {
             isHovered = true
         }
     }
     function handleMouseLeave(): void {
-        if (!isMobileDevice()) {
+        if (!isMobile) {
             isHovered = false
         }
     }
 </script>
+
+<MobileDetector bind:isMobile />
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <svelte:element
@@ -117,9 +120,14 @@
     {...link ? { ...externalLinkProps, href: link, role: 'link', tabindex: 0 } : {}}
 >
     {#if backgroundMedia}
-        <media-wrapper class="absolute inset-0 z-0 text-2xl pointer-events-none">
-            <MediaManager media={backgroundMedia} {isHovered} playOnHover={isHoverVariant} />
-        </media-wrapper>
+        <div class="media-wrapper absolute h-full w-full top-0 left-0 right-0 bottom-0 z-0">
+            <MediaManager
+                media={backgroundMedia}
+                pointerEventsNone
+                {isHovered}
+                playOnHover={isHoverVariant && !isMobile}
+            />
+        </div>
     {/if}
     {#if link}
         <icon-link-wrapper
@@ -175,30 +183,32 @@
         @apply flex flex-col w-full relative p-12 rounded-xl overflow-hidden;
 
         &.variant--hover {
-            description {
-                @apply max-h-0 opacity-0;
-                @apply mt-0;
-                transition:
-                    max-height 300ms,
-                    opacity 400ms,
-                    margin-top 400ms;
-                @apply ease-in-out;
-            }
-
-            media-wrapper {
-                @apply opacity-0;
-                @apply duration-300 ease-in-out;
-                transition-property: opacity;
-            }
-
-            &:hover {
+            @screen md {
                 description {
-                    @apply max-h-[500px] opacity-100;
-                    @apply mt-6;
+                    @apply max-h-0 opacity-0;
+                    @apply mt-0;
+                    transition:
+                        max-height 300ms,
+                        opacity 400ms,
+                        margin-top 400ms;
+                    @apply ease-in-out;
                 }
 
-                media-wrapper {
-                    @apply opacity-100;
+                .media-wrapper {
+                    @apply opacity-0;
+                    @apply duration-300 ease-in-out;
+                    transition-property: opacity;
+                }
+
+                &:hover {
+                    description {
+                        @apply max-h-[500px] opacity-100;
+                        @apply mt-6;
+                    }
+
+                    .media-wrapper {
+                        @apply opacity-100;
+                    }
                 }
             }
         }

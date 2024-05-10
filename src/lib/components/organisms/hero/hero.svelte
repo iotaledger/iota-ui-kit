@@ -92,7 +92,7 @@
             ]}"
         >
             {#if backgroundMedia}
-                <div class="absolute inset-0 z-0">
+                <div class="absolute h-full w-full top-0 left-0 right-0 bottom-0 z-0">
                     <MediaManager media={backgroundMedia} pointerEventsNone />
                 </div>
             {/if}

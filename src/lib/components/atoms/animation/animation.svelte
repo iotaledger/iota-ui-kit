@@ -2,7 +2,7 @@
     import Lottie, { type AnimationDirection, type AnimationItem } from 'lottie-web'
     import { onMount } from 'svelte'
     import { RendererType } from './animation.enums'
-    import { isMobileDevice } from '$lib/utils'
+    import { MobileDetector } from '..'
 
     export let src: string =
         'https://lottie.host/05761115-2753-4236-8e02-049e9b61969f/X6gyzVzo8S.json'
@@ -44,6 +44,7 @@
 
     let player: HTMLElement
     let animation: AnimationItem | undefined
+    let isMobile: boolean = false
 
     $: if (animation) {
         animation.setSpeed(speed)
@@ -63,18 +64,20 @@
             renderer,
             container: player,
             loop,
-            autoplay: isMobileDevice() || (!playOnHover && autoplay),
+            autoplay: isMobile || (!playOnHover && autoplay),
             path: src,
         })
     })
 </script>
+
+<MobileDetector bind:isMobile />
 
 <dotlottie-player
     bind:this={player}
     class:pointer-events-none={pointerEventsNone}
     style:--background-color={backgroundColor}
     {src}
-    autoplay={isMobileDevice() || (!playOnHover && autoplay)}
+    autoplay={isMobile || (!playOnHover && autoplay)}
     {loop}
     role="img"
 />

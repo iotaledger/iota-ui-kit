@@ -59,7 +59,6 @@
     },
     "dependencies": {
         "@fontsource/inter": "^5.0.17",
-        "esm-env": "^1.0.0",
         "lottie-web": "^5.12.2",
         "postcss": "^8.4.31",
         "tailwindcss": "^3.3.5"
