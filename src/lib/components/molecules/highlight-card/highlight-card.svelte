@@ -178,7 +178,6 @@
     .highlight-card {
         min-width: 312px;
         max-width: 800px;
-        aspect-ratio: 4/3;
         min-height: 480px;
         @apply flex flex-col w-full relative p-12 rounded-xl overflow-hidden;
 
