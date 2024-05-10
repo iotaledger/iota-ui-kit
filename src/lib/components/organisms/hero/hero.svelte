@@ -98,7 +98,9 @@
             {/if}
 
             <hero-title
-                class="flex flex-col max-w-lg md:max-w-none md:w-1/2 space-y-12 items-center justify-center h-full z-[1]"
+                class="flex flex-col max-w-lg md:max-w-none md:w-1/2 space-y-12 {isVariantPrimary
+                    ? 'items-start'
+                    : 'items-center'} justify-center h-full z-[1]"
                 class:md:pr-24={isVariantPrimary && media}
             >
                 <Title
