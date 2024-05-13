@@ -1,5 +1,4 @@
-import { CUSTOM_COLORS } from '../constants/custom-colors.constants.js'
-import { DEFAULT_COLORS } from '../constants/default-colors.constants.js'
+import { DEFAULT_COLORS, CUSTOM_COLORS, BREAKPOINTS } from '../constants/tailwind.constants.js'
 
 /**
  * One spacing unit is equal to 0.25rem, which translates to 4px
@@ -15,10 +14,10 @@ export default {
         container: {
             center: true,
             screens: {
-                sm: '768px',
-                md: '1024px',
-                lg: '1400px',
-                xl: '1920px',
+                sm: `${BREAKPOINTS.sm}px`,
+                md: `${BREAKPOINTS.md}px`,
+                lg: `${BREAKPOINTS.lg}px`,
+                xl: `${BREAKPOINTS.xl}px`,
             },
             padding: {
                 DEFAULT: pxToRem(24),
@@ -28,10 +27,10 @@ export default {
             },
         },
         screens: {
-            sm: '768px',
-            md: '1024px',
-            lg: '1400px',
-            xl: '1920px',
+            sm: `${BREAKPOINTS.sm}px`,
+            md: `${BREAKPOINTS.md}px`,
+            lg: `${BREAKPOINTS.lg}px`,
+            xl: `${BREAKPOINTS.xl}px`,
         },
         extend: {
             fontFamily: {
