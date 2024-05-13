@@ -1,4 +1,7 @@
-const CUSTOM_COLORS: Record<string, Record<number, string>> = {
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import colors from 'tailwindcss/colors.js'
+
+export const CUSTOM_COLORS: Record<string, Record<number, string>> = {
     'iota-blue': {
         50: '#F0F4FF',
         100: '#E0EAFF',
@@ -49,4 +52,35 @@ const CUSTOM_COLORS: Record<string, Record<number, string>> = {
     },
 }
 
-export { CUSTOM_COLORS }
+interface IFontFamily {
+    primary: string
+    secondary: string
+}
+
+export const FONT_FAMILY_CLASS: IFontFamily = {
+    primary: 'font-alliance-no1',
+    secondary: 'font-inter',
+}
+
+export const BREAKPOINTS: Record<string, number> = {
+    sm: 768,
+    md: 1024,
+    lg: 1400,
+    xl: 1920,
+}
+
+const {
+    lightBlue,
+    warmGray,
+    trueGray,
+    coolGray,
+    blueGray,
+    inherit,
+    current,
+    transparent,
+    black,
+    white,
+    ...remainingColors
+} = colors
+
+export { remainingColors as DEFAULT_COLORS }

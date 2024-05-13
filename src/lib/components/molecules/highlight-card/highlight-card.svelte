@@ -2,10 +2,9 @@
     import { IconEnum, Icon } from '$components'
     import { OVERLINE_TEXT } from '$components/atoms/title/title.classes'
     import { Position, Align } from '$lib/enums'
-    import { MobileDetector } from '$components/atoms'
+    import { isMobile } from '$lib/stores'
     import { MediaManager, type Media } from '../media-manager'
     import { HighlightCardVariant } from './highlight-card.enums'
-
     import {
         ALIGNMENT_WITH_ICON,
         CONTENT_ALIGNMENT,
@@ -83,7 +82,6 @@
     export let variant: HighlightCardVariant = HighlightCardVariant.Static
 
     let isHovered: boolean = false
-    let isMobile: boolean = false
 
     $: itemsAlignClass = icon ? ALIGNMENT_WITH_ICON : ITEMS_ALIGNMENT_CLASSES[align]
     $: alignmentClass = CONTENT_ALIGNMENT[position]
@@ -98,18 +96,16 @@
     $: isHoverVariant = variant === HighlightCardVariant.Hover
 
     function handleMouseEnter(): void {
-        if (!isMobile) {
+        if (!$isMobile) {
             isHovered = true
         }
     }
     function handleMouseLeave(): void {
-        if (!isMobile) {
+        if (!$isMobile) {
             isHovered = false
         }
     }
 </script>
-
-<MobileDetector bind:isMobile />
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <svelte:element
@@ -128,7 +124,7 @@
                 media={backgroundMedia}
                 pointerEventsNone
                 {isHovered}
-                playOnHover={isHoverVariant && !isMobile}
+                playOnHover={isHoverVariant && !$isMobile}
             />
         </div>
     {/if}
