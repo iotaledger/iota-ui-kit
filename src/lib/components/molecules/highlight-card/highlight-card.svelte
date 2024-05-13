@@ -11,6 +11,7 @@
         CONTENT_ALIGNMENT,
         CONTENT_JUSTIFICATION,
         ITEMS_ALIGNMENT_CLASSES,
+        BORDER_RADIUS,
     } from './highlight-card.classes'
 
     /**
@@ -115,12 +116,14 @@
     this={link ? 'a' : 'div'}
     on:mouseenter={handleMouseEnter}
     on:mouseleave={handleMouseLeave}
-    class="highlight-card flex flex-col {backgroundColor} {itemsAlignClass}"
+    class="highlight-card flex flex-col {backgroundColor} {itemsAlignClass} {BORDER_RADIUS}"
     class:variant--hover={isHoverVariant}
     {...link ? { ...externalLinkProps, href: link, role: 'link', tabindex: 0 } : {}}
 >
     {#if backgroundMedia}
-        <div class="media-wrapper absolute h-full w-full top-0 left-0 right-0 bottom-0 z-0">
+        <div
+            class="media-wrapper absolute h-full w-full top-0 left-0 right-0 bottom-0 z-0 {BORDER_RADIUS}"
+        >
             <MediaManager
                 media={backgroundMedia}
                 pointerEventsNone
@@ -139,7 +142,10 @@
         </icon-link-wrapper>
     {/if}
     {#if icon}
-        <span class="text-white flex z-[1]" class:justify-center={position === Position.Center}>
+        <span
+            class="text-white flex z-[1] mb-6"
+            class:justify-center={position === Position.Center}
+        >
             <Icon {icon} width={48} height={48} currentColor />
         </span>
     {/if}
@@ -179,7 +185,7 @@
         min-width: 312px;
         max-width: 800px;
         min-height: 480px;
-        @apply flex flex-col w-full relative p-12 rounded-xl overflow-hidden;
+        @apply flex flex-col w-full relative p-12;
 
         &.variant--hover {
             @screen md {
