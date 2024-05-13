@@ -2,7 +2,7 @@
     import { IconEnum, Icon } from '$components'
     import { OVERLINE_TEXT } from '$components/atoms/title/title.classes'
     import { Position, Align } from '$lib/enums'
-    import { isMobile } from '$lib/stores'
+    import { isSmallScreen } from '$lib/stores'
     import { MediaManager, type Media } from '../media-manager'
     import { HighlightCardVariant } from './highlight-card.enums'
     import {
@@ -96,12 +96,12 @@
     $: isHoverVariant = variant === HighlightCardVariant.Hover
 
     function handleMouseEnter(): void {
-        if (!$isMobile) {
+        if (!$isSmallScreen) {
             isHovered = true
         }
     }
     function handleMouseLeave(): void {
-        if (!$isMobile) {
+        if (!$isSmallScreen) {
             isHovered = false
         }
     }
@@ -113,7 +113,7 @@
     on:mouseenter={handleMouseEnter}
     on:mouseleave={handleMouseLeave}
     class="highlight-card flex flex-col {backgroundColor} {itemsAlignClass} {BORDER_RADIUS}"
-    class:variant--hover={isHoverVariant}
+    class:variant--hover={isHoverVariant && !$isSmallScreen}
     {...link ? { ...externalLinkProps, href: link, role: 'link', tabindex: 0 } : {}}
 >
     {#if backgroundMedia}
@@ -124,7 +124,7 @@
                 media={backgroundMedia}
                 pointerEventsNone
                 {isHovered}
-                playOnHover={isHoverVariant && !$isMobile}
+                playOnHover={isHoverVariant}
             />
         </div>
     {/if}

@@ -1,1 +1,1 @@
-export * from './isMobile.store'
+export * from './screen-breakpoint.store'

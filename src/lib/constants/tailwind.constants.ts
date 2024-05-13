@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { ScreenSize } from '../enums/screen-size.enum'
 import colors from 'tailwindcss/colors.js'
 
 export const CUSTOM_COLORS: Record<string, Record<number, string>> = {
@@ -62,11 +63,11 @@ export const FONT_FAMILY_CLASS: IFontFamily = {
     secondary: 'font-inter',
 }
 
-export const BREAKPOINTS: Record<string, number> = {
-    sm: 768,
-    md: 1024,
-    lg: 1400,
-    xl: 1920,
+export const BREAKPOINTS: Record<ScreenSize, number> = {
+    [ScreenSize.Sm]: 768,
+    [ScreenSize.Md]: 1024,
+    [ScreenSize.Lg]: 1400,
+    [ScreenSize.Xl]: 1920,
 }
 
 const {

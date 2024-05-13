@@ -73,7 +73,8 @@
         },
         "./enums": "./dist/enums/index.js",
         "./preset": "./dist/tailwind/tailwind.preset.js",
-        "./constants": "./dist/constants/index.js"
+        "./constants": "./dist/constants/index.js",
+        "./stores": "./dist/stores/index.js"
     },
     "types": "./dist/components/index.d.ts",
     "lint-staged": {

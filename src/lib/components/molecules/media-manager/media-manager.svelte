@@ -3,7 +3,7 @@
     import { MediaType } from '..'
     import { IMAGE_DEFAULT_PROPS, VIDEO_DEFAULT_PROPS } from './media-manager.constants'
     import { Animation } from '$atoms'
-    import { isMobile } from '$lib/stores'
+    import { isSmallScreen } from '$lib/stores'
 
     export let media: Media
     export let pointerEventsNone: boolean = false
@@ -34,7 +34,7 @@
         }
     }
 
-    $: if ($isMobile && videoElement && videoMedia?.autoplay) {
+    $: if ($isSmallScreen && videoElement && videoMedia?.autoplay) {
         void videoElement.play()
     }
 </script>
@@ -53,7 +53,7 @@
     } = videoMedia}
     <video
         bind:this={videoElement}
-        autoplay={$isMobile || (!playOnHover && autoplay)}
+        autoplay={$isSmallScreen || (!playOnHover && autoplay)}
         {loop}
         muted
         {poster}
