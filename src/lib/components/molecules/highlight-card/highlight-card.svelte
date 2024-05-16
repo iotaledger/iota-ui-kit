@@ -2,15 +2,15 @@
     import { IconEnum, Icon } from '$components'
     import { OVERLINE_TEXT } from '$components/atoms/title/title.classes'
     import { Position, Align } from '$lib/enums'
-    import { isMobileDevice } from '$lib/utils'
+    import { isSmallScreen } from '$lib/stores'
     import { MediaManager, type Media } from '../media-manager'
     import { HighlightCardVariant } from './highlight-card.enums'
-
     import {
         ALIGNMENT_WITH_ICON,
         CONTENT_ALIGNMENT,
         CONTENT_JUSTIFICATION,
         ITEMS_ALIGNMENT_CLASSES,
+        BORDER_RADIUS,
     } from './highlight-card.classes'
 
     /**
@@ -96,12 +96,12 @@
     $: isHoverVariant = variant === HighlightCardVariant.Hover
 
     function handleMouseEnter(): void {
-        if (!isMobileDevice()) {
+        if (!$isSmallScreen) {
             isHovered = true
         }
     }
     function handleMouseLeave(): void {
-        if (!isMobileDevice()) {
+        if (!$isSmallScreen) {
             isHovered = false
         }
     }
@@ -112,14 +112,21 @@
     this={link ? 'a' : 'div'}
     on:mouseenter={handleMouseEnter}
     on:mouseleave={handleMouseLeave}
-    class="highlight-card flex flex-col {backgroundColor} {itemsAlignClass}"
-    class:variant--hover={isHoverVariant}
+    class="highlight-card flex flex-col {backgroundColor} {itemsAlignClass} {BORDER_RADIUS}"
+    class:variant--hover={isHoverVariant && !$isSmallScreen}
     {...link ? { ...externalLinkProps, href: link, role: 'link', tabindex: 0 } : {}}
 >
     {#if backgroundMedia}
-        <media-wrapper class="absolute inset-0 z-0 text-2xl pointer-events-none">
-            <MediaManager media={backgroundMedia} {isHovered} playOnHover={isHoverVariant} />
-        </media-wrapper>
+        <div
+            class="media-wrapper absolute h-full w-full top-0 left-0 right-0 bottom-0 z-0 {BORDER_RADIUS}"
+        >
+            <MediaManager
+                media={backgroundMedia}
+                pointerEventsNone
+                {isHovered}
+                playOnHover={isHoverVariant}
+            />
+        </div>
     {/if}
     {#if link}
         <icon-link-wrapper
@@ -131,7 +138,10 @@
         </icon-link-wrapper>
     {/if}
     {#if icon}
-        <span class="text-white flex z-[1]" class:justify-center={position === Position.Center}>
+        <span
+            class="text-white flex z-[1] mb-6"
+            class:justify-center={position === Position.Center}
+        >
             <Icon {icon} width={48} height={48} currentColor />
         </span>
     {/if}
@@ -170,35 +180,36 @@
     .highlight-card {
         min-width: 312px;
         max-width: 800px;
-        aspect-ratio: 4/3;
         min-height: 480px;
-        @apply flex flex-col w-full relative p-12 rounded-xl overflow-hidden;
+        @apply flex flex-col w-full relative p-12;
 
         &.variant--hover {
-            description {
-                @apply max-h-0 opacity-0;
-                @apply mt-0;
-                transition:
-                    max-height 300ms,
-                    opacity 400ms,
-                    margin-top 400ms;
-                @apply ease-in-out;
-            }
-
-            media-wrapper {
-                @apply opacity-0;
-                @apply duration-300 ease-in-out;
-                transition-property: opacity;
-            }
-
-            &:hover {
+            @screen md {
                 description {
-                    @apply max-h-[500px] opacity-100;
-                    @apply mt-6;
+                    @apply max-h-0 opacity-0;
+                    @apply mt-0;
+                    transition:
+                        max-height 300ms,
+                        opacity 400ms,
+                        margin-top 400ms;
+                    @apply ease-in-out;
                 }
 
-                media-wrapper {
-                    @apply opacity-100;
+                .media-wrapper {
+                    @apply opacity-0;
+                    @apply duration-300 ease-in-out;
+                    transition-property: opacity;
+                }
+
+                &:hover {
+                    description {
+                        @apply max-h-[500px] opacity-100;
+                        @apply mt-6;
+                    }
+
+                    .media-wrapper {
+                        @apply opacity-100;
+                    }
                 }
             }
         }

@@ -17,3 +17,5 @@ export const ITEMS_ALIGNMENT_CLASSES: Record<Align, string> = {
 }
 
 export const ALIGNMENT_WITH_ICON = 'justify-between'
+
+export const BORDER_RADIUS = 'rounded-xl overflow-hidden'

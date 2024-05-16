@@ -2,7 +2,7 @@
     import Lottie, { type AnimationDirection, type AnimationItem } from 'lottie-web'
     import { onMount } from 'svelte'
     import { RendererType } from './animation.enums'
-    import { isMobileDevice } from '$lib/utils'
+    import { isSmallScreen } from '$lib/stores'
 
     export let src: string =
         'https://lottie.host/05761115-2753-4236-8e02-049e9b61969f/X6gyzVzo8S.json'
@@ -63,7 +63,7 @@
             renderer,
             container: player,
             loop,
-            autoplay: isMobileDevice() || (!playOnHover && autoplay),
+            autoplay: $isSmallScreen || (!playOnHover && autoplay),
             path: src,
         })
     })
@@ -74,7 +74,7 @@
     class:pointer-events-none={pointerEventsNone}
     style:--background-color={backgroundColor}
     {src}
-    autoplay={isMobileDevice() || (!playOnHover && autoplay)}
+    autoplay={isSmallScreen || (!playOnHover && autoplay)}
     {loop}
     role="img"
 />

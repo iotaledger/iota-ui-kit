@@ -2,7 +2,7 @@
     import { FONT_FAMILY_CLASS } from '$lib/constants'
     import { Mode } from '$lib/enums'
     import { MediaManager, type Media } from '../media-manager'
-    import { LABEL_COLORS, TITLE_COLORS } from './blogpost-card.classes'
+    import { TEXT_COLORS, TAG_BORDER_COLORS, TITLE_COLORS } from './blogpost-card.classes'
 
     /**
      * Title to display
@@ -61,12 +61,18 @@
             {title}
         </h6>
         {#if description}
-            <p class="text-sm text-iota-gray-600 {FONT_FAMILY_CLASS.secondary}">{description}</p>
+            <p class="text-sm text-iota-gray-600 {TEXT_COLORS[mode]} {FONT_FAMILY_CLASS.secondary}">
+                {description}
+            </p>
         {/if}
         {#if labels.length}
-            <labels-wrapper class="flex flex-wrap gap-2 {LABEL_COLORS[mode]}">
+            <labels-wrapper class="flex flex-wrap gap-2 {TEXT_COLORS[mode]}">
                 {#each labels as label}
-                    <p class="py-1 px-3 border border-black/0.16 text-sm rounded-2xl">
+                    <p
+                        class="py-1 px-3 border {TAG_BORDER_COLORS[
+                            mode
+                        ]} border-opacity-0.16 text-sm rounded-2xl"
+                    >
                         {label}
                     </p>
                 {/each}
