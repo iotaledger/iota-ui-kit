@@ -4,7 +4,7 @@ Official UI Kit for IOTA apps built with Svelte, TypeScript, and Tailwind CSS. T
 
 ## Features ✨
 
-- **Reusable Components**: Efficient and customizable pre-built components.
+- **Reusable Components**: Efficient pre-built components.
 - **Easy to Use**: Developer-friendly design for seamless integration.
 - **Storybook**: Visual documentation and testing in an isolated environment.
 
