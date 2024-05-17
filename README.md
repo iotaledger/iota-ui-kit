@@ -16,6 +16,8 @@ Add the UI Kit to your project with Yarn:
 yarn add @iota/ui-kit
 ```
 
+To be able to use the fonts you need to add the following link to the head in the HTML. `<link rel="stylesheet" href="https://webassets.iota.org/api/protected?face=alliance-no1" />`
+
 ## Usage 📦
 
 Here's a simple example to demonstrate how to use our components in a Svelte project:
