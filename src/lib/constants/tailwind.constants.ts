@@ -59,7 +59,7 @@ interface IFontFamily {
 }
 
 export const FONT_FAMILY_CLASS: IFontFamily = {
-    primary: 'font-alliance-no1',
+    primary: 'font-alliance-no2',
     secondary: 'font-inter',
 }
 

@@ -35,6 +35,7 @@ export default {
         extend: {
             fontFamily: {
                 'alliance-no1': ['AllianceNo1', 'sans-serif'],
+                'alliance-no2': ['AllianceNo2', 'sans-serif'],
                 inter: ['Inter', 'sans-serif'],
             },
             padding: {
